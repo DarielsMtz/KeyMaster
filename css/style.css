@@ -14,6 +14,138 @@
 
 /* ******************************** */
 
-/* Colores */
+:root {
+  /* colores */
+  --color-amarillo-suave: #fbd544;
+  --color-azul-grisado: #2f343d;
+  --color-azul-lila: #b4ccf9;
+  --color-azul-marino: #1f242e;
+  --color-gris: #a4afc1;
+  --color-gris-asulado: #5a6c86;
+  --color-gris-lcaro-asulado: #61738f;
+  --color-marfil: #dae0e6;
+  --color-rojo-suave: #e45f5f;
+  --color-verde-suave: #88c34a;
+
+  /* numbers */
+  --padding: 1.25rem;
+}
 
 /* ******************************** */
+/* Apartado del cuerpo de la pagina */
+body {
+  background-color: var(--color-azul-marino);
+  color: var(--color-marfil);
+
+  /* Apartado del contenedor principal */
+  #container {
+    position: absolute;
+    top: 0;
+    /* z-index: -2; */
+    height: 100dvh;
+    width: 100vw;
+    background-color: var(--color-azul-marino);
+    background: radial-gradient(
+      ellipse at 50% -20%,
+      rgba(120, 119, 198, 0.3),
+      rgba(255, 255, 255, 0)
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Apartado de header del main */
+    & .container__main-header {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      padding: var(--padding);
+    }
+
+    /* Apartado del formulario */
+    & .container__main-form {
+      display: flex;
+      flex-direction: column;
+      min-width: 500px;
+      height: auto;
+      gap: 20px;
+      padding: var(--padding);
+      border-radius: 7px;
+      border: 2px solid #ffffff1a;
+
+      /* Apartado de los titulos */
+      & label {
+        align-self: stretch;
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 10px 0;
+      }
+
+      /* Apartado de los campos */
+      & input {
+        background: transparent;
+        width: 100%;
+        border-radius: 4px;
+        padding: 5px;
+      }
+
+      /* Apartado del boton */
+      .container__main-form-boton {
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        border-radius: 5px;
+        background-color: var(--color-gris-asulado);
+        padding: 10px;
+        margin: 20px 0;
+        text-decoration: none;
+        color: var(--color-azul-grisado);
+        text-align: center;
+        letter-spacing: 2px;
+
+        &:hover {
+          background-color: var(--color-gris-lcaro-asulado);
+          transform: scale(1.01);
+          color: var(--color-marfil);
+        }
+      }
+
+      /* Apartado de la linea divisora */
+      .container__main-form-divisor {
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: var(--color-gris);
+        margin: 10px 0;
+      }
+
+      /* Apartado de los enlaces externos */
+      .container__main-form-enlaces {
+        padding: 10px 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        gap: 10px;
+
+        & a {
+          text-decoration: none;
+          color: var(--color-marfil);
+
+          & :is(b) {
+            text-decoration: underline var(--color-azul-lila);
+
+            &:hover {
+              color: var(--color-azul-lila);
+              text-decoration: underline var(--color-rojo-suave);
+            }
+          }
+        }
+      }
+    }
+  }
+}
