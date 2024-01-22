@@ -41,8 +41,84 @@
     <script src="preloader.js"></script>
   </head>
   <body>
-    <div id="container">
-      <main class="container__main"></main>
+    <div id="container02">
+      <main class="container02__main">
+        <!-- Apartado del formulario de inicio de sesion -->
+        <section class="container02__main-form">
+          <!-- Formulario -->
+          <form action="#" method="post">
+            <section>
+              <!-- Correo Electronico -->
+              <label for="Correo"
+                >Correo electronico
+                <h6>(requerido)</h6>
+              </label>
+              <input type="text" name="Correo" id="Correo" placeholder="" />
+              <h5>Utilizarás tu correo electrónico para acceder.</h5>
+            </section>
+
+            <section>
+              <!-- Nombre -->
+              <label for="Usuario"> Nombre</label>
+              <input type="text" name="Nombre" id="Usuario" placeholder="" />
+              <h5>¿Cómo deberíamos llamarte?</h5>
+            </section>
+
+            <section>
+              <!-- Contraseña -->
+              <label for="Contraseña">Contraseña</label>
+              <input
+                type="password"
+                name="Contrasena"
+                id="Contrasena"
+                placeholder="" />
+              <h5>
+                <b>Importante:</b> ¡Las contraseñas no pueden ser recuperadas si
+                las olvidas? <i>12 caracteres minimo</i>
+              </h5>
+            </section>
+
+            <section>
+              <!-- Linear divisora -->
+              <span class="containe02__main-form-divisor"></span>
+            </section>
+
+            <section>
+              <!-- Confirmar la contraseña -->
+              <label for="Confirmar"
+                >Vuelve a escribir tu Contraseña
+                <h6>(requerido)</h6>
+              </label>
+              <input
+                type="password"
+                name="Confirmar"
+                id="Confirmar"
+                placeholder="" />
+            </section>
+
+            <section>
+              <!-- Checkbox -->
+              <label>
+                <input type="checkbox" />
+                Al seleccionar esta casilla, acepta lo siguiente: Términos y
+                condiciones del servicio, Política de privacidad
+              </label>
+            </section>
+
+            <section>
+              <!-- Boton -->
+              <a href="#" class="container02__main-form-boton">Continuar</a>
+            </section>
+
+            <section>
+              <!-- Enlaces externos -->
+              <article class="container02__main-form-enlaces">
+                ¿Ya tienes una cuenta?<a href="index.html"> Identifícate </a>
+              </article>
+            </section>
+          </form>
+        </section>
+      </main>
 
       <footer class="container__main-footer">
         <h5>Politica de Privacidad | Politica de Cookies</h5>
