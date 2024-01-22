@@ -8,8 +8,14 @@
 
 /* Tipografía */
 @font-face {
-  font-family: "";
-  src: url("") format("woff2"), url("") format("woff");
+  font-family: "HexosR";
+  src: url("../font/HexosRegular.woff2") format("woff2"),
+    url("../font/HexosRegular.woff") format("woff");
+}
+@font-face {
+  font-family: "HexosI";
+  src: url("../font/HexosItalic.woff2") format("woff2"),
+    url("../font/HexosItalic.woff") format("woff");
 }
 
 /* ******************************** */
@@ -32,6 +38,10 @@
 }
 
 /* ******************************** */
+html {
+  font-family: "HexosR" "serif";
+  font-size: 1em;
+}
 /* Apartado del cuerpo de la pagina */
 body {
   background-color: var(--color-azul-marino);
@@ -53,6 +63,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 
     /* Apartado de header del main */
     & .container__main-header {
@@ -146,6 +157,15 @@ body {
           }
         }
       }
+    }
+
+    /* Apartado de footer del main */
+    .container__main-footer {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      padding: var(--padding);
     }
   }
 }
