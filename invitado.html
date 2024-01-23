@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- SEO = Básico -->
     <!-- Cada página del sitio tiene que ser diferente el título y la descripción -->
-    <title>KeyMaster</title>
+    <title>KeyMaster - Invitado</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
@@ -41,13 +41,48 @@
     <script src="preloader.js"></script>
   </head>
   <body>
-    <div id="container">
-      <main></main>
+    <div id="invitado">
+      <main>
+        <section class="invitado__main-header">
+          <img src="svg/Logotipo_negativo.svg" alt="Imagen del Logotipo" />
+          <!-- <p>Identifícate o crea una nueva cuenta.</p> -->
+        </section>
 
-      <footer class="container__main-footer">
+        <!-- Apartado del campo de la contraseña -->
+        <section class="invitado__main-contrasena">
+          <article class="invitado__main-contrasena-texto">
+            1QW3780$%$(mXASD
+          </article>
+        </section>
+
+        <!-- Apartado del boton de generar y la barra se nivel de seguridad de la contraseña -->
+        <section class="invitado__main-accion">
+          <!-- Boton de generado -->
+          <article class="invitado__main-boton">
+            <button type="button" id="generar">Generar</button>
+          </article>
+
+          <!-- Barra de nivel de seguridad -->
+          <article class="invitado__main-barra">
+            <!-- Titulo -->
+            <h3>Nivel de seguridad</h3>
+            <!-- Barra -->
+            <div class="progress-container">
+              <div class="progress-bar">
+                <div class="progress-bar-inner" id="progress"></div>
+              </div>
+              <div class="progress-label" id="label">0%</div>
+            </div>
+          </article>
+        </section>
+      </main>
+
+      <!-- Apartado del pie de pagina -->
+      <footer class="invitado__main-footer">
         <h5>Politica de Privacidad | Politica de Cookies</h5>
         <h6>&copy;Copyright - KeyMaster</h6>
       </footer>
     </div>
   </body>
+  <script src="js/barra_nivel_seguridad.js"></script>
 </html>

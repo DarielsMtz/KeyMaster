@@ -44,19 +44,21 @@
 html {
   font-family: "HexosR" "serif";
   font-size: 1em;
+  /* Apartado del cuerpo de la pagina */
 }
-/* Apartado del cuerpo de la pagina */
+
 body {
   background-color: var(--color-azul-marino);
   color: var(--color-marfil);
   width: 100%;
   height: 100dvh;
 
-  /* Apartado del contenedor principal */
+  /* Apartado de atributos generales */
   #container,
-  #container02 {
-    height: auto;
+  #container02,
+  #invitado {
     top: 0;
+    height: 100%;
     background: radial-gradient(
       ellipse at 50% -20%,
       rgba(120, 119, 198, 0.3),
@@ -68,223 +70,327 @@ body {
     align-items: center;
     flex-direction: column;
     overflow-y: auto;
+  }
+}
 
-    /* Apartado de header del main */
-    & .container__main-header {
+/* -------------------------------------------- */
+/* Apartado del contenedor principal */
+#container {
+  /* Apartado de header del main */
+  & .container__main-header {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--padding);
+  }
+
+  /* Apartado del formulario */
+  & .container__main-form {
+    display: flex;
+    flex-direction: column;
+    min-width: 500px;
+    height: auto;
+    gap: 20px;
+    padding: var(--padding);
+    border-radius: 7px;
+    border: 2px solid #ffffff1a;
+
+    /* Apartado de los titulos */
+    & label {
+      align-self: stretch;
+      flex: 1;
       display: flex;
-      justify-content: center;
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
-      padding: var(--padding);
+      padding: 10px 0;
     }
 
-    /* Apartado del formulario */
-    & .container__main-form {
+    /* Apartado de los campos */
+    & input {
+      background: transparent;
+      width: 100%;
+      border-radius: 4px;
+      padding: 5px;
+    }
+
+    /* Apartado del boton */
+    .container__main-form-boton {
+      flex: 1;
       display: flex;
-      flex-direction: column;
-      min-width: 500px;
-      height: auto;
-      gap: 20px;
-      padding: var(--padding);
-      border-radius: 7px;
-      border: 2px solid #ffffff1a;
+      flex-direction: row;
+      justify-content: center;
+      border-radius: 5px;
+      background-color: var(--color-gris-asulado);
+      padding: 10px;
+      margin: 20px 0;
+      text-decoration: none;
+      color: var(--color-azul-grisado);
+      text-align: center;
 
-      /* Apartado de los titulos */
-      & label {
-        align-self: stretch;
-        flex: 1;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding: 10px 0;
+      &:hover {
+        background-color: var(--color-gris-lcaro-asulado);
+        transform: scale(1.01);
+        color: var(--color-marfil);
       }
+    }
 
-      /* Apartado de los campos */
-      & input {
-        background: transparent;
-        width: 100%;
-        border-radius: 4px;
-        padding: 5px;
-      }
+    /* Apartado de la linea divisora */
+    .container__main-form-divisor {
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: var(--color-gris);
+      margin: 10px 0;
+    }
 
-      /* Apartado del boton */
-      .container__main-form-boton {
-        flex: 1;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        border-radius: 5px;
-        background-color: var(--color-gris-asulado);
-        padding: 10px;
-        margin: 20px 0;
+    /* Apartado de los enlaces externos */
+    .container__main-form-enlaces {
+      padding: 10px 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+      gap: 10px;
+
+      & a {
         text-decoration: none;
-        color: var(--color-azul-grisado);
-        text-align: center;
+        color: var(--color-marfil);
 
-        &:hover {
-          background-color: var(--color-gris-lcaro-asulado);
-          transform: scale(1.01);
-          color: var(--color-marfil);
-        }
-      }
+        & :is(b) {
+          text-decoration: underline var(--color-azul-lila);
 
-      /* Apartado de la linea divisora */
-      .container__main-form-divisor {
-        display: block;
-        width: 100%;
-        height: 1px;
-        background-color: var(--color-gris);
-        margin: 10px 0;
-      }
-
-      /* Apartado de los enlaces externos */
-      .container__main-form-enlaces {
-        padding: 10px 0;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-around;
-        gap: 10px;
-
-        & a {
-          text-decoration: none;
-          color: var(--color-marfil);
-
-          & :is(b) {
-            text-decoration: underline var(--color-azul-lila);
-
-            &:hover {
-              color: var(--color-azul-lila);
-              text-decoration: underline var(--color-rojo-suave);
-            }
+          &:hover {
+            color: var(--color-azul-lila);
+            text-decoration: underline var(--color-rojo-suave);
           }
         }
       }
-    }
-
-    /* Apartado de footer del main */
-    .container__main-footer {
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      align-items: center;
-      padding: var(--padding);
     }
   }
 
-  /* ================================= */
+  /* Apartado de footer del main */
+  .container__main-footer,
+  .invitado__main-footer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--padding);
+  }
+}
+/* -------------------------------------------- */
 
-  /* Apartado del contenido de la pagina registro */
-  #container02 {
-    & .container02__main h1 {
-      text-align: center;
-      padding: var(--padding);
+/* -------------------------------------------- */
+/* Apartado del contenido de la pagina registro */
+#container02 {
+  & .container02__main h1 {
+    text-align: center;
+    padding: var(--padding);
+  }
+
+  /* Apartado del formulario */
+  & .container02__main-form {
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    height: auto;
+    gap: 20px;
+    padding: var(--padding);
+    border-radius: 7px;
+    border: 2px solid #ffffff1a;
+
+    & :is(section) {
+      margin: 20px 0px;
+      vertical-align: middle;
+
+      & h5 {
+        font-size: 10px;
+      }
     }
-    /* Apartado del formulario */
-    & .container02__main-form {
+
+    /* Apartado de los titulos */
+    & label {
+      align-self: stretch;
+      flex: 1;
       display: flex;
-      flex-direction: column;
-      width: 450px;
-      height: auto;
-      gap: 20px;
-      padding: var(--padding);
-      border-radius: 7px;
-      border: 2px solid #ffffff1a;
+      flex-direction: row;
+      align-items: center;
+      /* padding: 10px 0; */
+    }
 
-      & :is(section) {
-        margin: 20px 0px;
-        vertical-align: middle;
+    /* Apartado de los campos */
+    & input {
+      background: transparent;
+      width: 100%;
+      border-radius: 4px;
+      padding: 5px;
+    }
 
-        & h5 {
-          font-size: 10px;
-        }
+    /* Apartado del boton */
+    button[type="submit"],
+    button[type="reset"] {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      border-radius: 5px;
+      background-color: var(--color-gris-asulado);
+      padding: 10px;
+      margin: 20px 0;
+      color: var(--color-azul-grisado);
+      text-align: center;
+      font-size: 18px;
+
+      &:hover {
+        background-color: var(--color-gris-lcaro-asulado);
+        transform: scale(1.01);
+        color: var(--color-marfil);
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+          rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
       }
+    }
 
-      /* Apartado de los titulos */
-      & label {
-        align-self: stretch;
-        flex: 1;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        /* padding: 10px 0; */
-      }
+    /* Apartado de la linea divisora */
+    .containe02__main-form-divisor {
+      display: block;
+      width: 100%;
+      height: 5px;
+      border-radius: 20px;
+      background-color: var(--color-azul-gris-claro);
+      margin: 15px 0;
+    }
 
-      /* Apartado de los campos */
-      & input {
-        background: transparent;
-        width: 100%;
-        border-radius: 4px;
-        padding: 5px;
-      }
+    /* Apartado de la casilla de verificación */
+    input[type="checkbox"] {
+      position: relative;
+      display: inline-block;
+      background: lightgrey;
+      height: 20px;
+      width: 44px;
+      vertical-align: middle;
+      border-radius: 10px;
+    }
 
-      /* Apartado del boton */
-      button[type="submit"],
-      button[type="reset"] {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        border-radius: 5px;
-        background-color: var(--color-gris-asulado);
-        padding: 10px;
-        margin: 20px 0;
-        color: var(--color-azul-grisado);
-        text-align: center;
-        font-size: 18px;
+    & .container02__main-form-checkbox label {
+      display: flex;
+      gap: 10px;
+      text-wrap: pretty;
+      font-size: 12px;
+    }
+
+    /* Apartado de los enlaces externos */
+    .container02__main-form-enlaces {
+      padding: 10px 0;
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+
+      & a {
+        color: var(--color-marfil);
 
         &:hover {
-          background-color: var(--color-gris-lcaro-asulado);
-          transform: scale(1.01);
-          color: var(--color-marfil);
-          box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
-            rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-        }
-      }
-
-      /* Apartado de la linea divisora */
-      .containe02__main-form-divisor {
-        display: block;
-        width: 100%;
-        height: 5px;
-        border-radius: 20px;
-        background-color: var(--color-azul-gris-claro);
-        margin: 15px 0;
-      }
-
-      /* Apartado de la casilla de verificación */
-      input[type="checkbox"] {
-        position: relative;
-        display: inline-block;
-        background: lightgrey;
-        height: 20px;
-        width: 44px;
-        vertical-align: middle;
-        border-radius: 10px;
-      }
-
-      & .container02__main-form-checkbox label {
-        display: flex;
-        gap: 10px;
-        text-wrap: pretty;
-        font-size: 12px;
-      }
-
-      /* Apartado de los enlaces externos */
-      .container02__main-form-enlaces {
-        padding: 10px 0;
-        display: flex;
-        flex-direction: row;
-        gap: 10px;
-
-        & a {
-          color: var(--color-marfil);
-
-          &:hover {
-            scale: 1.1;
-            color: var(--color-gris-asulado);
-          }
+          scale: 1.1;
+          color: var(--color-gris-asulado);
         }
       }
     }
   }
 }
+/* --------------------------------------------- */
+
+/* --------------------------------------------- */
+/* Apartado del contenido de la pagina invitado */
+#invitado {
+  background: var(--color-marfil) !important;
+  color: var(--color-azul-marino);
+
+  & main {
+    padding: 80px 0;
+  }
+
+  /* Apartado del encabezado del main */
+  & .invitado__main-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--padding);
+  }
+
+  /* Apartado del campo para la contraseña */
+  & .invitado__main-contrasena {
+    display: flex;
+    width: 800px;
+    min-width: 400px;
+    height: 120px;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #2f343d4c;
+    border-radius: 5px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+    /* El texto de la contraseña */
+    & .invitado__main-contrasena-texto {
+      flex: 1;
+      color: var(--color-azul-marino);
+      font-size: 32px;
+      text-align: center;
+    }
+  }
+
+  & .invitado__main-accion {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+
+    & .invitado__main-boton button {
+      cursor: pointer;
+      width: 200px;
+      border-radius: 5px;
+      background-color: var(--color-azul-grisado);
+      color: var(--color-marfil);
+      font-size: 18px;
+      text-transform: uppercase;
+
+      &:hover {
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+          rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+        scale: 1.01;
+      }
+    }
+
+    & .invitado__main-barra {
+      flex-grow: 1;
+      text-align: center;
+      padding: var(--padding);
+
+      & h3 {
+        padding: 10px 0;
+      }
+
+      & .progress-container {
+        width: 80%;
+        margin: auto;
+
+        & .progress-bar {
+          height: 20px;
+          background-color: #f1f1f1;
+          border-radius: 5px;
+          overflow: hidden;
+
+          & .progress-bar-inner {
+            height: 100%;
+            width: 0;
+            background-color: #4caf50;
+            border-radius: 5px;
+            transition: width 0.5s ease-in-out;
+          }
+        }
+        & .progress-label {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+}
+/* --------------------------------------------- */
