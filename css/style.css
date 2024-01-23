@@ -2,10 +2,6 @@
 @import url(normalize.min.css);
 @import url(reset.css);
 
-/* *********************************** */
-/* *** ESTILOS GENERALES *** */
-/* *********************************** */
-
 /* Tipografía */
 @font-face {
   font-family: "HexosR";
@@ -18,7 +14,6 @@
     url("../font/HexosItalic.woff") format("woff");
 }
 
-/* ******************************** */
 /* Variables */
 :root {
   /* colores */
@@ -39,8 +34,12 @@
   --tamano-minimo: 1200px;
   --tamano-maximo: 1920px;
 }
-
 /* ******************************** */
+
+/* *********************************** */
+/* *** ESTILOS GENERALES *** */
+/* *********************************** */
+
 html {
   font-family: "HexosR" "serif";
   font-size: 1em;
@@ -56,7 +55,8 @@ body {
   /* Apartado de atributos generales */
   #container,
   #container02,
-  #invitado {
+  #invitado,
+  #generador {
     top: 0;
     height: 100%;
     background: radial-gradient(
@@ -389,6 +389,89 @@ body {
         & .progress-label {
           margin-top: 10px;
         }
+      }
+    }
+  }
+}
+/* --------------------------------------------- */
+
+/* --------------------------------------------- */
+/* Apartado del contenido de la pagina del generador */
+#generador {
+  /* Apartado del main */
+  & .generador__main {
+    /* Apartado del encabezado */
+    & .generador__main-header {
+      height: 50px;
+      margin: 20px 0;
+      border-bottom: 1px solid var(--color-gris);
+    }
+
+    /* Apartado del campo para la contraseña */
+    & .generador__main-contrasena {
+      display: flex;
+      width: 600px;
+      height: 100px;
+      align-items: center;
+      justify-content: space-around;
+      background-color: var(--color-azul-grisado);
+      border-radius: 5px;
+
+      /* El texto de la contraseña */
+      & .generador__main-contrasena-texto {
+        flex: 1;
+        color: var(--color-marfil);
+        font-size: 32px;
+        text-align: center;
+      }
+    }
+
+    /* Apartado de opciones */
+    & .generador__main-opciones {
+      display: flex;
+      justify-content: space-evenly;
+      padding: var(--padding);
+      font-size: 20px;
+    }
+
+    /* Apartado de las longitudes */
+    & .generador__main-lonitudes {
+      display: flex;
+      justify-content: space-evenly;
+      padding: 20px 0;
+
+      & article {
+        display: flex;
+        flex-direction: column;
+        gap: 10px 0;
+
+        & label {
+          font-size: 18px;
+        }
+      }
+
+      & input[type="number"] {
+        background: transparent;
+        padding: 5px 0;
+        border-radius: 5px;
+      }
+    }
+
+    /* Apartado de los botones */
+    & .generador__main-botones {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+
+      & #generar,
+      #copiar {
+        flex-grow: 1;
+        margin: 0 10px;
+        cursor: pointer;
+      }
+
+      & #historial img {
+        width: 70%;
       }
     }
   }

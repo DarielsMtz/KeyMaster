@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- SEO = Básico -->
+    <!-- Cada página del sitio tiene que ser diferente el título y la descripción -->
+    <title>KeyMaster - Generador</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Etiquetas Open Graph y Twitter Card, para crear el SEO de Redes Sociales -->
+    <meta property="og:title" content="Título de tu página" />
+    <meta property="og:description" content="Descripción de tu página" />
+    <meta
+      property="og:image"
+      content="URL de la imagen que quieres mostrar en las redes sociales" />
+    <meta property="og:url" content="URL de tu página" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Título de tu página" />
+    <meta name="twitter:description" content="Descripción de tu página" />
+    <meta
+      name="twitter:image"
+      content="URL de la imagen que quieres mostrar en Twitter" />
+
+    <!-- App Web, inidicar al navegador que elementos mostrar en un JSON -->
+    <link rel="manifest" href="site.webmanifest" />
+    <!-- icono de acceso para IOS -->
+    <link rel="apple-touch-icon" href="icon.png" />
+    <!-- Recordar que favicon.ico tiene que estar en el directorio inicial -->
+
+    <!-- links de estilos -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Se cambia el tema de algunos navegadores -->
+    <meta name="theme-color" content="#fafafa" />
+    <!-- Código de las plataformas de Análisis -->
+    <script></script>
+    <!-- Scripts a cargar antes de la renderización -->
+    <script src="preloader.js"></script>
+  </head>
+  <body>
+    <div id="generador">
+      <main class="generador__main">
+        <!-- Apartado del encabezado de main -->
+        <section class="generador__main-header">
+          <h1>Generador de contraseñas</h1>
+        </section>
+
+        <!-- Apartado del campo de la contraseña -->
+        <section class="generador__main-contrasena">
+          <article class="generador__main-contrasena-texto">
+            1QW3780$%$(mXASD
+          </article>
+        </section>
+
+        <!-- Apartado de opciones -->
+        <section class="generador__main-opciones">
+          <!-- Mayusculas -->
+          <label>
+            <input type="checkbox" name="mayusculas" />
+            A-Z
+          </label>
+          <!-- Minusculas -->
+          <label>
+            <input type="checkbox" name="minusculas" />
+            a-z
+          </label>
+          <!-- Numeros -->
+          <label>
+            <input type="checkbox" name="numeros" />
+            0-9
+          </label>
+          <!-- Simbolos -->
+          <label>
+            <input type="checkbox" name="simbolos" />
+            !@#$%^&*
+          </label>
+        </section>
+
+        <!-- Apartado de las longitudes de la contraseña -->
+        <section class="generador__main-lonitudes">
+          <article>
+            <label for="">Longitud Minimas</label>
+            <input
+              type="number"
+              name="Longitud_minima"
+              id="Longitud_minima"
+              min="8"
+              max="" />
+          </article>
+          <article>
+            <label for="">Longitud Maxima</label>
+            <input
+              type="number"
+              name="Longitud_maxima"
+              id="Longitud_maxima"
+              min="8"
+              max="15" />
+          </article>
+        </section>
+
+        <!-- Apartado de botones -->
+        <section class="generador__main-botones">
+          <!-- Boton de generar -->
+          <button id="generar" type="button">Generar</button>
+
+          <!-- Boton de copiar -->
+          <button id="copiar" type="button">Copiar</button>
+
+          <!-- Boton de historial -->
+          <a href="" id="historial">
+            <img src="svg/reloj.svg" alt="Icono de reloj" />
+          </a>
+        </section>
+      </main>
+
+      <footer class="container__main-footer">
+        <h5>Politica de Privacidad | Politica de Cookies</h5>
+        <h6>&copy;Copyright - KeyMaster</h6>
+      </footer>
+    </div>
+  </body>
+</html>
