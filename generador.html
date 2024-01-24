@@ -62,25 +62,35 @@
 
         <!-- Apartado de opciones -->
         <section class="generador__main-opciones">
+          <!-- Todas la opciones -->
+          <label>
+            <input
+              type="checkbox"
+              name="todas_opciones"
+              id="todas_opciones"
+              checked />
+            Todas
+          </label>
+
           <!-- Mayusculas -->
           <label>
-            <input type="checkbox" name="mayusculas" />
+            <input type="checkbox" name="mayusculas" id="mayusculas" />
             A-Z
           </label>
           <!-- Minusculas -->
           <label>
-            <input type="checkbox" name="minusculas" />
+            <input type="checkbox" name="minusculas" id="minusculas" />
             a-z
           </label>
           <!-- Numeros -->
           <label>
-            <input type="checkbox" name="numeros" />
+            <input type="checkbox" name="numeros" id="numeros" />
             0-9
           </label>
           <!-- Simbolos -->
           <label>
-            <input type="checkbox" name="simbolos" />
-            !@#$%^&*
+            <input type="checkbox" name="simbolos" id="simbolos" />
+            !@#$*%^&
           </label>
         </section>
 
@@ -88,7 +98,13 @@
         <section class="generador__main-longitudes">
           <article>
             <label for="">Longitud</label>
-            <input type="range" name="Longitud" id="Longitud" min="8" />
+            <input
+              type="range"
+              name="Longitud"
+              id="Longitud"
+              min="8"
+              max="15" />
+            <!-- <span id="valor_rango">8</span> -->
           </article>
         </section>
 
@@ -109,6 +125,9 @@
             </a>
             <div class="generador__main-botones-tooltiptext">Historial</div>
           </article>
+
+          <!-- Contenedor para mostrar el historial -->
+          <div id="historialContainer"></div>
         </section>
       </main>
 
