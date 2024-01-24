@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- SEO = Básico -->
     <!-- Cada página del sitio tiene que ser diferente el título y la descripción -->
-    <title>KeyMaster</title>
+    <title>KeyMaster - Invitado</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
@@ -41,58 +41,62 @@
     <script src="preloader.js"></script>
   </head>
   <body>
-    <div id="container">
-      <main class="container__main">
-        <section class="container__main-header">
-          <img src="svg/Logotipo.svg" alt="Imagen del Logotipo" />
-          <p>Identifícate o crea una nueva cuenta.</p>
+    <div id="invitado">
+      <main>
+        <section class="invitado__main-header">
+          <img src="svg/Logotipo_negativo.svg" alt="Imagen del Logotipo" />
+          <!-- <p>Identifícate o crea una nueva cuenta.</p> -->
         </section>
 
-        <!-- Apartado del formulario de inicio de sesion -->
-        <section class="container__main-form">
-          <!-- Formulario -->
-          <form id="formulario_sesion" action="#" method="post" novalidate>
-            <!-- Usuario -->
-            <label for="Usuario">Nombre Usuario*</label>
+        <!-- Apartado del campo de la contraseña -->
+        <section class="invitado__main-contrasena">
+          <article class="invitado__main-contrasena-texto">
             <input
               type="text"
-              name="Usuario"
-              id="Usuario"
-              placeholder="Usuario" />
-
-            <!-- Contraseña -->
-            <label for="Contraseña">Contraseña*</label>
-            <input
-              type="password"
-              name="Contrasena"
-              id="Contrasena"
-              placeholder="Contraseña" />
-
-            <!-- Boton -->
-            <!-- <a href="#" class="container__main-form-boton"> Continuar </a> -->
-            <button
-              class="container__main-form-boton"
-              type="submit"
-              onclick="validarFormulario()">
-              Continuar
-            </button>
-
-            <!-- Linear divisora -->
-            <span class="container__main-form-divisor"></span>
-
-            <!-- Enlaces externos -->
-            <article class="container__main-form-enlaces">
-              <a href="registro.html">¿Nuevo por aquí? <b> Crear cuenta</b></a>
-              <a href="invitado.html"><b> Continuar como invitado</b></a>
-            </article>
-          </form>
+              id="password"
+              readonly
+              placeholder="1QW3780$%$(mXASD" />
+          </article>
         </section>
+        <h6>La contraseña generar esta compuesta de 8 a 15 caracteres*</h6>
+
+        <!-- Apartado del boton de generar y la barra se nivel de seguridad de la contraseña -->
+        <section class="invitado__main-accion">
+          <!-- Boton de generado -->
+          <article class="invitado__main-boton">
+            <button type="button" id="generar_invitado">Generar</button>
+          </article>
+
+          <!-- Barra de nivel de seguridad -->
+          <article class="invitado__main-barra">
+            <!-- Titulo -->
+            <h3>Nivel de seguridad</h3>
+            <!-- Barra -->
+            <div class="progress-container">
+              <div class="progress-bar">
+                <div class="progress-bar-inner" id="progress"></div>
+              </div>
+              <div class="progress-label" id="label">0%</div>
+            </div>
+          </article>
+        </section>
+
+        <!-- Enlaces externos -->
+        <article class="container__main-form-enlaces">
+          <a href="registro.html">¿Nuevo por aquí? <b> Crear cuenta</b></a>
+          <a href="inicio_sesion.html">
+            ¿Ya tienes una cuenta?<b> Identifícate</b></a
+          >
+        </article>
       </main>
 
-      <footer class="container__main-footer">
+      <!-- Apartado del pie de pagina -->
+      <footer class="invitado__main-footer">
         <h5>Politica de Privacidad | Politica de Cookies</h5>
         <h6>&copy;Copyright - KeyMaster</h6>
       </footer>
     </div>
   </body>
+  <script src="js/barra_nivel_seguridad.js"></script>
+  <script src="js/generardor_contrasenas.js"></script>
 </html>
