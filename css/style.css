@@ -57,7 +57,7 @@ body {
   #container02,
   #invitado,
   #generador {
-    top: 0;
+    /* top: 0; */
     height: 100%;
     background: radial-gradient(
       ellipse at 50% -20%,
@@ -70,6 +70,16 @@ body {
     align-items: center;
     flex-direction: column;
     overflow-y: auto;
+
+    /* Apartado de footer del main */
+    .container__main-footer,
+    .invitado__main-footer {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      padding: var(--padding);
+    }
   }
 }
 
@@ -167,16 +177,6 @@ body {
         }
       }
     }
-  }
-
-  /* Apartado de footer del main */
-  .container__main-footer,
-  .invitado__main-footer {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    padding: var(--padding);
   }
 }
 /* -------------------------------------------- */
@@ -398,12 +398,14 @@ body {
 /* --------------------------------------------- */
 /* Apartado del contenido de la pagina del generador */
 #generador {
+  gap: 80px;
+
   /* Apartado del main */
   & .generador__main {
     /* Apartado del encabezado */
     & .generador__main-header {
       height: 50px;
-      margin: 20px 0;
+      margin: 40px;
       border-bottom: 1px solid var(--color-gris);
     }
 
@@ -415,7 +417,7 @@ body {
       align-items: center;
       justify-content: space-around;
       background-color: var(--color-azul-grisado);
-      border-radius: 5px;
+      border-radius: 10px;
 
       /* El texto de la contraseña */
       & .generador__main-contrasena-texto {
@@ -435,25 +437,22 @@ body {
     }
 
     /* Apartado de las longitudes */
-    & .generador__main-lonitudes {
+    & .generador__main-longitudes {
       display: flex;
-      justify-content: space-evenly;
+      justify-content: center;
       padding: 20px 0;
 
       & article {
         display: flex;
         flex-direction: column;
         gap: 10px 0;
+        width: 80%;
 
         & label {
-          font-size: 18px;
+          font-size: 20px;
         }
-      }
 
-      & input[type="number"] {
-        background: transparent;
-        padding: 5px 0;
-        border-radius: 5px;
+        /* Estilos para la barra de rango */
       }
     }
 
@@ -463,17 +462,64 @@ body {
       justify-content: space-evenly;
       align-items: center;
 
-      & #generar,
+      #generar,
       #copiar {
-        flex-grow: 1;
+        width: 200px;
+        height: auto;
         margin: 0 10px;
         cursor: pointer;
+        border-radius: 5px;
+        font-size: 18px;
+
+        &:hover {
+          box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+          scale: 1.01;
+        }
+      }
+
+      #generar {
+        background-color: #6a99f0;
+        color: var(--color-azul-marino);
       }
 
       & #historial img {
         width: 70%;
       }
+
+      .generador__main-botones-tooltip {
+        position: relative;
+        display: inline-block;
+
+        & .generador__main-botones-tooltiptext {
+          visibility: hidden;
+          width: 120px;
+          background-color: #333;
+          color: #fff;
+          text-align: center;
+          border-radius: 6px;
+          padding: 5px;
+          position: absolute;
+          z-index: 1;
+          bottom: 125%;
+          left: 50%;
+          margin-left: -60px;
+          opacity: 0;
+          transition: opacity 0.3s;
+        }
+      }
+
+      .generador__main-botones-tooltip:hover
+        .generador__main-botones-tooltiptext {
+        visibility: visible;
+        opacity: 1;
+      }
     }
   }
+
+  /* Apartado de la informacion 
+  & .generador__informacion {
+    width: 600px;
+    padding-top: 40px;
+  } */
 }
 /* --------------------------------------------- */

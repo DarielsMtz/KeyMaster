@@ -80,24 +80,10 @@
         </section>
 
         <!-- Apartado de las longitudes de la contraseña -->
-        <section class="generador__main-lonitudes">
+        <section class="generador__main-longitudes">
           <article>
-            <label for="">Longitud Minimas</label>
-            <input
-              type="number"
-              name="Longitud_minima"
-              id="Longitud_minima"
-              min="8"
-              max="" />
-          </article>
-          <article>
-            <label for="">Longitud Maxima</label>
-            <input
-              type="number"
-              name="Longitud_maxima"
-              id="Longitud_maxima"
-              min="8"
-              max="15" />
+            <label for="">Longitud</label>
+            <input type="range" name="Longitud" id="Longitud" min="8" />
           </article>
         </section>
 
@@ -110,9 +96,12 @@
           <button id="copiar" type="button">Copiar</button>
 
           <!-- Boton de historial -->
-          <a href="" id="historial">
-            <img src="svg/reloj.svg" alt="Icono de reloj" />
-          </a>
+          <article class="generador__main-botones-tooltip">
+            <a href="" id="historial">
+              <img src="svg/reloj.svg" alt="Icono de reloj" />
+            </a>
+            <div class="generador__main-botones-tooltiptext">Historial</div>
+          </article>
         </section>
       </main>
 
