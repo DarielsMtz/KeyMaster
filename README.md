@@ -1,18 +1,18 @@
 # Plantilla: Arquitectura FrontEnd
 
 ##### Plantilla Básica para poder empezar casi cualquier proyecto en **FrontEnd**
->
+
 > Metodología de carpetas en FrontEnd
 
->Estructura en imágenes (svg, webp, iconos, etc)
-Readme, licencia MIT, gitignore
-Fuentes externas al OS
-Semiestructuras en código
-Comentarios introductorios  
+> Estructura en imágenes (svg, webp, iconos, etc)
+> Readme, licencia MIT, gitignore
+> Fuentes externas al OS
+> Semiestructuras en código
+> Comentarios introductorios
 
 ---
 
-###### _Copyright 2023 - Toni Ferra_
+###### _Copyright 2024 - Dariels Martinez_
 
 ## Archivos del proyecto web
 

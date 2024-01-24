@@ -51,9 +51,14 @@
         <!-- Apartado del campo de la contraseña -->
         <section class="generador__main-contrasena">
           <article class="generador__main-contrasena-texto">
-            1QW3780$%$(mXASD
+            <input
+              type="text"
+              id="password_vip"
+              readonly
+              placeholder="1QW3780$%$(mXASD" />
           </article>
         </section>
+        <h6>La contraseña generar esta compuesta de 8 a 15 caracteres*</h6>
 
         <!-- Apartado de opciones -->
         <section class="generador__main-opciones">
@@ -90,10 +95,12 @@
         <!-- Apartado de botones -->
         <section class="generador__main-botones">
           <!-- Boton de generar -->
-          <button id="generar" type="button">Generar</button>
+          <button type="button" id="generar_vip" class="generar">
+            Generar
+          </button>
 
           <!-- Boton de copiar -->
-          <button id="copiar" type="button">Copiar</button>
+          <button id="copiar" type="button" class="copiar">Copiar</button>
 
           <!-- Boton de historial -->
           <article class="generador__main-botones-tooltip">
@@ -111,4 +118,5 @@
       </footer>
     </div>
   </body>
+  <script src="js/generador_vip.js"></script>
 </html>

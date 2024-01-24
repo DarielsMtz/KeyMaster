@@ -90,7 +90,7 @@ body {
 }
 
 /* -------------------------------------------- */
-/* Apartado del contenedor principal */
+/* Apartado del contenedor inicio de sesion (inicio_sesion.html) */
 #container {
   /* Apartado de header del main */
   & .container__main-header {
@@ -196,7 +196,7 @@ body {
 /* -------------------------------------------- */
 
 /* -------------------------------------------- */
-/* Apartado del contenido de la pagina registro */
+/* Apartado del contenido de la pagina registro (registro.html) */
 #container02 {
   & .container02__main h1 {
     text-align: center;
@@ -320,7 +320,7 @@ body {
 /* --------------------------------------------- */
 
 /* --------------------------------------------- */
-/* Apartado del contenido de la pagina invitado */
+/* Apartado del contenido de la pagina invidato(index.html) */
 #invitado {
   width: 100%;
   height: 100%;
@@ -426,9 +426,10 @@ body {
 /* --------------------------------------------- */
 
 /* --------------------------------------------- */
-/* Apartado del contenido de la pagina del generador */
+/* Apartado del contenido de la pagina del generador (generador.html) */
 #generador {
   gap: 80px;
+  overflow: visible !important;
 
   /* Apartado del main */
   & .generador__main {
@@ -455,6 +456,13 @@ body {
         color: var(--color-marfil);
         font-size: 32px;
         text-align: center;
+
+        & input[type="text"] {
+          background: transparent;
+          text-align: center;
+          border: none;
+          outline: none;
+        }
       }
     }
 
@@ -492,8 +500,8 @@ body {
       justify-content: space-evenly;
       align-items: center;
 
-      #generar,
-      #copiar {
+      .generar,
+      .copiar {
         width: 200px;
         height: auto;
         margin: 0 10px;
@@ -507,7 +515,7 @@ body {
         }
       }
 
-      #generar {
+      .generar {
         background-color: #6a99f0;
         color: var(--color-azul-marino);
       }
