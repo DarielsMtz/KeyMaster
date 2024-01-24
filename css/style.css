@@ -34,6 +34,18 @@
   --tamano-minimo: 1200px;
   --tamano-maximo: 1920px;
 }
+
+/* Animacion de vista */
+@keyframes show {
+  from {
+    opacity: 0;
+    scale: 50%;
+  }
+  to {
+    opacity: 1;
+    scale: 100%;
+  }
+}
 /* ******************************** */
 
 /* *********************************** */
@@ -427,137 +439,189 @@ body {
 
 /* --------------------------------------------- */
 /* Apartado del contenido de la pagina del generador (generador.html) */
-#generador {
-  gap: 80px;
-  overflow: visible !important;
+#body__generador {
+  height: 100%;
 
-  /* Apartado del main */
-  & .generador__main {
-    /* Apartado del encabezado */
-    & .generador__main-header {
-      height: 50px;
-      margin: 40px;
-      border-bottom: 1px solid var(--color-gris);
-    }
+  #generador {
+    width: 600px;
+    overflow: visible !important;
+    gap: 80px;
 
-    /* Apartado del campo para la contraseña */
-    & .generador__main-contrasena {
-      display: flex;
-      width: 600px;
-      height: 100px;
-      align-items: center;
-      justify-content: space-around;
-      background-color: var(--color-azul-grisado);
-      border-radius: 10px;
-
-      /* El texto de la contraseña */
-      & .generador__main-contrasena-texto {
-        flex: 1;
-        color: var(--color-marfil);
-        font-size: 32px;
-        text-align: center;
-
-        & input[type="text"] {
-          background: transparent;
-          text-align: center;
-          border: none;
-          outline: none;
-        }
-      }
-    }
-
-    /* Apartado de opciones */
-    & .generador__main-opciones {
-      display: flex;
-      justify-content: space-evenly;
-      padding: var(--padding);
-      font-size: 20px;
-    }
-
-    /* Apartado de las longitudes */
-    & .generador__main-longitudes {
-      display: flex;
-      justify-content: center;
+    /* Apartado del main */
+    & .generador__main {
       padding: 20px 0;
+      /* Apartado del encabezado */
+      & .generador__main-header {
+        height: 50px;
+        margin: 40px;
+        border-bottom: 1px solid var(--color-gris);
+      }
 
-      & article {
+      /* Apartado del campo para la contraseña */
+      & .generador__main-contrasena {
         display: flex;
-        flex-direction: column;
-        gap: 10px 0;
-        width: 80%;
+        width: 600px;
+        height: 100px;
+        align-items: center;
+        justify-content: space-around;
+        background-color: var(--color-azul-grisado);
+        border-radius: 10px;
 
-        & label {
-          font-size: 20px;
-        }
-
-        /* Estilos para la barra de rango */
-      }
-    }
-
-    /* Apartado de los botones */
-    & .generador__main-botones {
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-
-      .generar,
-      .copiar {
-        width: 200px;
-        height: auto;
-        margin: 0 10px;
-        cursor: pointer;
-        border-radius: 5px;
-        font-size: 18px;
-
-        &:hover {
-          box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
-          scale: 1.01;
-        }
-      }
-
-      .generar {
-        background-color: #6a99f0;
-        color: var(--color-azul-marino);
-      }
-
-      & #historial img {
-        width: 70%;
-      }
-
-      .generador__main-botones-tooltip {
-        position: relative;
-        display: inline-block;
-
-        & .generador__main-botones-tooltiptext {
-          visibility: hidden;
-          width: 120px;
-          background-color: #333;
-          color: #fff;
+        /* El texto de la contraseña */
+        & .generador__main-contrasena-texto {
+          flex: 1;
+          color: var(--color-marfil);
+          font-size: 32px;
           text-align: center;
-          border-radius: 6px;
-          padding: 5px;
-          position: absolute;
-          z-index: 1;
-          bottom: 125%;
-          left: 50%;
-          margin-left: -60px;
-          opacity: 0;
-          transition: opacity 0.3s;
+
+          & input[type="text"] {
+            background: transparent;
+            text-align: center;
+            border: none;
+            outline: none;
+          }
         }
       }
 
-      .generador__main-botones-tooltip:hover
-        .generador__main-botones-tooltiptext {
-        visibility: visible;
-        opacity: 1;
+      /* Apartado de opciones */
+      & .generador__main-opciones {
+        display: flex;
+        justify-content: space-evenly;
+        padding: var(--padding);
+        font-size: 20px;
+      }
+
+      /* Apartado de las longitudes */
+      & .generador__main-longitudes {
+        display: flex;
+        justify-content: center;
+        padding: 20px 0;
+
+        & article {
+          display: flex;
+          flex-direction: column;
+          gap: 10px 0;
+          width: 80%;
+
+          & label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 20px;
+
+            & span {
+              width: 35px;
+              text-align: center;
+              font-size: 20px;
+              border-radius: 5px;
+              border: 1px solid var(--color-azul-gris-claro);
+            }
+          }
+
+          /* Estilos para la barra de rango */
+        }
+      }
+
+      /* Apartado de los botones */
+      & .generador__main-botones {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+
+        .generar,
+        .copiar {
+          width: 200px;
+          height: auto;
+          margin: 0 10px;
+          cursor: pointer;
+          border-radius: 5px;
+          font-size: 18px;
+
+          &:hover {
+            box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+            scale: 1.01;
+          }
+        }
+
+        .generar {
+          background-color: #6a99f0;
+          color: var(--color-azul-marino);
+        }
+
+        & #historial img {
+          width: 70%;
+        }
+
+        .generador__main-botones-tooltip {
+          position: relative;
+          display: inline-block;
+
+          & .generador__main-botones-tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+          }
+        }
+
+        .generador__main-botones-tooltip:hover
+          .generador__main-botones-tooltiptext {
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+
+      /* Apartado de la informacion */
+      & .generador__main-info {
+        display: grid;
+        /* width: 800px; */
+        /* height: auto; */
+        padding-top: 80px;
+
+        grid:
+          "arriba_izquierda arriba_derecha"
+          "abajo_izquierda abajo_derecha";
+        gap: 10px;
+
+        view-timeline: --texto;
+        view-timeline-axis: block;
+        animation-timeline: --texto;
+        animation-name: show;
+        animation-range: entry 25% cover 28%;
+        animation-fill-mode: both;
+
+        & .arriba_izquierda {
+          grid-area: arriba_izquierda;
+        }
+
+        &.arriba_derecha {
+          grid-area: arriba_derecha;
+        }
+
+        &.abajo_izquierda {
+          grid-area: abajo_izquierda;
+        }
+
+        &.abajo_derecha {
+          grid-area: abajo_derecha;
+        }
       }
     }
-  }
 
-  /* Apartado de la informacion 
+    /* Apartado de la informacion 
   & .generador__informacion {
     width: 600px;
     padding-top: 40px;
   } */
+  }
 }
 /* --------------------------------------------- */

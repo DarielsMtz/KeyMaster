@@ -40,7 +40,7 @@
     <!-- Scripts a cargar antes de la renderización -->
     <script src="preloader.js"></script>
   </head>
-  <body>
+  <body id="body__generador">
     <div id="generador">
       <main class="generador__main">
         <!-- Apartado del encabezado de main -->
@@ -97,14 +97,18 @@
         <!-- Apartado de las longitudes de la contraseña -->
         <section class="generador__main-longitudes">
           <article>
-            <label for="">Longitud</label>
+            <label>
+              Longitud
+              <span id="valor_rango">8</span>
+            </label>
+
             <input
               type="range"
               name="Longitud"
-              id="Longitud"
+              id="longitud"
+              value="8"
               min="8"
               max="15" />
-            <!-- <span id="valor_rango">8</span> -->
           </article>
         </section>
 
@@ -129,13 +133,58 @@
           <!-- Contenedor para mostrar el historial -->
           <div id="historialContainer"></div>
         </section>
+
+        <!-- Apartado de informacion -->
+        <section class="generador__main-info">
+          <article class="arriba_izquierda">
+            <h2>¿Qué es un generador de contraseñas y para qué sirve?</h2>
+            <p>
+              Un generador de contraseñas segura permite crear contraseñas en
+              función de unos parámetros como longitud y caracteres de forma
+              aleatoria. Gracias a esta funcionalidad podremos usar contraseñas
+              seguras y alejarnos de las contraseñas que son más obvias y por lo
+              tanto hackeables.
+            </p>
+          </article>
+          <article class="arriba_derecha">
+            <h2>¿Es importante usar contraseñas seguras?</h2>
+            <p>
+              Si queremos proteger nuestros accesos a nuestras cuentas usar
+              contraseñas segura es una buena manera de empezar. Es cierto que
+              podemos tomar medidas complementarias para aumentar nuestras
+              medidas de seguridad como puede ser el utilizar un 2fa (segundo
+              factor de autenticación).
+            </p>
+          </article>
+          <article class="abajo_izquierda">
+            <h2>Características de una contraseñas segura</h2>
+            <p>
+              Las características más comunes de una buena contraseña con alto
+              nivel de seguridad encontramos: Más de 12 caracteres de longitud.
+              Combinación de letras, números, mayúsculas, minúsculas y
+              caracteres. Únicas, no debes usar la misma contraseña en más de un
+              sitio.
+            </p>
+          </article>
+          <article class="abajo_deracha">
+            <h2>Contraseña más usadas?</h2>
+            <p>
+              Es muy común que muchos usuarios usen contraseñas sencillas de
+              recordar pero a su vez es la forma más fácil de que accedan a
+              nuestra información, entre las contraseñas más comunes podemos
+              encontrar: 12345 Fecha de nacimiento Contraseña qwert
+            </p>
+          </article>
+        </section>
       </main>
 
+      <!-- Apartado del pie de pagina -->
       <footer class="container__main-footer">
         <h5>Politica de Privacidad | Politica de Cookies</h5>
         <h6>&copy;Copyright - KeyMaster</h6>
       </footer>
     </div>
+    <script></script>
   </body>
   <script src="js/generador_vip.js"></script>
 </html>

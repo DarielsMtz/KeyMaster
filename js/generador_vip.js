@@ -13,7 +13,7 @@ const incluir_simbolos = document.getElementById("simbolos");
 const incluir_numeros = document.getElementById("numeros");
 
 // Arreglo con los caracteres de las contraseña
-let charset = numeros + letras_min + letras_may + simbolos;
+const charset = numeros + letras_min + letras_may + simbolos;
 
 // ----------------------------------------------------------------
 // Apartado del generador VIP (Usuario Registrado)
@@ -73,7 +73,7 @@ function obtenerTamanoContrasena() {
 
 // ----------------------------------------------------------------
 // Apartado de las longitudes de la contraseña
-document.getElementById("Longitud").addEventListener("input", function () {
+document.getElementById("longitud").addEventListener("input", function () {
   // Obtener el valor actual del rango
   const valorRango = this.value;
 
@@ -84,12 +84,20 @@ document.getElementById("Longitud").addEventListener("input", function () {
   document.getElementById("valor_rango").innerText = valorRango;
 });
 
+// Actualizamos el valor del span con el valor del input range
+let valor_input = document.getElementById("longitud");
+let valor_salida = document.getElementById("valor_rango");
+
+valor_input.addEventListener("input", function () {
+  valor_salida.textContent = valor_input.value + " ";
+});
+
 // ----------------------------------------------------------------
 // Función para obtener el tamaño de la contraseña
 function obtenerTamanoContrasena() {
   // Obtener el valor actual de la longitud seleccionada
   const longitudSeleccionada = parseInt(
-    document.getElementById("Longitud").value
+    document.getElementById("longitud").value
   );
   return longitudSeleccionada;
 }
