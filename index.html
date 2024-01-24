@@ -51,9 +51,9 @@
         <!-- Apartado del formulario de inicio de sesion -->
         <section class="container__main-form">
           <!-- Formulario -->
-          <form action="#" method="post">
+          <form id="formulario_sesion" action="#" method="post" novalidate>
             <!-- Usuario -->
-            <label for="Usuario"> Nombre Usuario*</label>
+            <label for="Usuario">Nombre Usuario*</label>
             <input
               type="text"
               name="Usuario"
@@ -69,7 +69,13 @@
               placeholder="Contraseña" />
 
             <!-- Boton -->
-            <a href="#" class="container__main-form-boton">Continuar</a>
+            <!-- <a href="#" class="container__main-form-boton"> Continuar </a> -->
+            <button
+              class="container__main-form-boton"
+              type="submit"
+              onclick="validarFormulario()">
+              Continuar
+            </button>
 
             <!-- Linear divisora -->
             <span class="container__main-form-divisor"></span>

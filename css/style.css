@@ -334,6 +334,13 @@ body {
       color: var(--color-azul-marino);
       font-size: 32px;
       text-align: center;
+
+      & input[type="text"] {
+        background: transparent;
+        text-align: center;
+        border: none;
+        outline: none;
+      }
     }
   }
 

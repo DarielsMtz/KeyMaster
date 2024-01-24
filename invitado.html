@@ -51,15 +51,20 @@
         <!-- Apartado del campo de la contraseña -->
         <section class="invitado__main-contrasena">
           <article class="invitado__main-contrasena-texto">
-            1QW3780$%$(mXASD
+            <input
+              type="text"
+              id="password"
+              readonly
+              placeholder="1QW3780$%$(mXASD" />
           </article>
         </section>
+        <h6>La contraseña generar esta compuesta de 8 a 15 caracteres*</h6>
 
         <!-- Apartado del boton de generar y la barra se nivel de seguridad de la contraseña -->
         <section class="invitado__main-accion">
           <!-- Boton de generado -->
           <article class="invitado__main-boton">
-            <button type="button" id="generar">Generar</button>
+            <button type="button" id="generar_invitado">Generar</button>
           </article>
 
           <!-- Barra de nivel de seguridad -->
@@ -85,4 +90,5 @@
     </div>
   </body>
   <script src="js/barra_nivel_seguridad.js"></script>
+  <script src="js/generardor_contrasenas.js"></script>
 </html>
