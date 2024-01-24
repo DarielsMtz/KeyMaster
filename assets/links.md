@@ -2,15 +2,19 @@
 
 A continuación, encontrarás una lista de enlaces relevantes para el proyecto.
 
+## Figjam
+
+[Figjam](https://www.figma.com/file/KfcrlK1edW1KwXxLXcqopy/Lluvia-de-ideas?type=whiteboard&node-id=0%3A1&t=oaMZ1cvh5c6xhKTV-1) - Utiliza este espacio virtual de pizarra para una lluvia de ideas creativa y efectiva.
+
 ## Figma
 
-[Figma](https://www.figma.com/) - Plataforma de diseño colaborativo en línea.
+[Figma](https://www.figma.com/file/PAQFwaBzNxeeol8raYhU38/Generador_Contrase%C3%B1as?type=design&node-id=1%3A8&mode=design&t=XoKUAWHXDmMSvs59-1) - Sumérgete en la estética visual y funcionalidad de nuestra aplicación de seguridad.
 
 ## Github
 
 [Repositorio en Github](https://github.com/DarielsMtz/KeyMaster) - Repositorio de código fuente del proyecto.
 
-## Dominio
+## Dominio Web
 
 [Dominio de la pagina web](http://keymaster.darielsmartinezedib.com/) - Dominio de la pagina
 
