@@ -450,6 +450,11 @@ body {
     /* Apartado del main */
     & .generador__main {
       padding: 20px 0;
+
+      & h6 {
+        margin: 5px 0;
+      }
+
       /* Apartado del encabezado */
       & .generador__main-header {
         height: 50px;
@@ -582,15 +587,12 @@ body {
 
       /* Apartado de la informacion */
       & .generador__main-info {
-        display: grid;
-        /* width: 800px; */
-        /* height: auto; */
+        display: flex;
+        flex-direction: column;
+        width: 100%;
         padding-top: 80px;
-
-        grid:
-          "arriba_izquierda arriba_derecha"
-          "abajo_izquierda abajo_derecha";
-        gap: 10px;
+        gap: 50px;
+        text-wrap: pretty;
 
         view-timeline: --texto;
         view-timeline-axis: block;
@@ -599,29 +601,18 @@ body {
         animation-range: entry 25% cover 28%;
         animation-fill-mode: both;
 
-        & .arriba_izquierda {
-          grid-area: arriba_izquierda;
-        }
-
-        &.arriba_derecha {
-          grid-area: arriba_derecha;
-        }
-
-        &.abajo_izquierda {
-          grid-area: abajo_izquierda;
-        }
-
-        &.abajo_derecha {
-          grid-area: abajo_derecha;
+        & article {
+          & h3 {
+            font-weight: 700;
+            margin: 10px 0;
+          }
+          & ul li {
+            list-style: circle;
+            list-style-position: inside;
+          }
         }
       }
     }
-
-    /* Apartado de la informacion 
-  & .generador__informacion {
-    width: 600px;
-    padding-top: 40px;
-  } */
   }
 }
 /* --------------------------------------------- */
