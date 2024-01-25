@@ -434,6 +434,25 @@ body {
       }
     }
   }
+
+  /* Apartado de los enlaces externos */
+  .invitado__main-form-enlaces {
+    padding: 10px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 10px;
+
+    & a {
+      color: var(--color-azul-marino);
+      text-decoration: none;
+
+      & b:hover {
+        color: var(--color-gris-lcaro-asulado);
+        text-decoration: underline;
+      }
+    }
+  }
 }
 /* --------------------------------------------- */
 
