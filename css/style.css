@@ -62,7 +62,7 @@ body {
   width: 100%;
   height: 100vh;
   color: var(--color-marfil);
-  background-image: url("../svg/fondo.svg");
+  background-image: url("../svg/lineas_fondo.svg");
   background-color: var(--color-azul-marino);
   background-position: center;
   background-size: cover;
@@ -349,11 +349,11 @@ body {
 #invitado {
   width: 100%;
   height: 100%;
-  /* background: var(--color-marfil) !important; */
-  color: var(--color-azul-marino);
+  color: var(--color-marfil);
   background-image: url(../svg/fondo_simple.svg);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 
   & main {
     padding: 50px;
@@ -381,14 +381,18 @@ body {
       text-align: center;
 
       & input[type="text"] {
-        background-color: var(--color-marfil);
         padding: 25px 100px;
         border-radius: 8px;
-        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
         margin: 10px 0;
         text-align: center;
+        color: var(--color-marfil);
         border: none;
         outline: none;
+        background: rgba(255, 255, 255, 0.05);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+        border: 1px solid rgba(255, 255, 255, 0.13);
       }
     }
   }
@@ -458,7 +462,7 @@ body {
     gap: 10px;
 
     & a {
-      color: var(--color-azul-marino);
+      color: var(--color-marfil);
       text-decoration: none;
 
       & b:hover {
@@ -503,10 +507,15 @@ body {
       & .generador__main-contrasena {
         display: flex;
         width: 600px;
-        height: 100px;
+        height: 80px;
         align-items: center;
         justify-content: space-around;
-        background-color: var(--color-azul-grisado);
+        background: rgba(255, 255, 255, 0);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(2.3px);
+        -webkit-backdrop-filter: blur(2.3px);
+        border: 1px solid rgba(255, 255, 255, 0.19);
         border-radius: 10px;
 
         /* El texto de la contraseña */
@@ -631,14 +640,14 @@ body {
         gap: 50px;
         text-wrap: pretty;
 
-        view-timeline: --texto;
-        view-timeline-axis: block;
-        animation-timeline: --texto;
-        animation-name: show;
-        animation-range: entry 25% cover 28%;
-        animation-fill-mode: both;
-
         & article {
+          /* Animacion de aparición */
+          view-timeline: --texto;
+          view-timeline-axis: block;
+          animation-timeline: --texto;
+          animation-name: show;
+          animation-range: entry 25% cover 28%;
+          animation-fill-mode: both;
           & h3 {
             font-weight: 700;
             margin: 10px 0;
