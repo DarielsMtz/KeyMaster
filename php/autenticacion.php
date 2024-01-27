@@ -4,7 +4,7 @@ session_start();
 
 // Datos de conexion
 $bbdd_host = 'localhost';
-$bbdd_user = 'adimin';
+$bbdd_user = 'admin';
 $bbdd_pass = 'admin123';
 $bbdd_name = 'keymaster';
 
@@ -35,14 +35,13 @@ if ($stmt = $conector->prepare('SELECT id_usuario, contrasena FROM usuarios WHER
         $stmt->fetch();
 
         // Si la cuenta existe, pasamos a su verificacion
-        if ($_POST['contrasena'] == $contrasena) {
-
+        if ($_POST['contrasena'] === $contrasena) {
             session_regenerate_id();
             $_SESSION['logeado'] = TRUE;
             $_SESSION['nombre'] = $_POST['nombre'];
             $_SESSION['id_usuario'] = $id_usuario;
             echo "Bienvenido " . $SESSION['nombre'] . "!";
-            header('Location: ../generador.html');
+            header('Location: ../generador.php');
         } else {
             // Contraseña incorrecta
             echo "Contraseña incorrecta";
@@ -50,6 +49,7 @@ if ($stmt = $conector->prepare('SELECT id_usuario, contrasena FROM usuarios WHER
     } else {
         // Nombre de usuario incorrecto
         echo "Nombre de usuario o contraseña incorrecta";
+        header('Location: ../inicio_sesion.html');
     }
 
     $stmt->close();
