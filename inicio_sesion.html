@@ -56,15 +56,16 @@
           <!-- Formulario -->
           <form
             id="formulario_sesion"
-            action="php/registro.php"
+            action="php/autenticacion.php"
             method="POST"
-            autocomplete="off">
+            autocomplete="off"
+            novalidate>
             <!-- Usuario -->
             <label for="Usuario">Nombre Usuario*</label>
             <input
               type="text"
               name="Usuario"
-              id="Usuario"
+              id="usuario"
               placeholder="Usuario" />
 
             <!-- Contraseña -->
@@ -72,11 +73,14 @@
             <input
               type="password"
               name="Contrasena"
-              id="Contrasena"
+              id="contrasena"
               placeholder="Contraseña" />
 
             <!-- Boton -->
-            <button class="container__main-form-boton" type="submit" onclick="">
+            <button
+              class="container__main-form-boton"
+              type="submit"
+              value="Login">
               Continuar
             </button>
 
