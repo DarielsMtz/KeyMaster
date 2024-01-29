@@ -48,21 +48,32 @@
         <h1>Crear cuenta</h1>
         <section class="registro__main-form">
           <!-- Formulario -->
-          <form action="#" method="post">
+          <form action="php/registro.php" method="post" novalidate>
             <section>
               <!-- Correo Electronico -->
               <label for="Correo"
                 >Correo electronico
                 <h6>(requerido)</h6>
               </label>
-              <input type="text" name="Correo" id="Correo" placeholder="" />
+              <input
+                type="text"
+                name="Correo"
+                id="Correo"
+                required
+                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,6}"
+                placeholder="Introduce tu email" />
               <h5>Utilizarás tu correo electrónico para acceder.</h5>
             </section>
 
             <section>
               <!-- Nombre -->
               <label for="Usuario"> Nombre</label>
-              <input type="text" name="Nombre" id="Usuario" placeholder="" />
+              <input
+                type="text"
+                name="Nombre"
+                id="Usuario"
+                pattern="[A-Za-z]{2,20}"
+                placeholder="Introduzca su nombre" />
               <h5>¿Cómo deberíamos llamarte?</h5>
             </section>
 
@@ -73,7 +84,8 @@
                 type="password"
                 name="Contrasena"
                 id="Contrasena"
-                placeholder="" />
+                required
+                placeholder="Introduzca su contraseña" />
               <h5>
                 <b>Importante:</b> ¡Las contraseñas no pueden ser recuperadas si
                 las olvidas? <i>12 caracteres minimo</i>
@@ -95,13 +107,14 @@
                 type="password"
                 name="Confirmar"
                 id="Confirmar"
-                placeholder="" />
+                required
+                placeholder="Vuelve a repetir la contraseña" />
             </section>
 
             <section class="registro__main-form-checkbox">
               <!-- Checkbox -->
               <label>
-                <input type="checkbox" />
+                <input type="checkbox" name="politicas" id="" checked />
                 Al seleccionar esta casilla, acepta lo siguiente: <br />
                 Términos y Condiciones del servicio, Política de privacidad.
               </label>
