@@ -1,10 +1,9 @@
 <?php
 // Inicialisamos la sesion
 session_start();
-
 if (!isset($_SESSION['logeado'])) {
-  header('Location: inicio_sesion.html');
-  exit();
+    header('Location: inicio_sesion.html');
+    exit();
 }
 ?>
 <!DOCTYPE html>
@@ -55,6 +54,7 @@ if (!isset($_SESSION['logeado'])) {
             <div class="content">
                 <!-- <h2>Home Page</h2> -->
                 <p>Bienvenido, <?= $_SESSION['nombre'] ?>!</p>
+                <a href="php/cierre_sesion.php"><i class="fas fa-sign-out-alt"></i>Cerrar Sesion</a>
             </div>
 
             <!-- Apartado del encabezado de main -->
