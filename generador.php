@@ -1,11 +1,8 @@
 <?php
 // Inicialisamos la sesion
 session_start();
-if (!isset($_SESSION['logeado'])) {
-    header('Location: inicio_sesion.html');
-    exit();
-}
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -36,6 +33,11 @@ if (!isset($_SESSION['logeado'])) {
     <!-- Recordar que favicon.ico tiene que estar en el directorio inicial -->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
+    <!-- Enlace de inconos de interfaz -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
     <!-- links de estilos -->
     <link rel="stylesheet" href="css/style.css" />
 
@@ -47,15 +49,14 @@ if (!isset($_SESSION['logeado'])) {
     <script src="preloader.js"></script>
 </head>
 
-<body id="body__generador" class="logeado">
+<body id="body__generador">
     <div id="generador">
         <main class="generador__main">
             <!-- Apartado del saludo al usuario -->
-            <div class="content">
-                <!-- <h2>Home Page</h2> -->
-                <p>Bienvenido, <?= $_SESSION['nombre'] ?>!</p>
+            <section class="generador__main-sesion">
+                <p>Bienvenido, <b> <?php echo $_SESSION['nombre'] ?></b>!</p>
                 <a href="php/cierre_sesion.php"><i class="fas fa-sign-out-alt"></i>Cerrar Sesion</a>
-            </div>
+            </section>
 
             <!-- Apartado del encabezado de main -->
             <section class="generador__main-header">
