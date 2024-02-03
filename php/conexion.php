@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 // Datos de acceso a Mysql
@@ -26,6 +25,7 @@ if ($conexion) {
                 correo VARCHAR(255) NOT NULL,
                 contraseña VARCHAR(255) NOT NULL,
                 PRIMARY KEY (id_usuario))";
+
         $resultado = mysqli_query($conexion, $sql);
         if ($resultado) {
             echo "<br>Tabla '<b>usuarios</b>' creada";
@@ -34,6 +34,22 @@ if ($conexion) {
         }
     } else {
         echo "Error al crear la base de datos keymaster";
+    }
+
+    // Creacion de la tabla de contraseñas
+    $sql = "CREATE TABLE IF NOT EXISTS keymaster.contrasenas (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        contrasena VARCHAR(255) NOT NULL,
+        fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        id_usuario INT NOT NULL,
+        usuario VARCHAR(225) NOT NULL
+      );";
+
+    $resultado = mysqli_query($conexion, $sql);
+    if ($resultado) {
+        echo "<br>Tabla '<b>contrasenas</b>' creada";
+    } else {
+        echo "<br>Tabla '<b>contrasenas</b>' no creada";
     }
 } else {
     echo "Error al conectar a la base de datos";

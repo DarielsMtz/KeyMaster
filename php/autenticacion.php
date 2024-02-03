@@ -23,6 +23,7 @@ if (!isset($_POST['usuario'], $_POST['contrasena'])) {
     exit();
 }
 
+
 // ----------------------------------------------------------------
 // Preparamos la consltas a la base de datos
 if ($stmt = $conector->prepare('SELECT id_usuario, contrasena FROM usuarios WHERE nombre = ?')) {
