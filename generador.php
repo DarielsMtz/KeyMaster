@@ -34,9 +34,7 @@ session_start();
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
     <!-- Enlace de inconos de interfaz -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
     <!-- links de estilos -->
     <link rel="stylesheet" href="css/style.css" />
@@ -46,7 +44,7 @@ session_start();
     <!-- Código de las plataformas de Análisis -->
     <script></script>
     <!-- Scripts a cargar antes de la renderización -->
-    <script src="preloader.js"></script>
+    <!-- <script src="preloader.js"></script> -->
 </head>
 
 <body id="body__generador">
@@ -84,16 +82,19 @@ session_start();
                     <input type="checkbox" name="mayusculas" id="mayusculas" />
                     A-Z
                 </label>
+
                 <!-- Minusculas -->
                 <label>
                     <input type="checkbox" name="minusculas" id="minusculas" />
                     a-z
                 </label>
+
                 <!-- Numeros -->
                 <label>
                     <input type="checkbox" name="numeros" id="numeros" />
                     0-9
                 </label>
+
                 <!-- Simbolos -->
                 <label>
                     <input type="checkbox" name="simbolos" id="simbolos" />
@@ -108,7 +109,6 @@ session_start();
                         Longitud
                         <span id="valor_rango">8</span>
                     </label>
-
                     <input type="range" name="Longitud" id="longitud" value="8" min="8" max="15" />
                 </article>
             </section>
@@ -132,7 +132,10 @@ session_start();
                 </article>
 
                 <!-- Contenedor para mostrar el historial -->
-                <div id="historialContainer"></div>
+                <div id="historialContainer">
+
+                </div>
+
             </section>
 
             <!-- Apartado de informacion -->

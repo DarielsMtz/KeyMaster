@@ -3,7 +3,7 @@
 const numeros = "0123456789";
 const letras_min = "abcdefghijklmnopqrstuvwxyz";
 const letras_may = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const simbolos = " !#$%&'()*+,-./:;<=>?@[]^_`{| ~";
+const simbolos = "!#$%&'()*+,-./:;<=>?@[]^_`{| ~";
 
 // Campos de las opciones
 const incluir_todas = document.getElementById("todas_opciones");
@@ -12,37 +12,27 @@ const incluir_minusculas = document.getElementById("minusculas");
 const incluir_simbolos = document.getElementById("simbolos");
 const incluir_numeros = document.getElementById("numeros");
 
-// Arreglo con los caracteres de las contraseña
-const charset = numeros + letras_min + letras_may + simbolos;
+// Declarar un array para almacenar el historial de contraseñas
+let historialContraseñas = [];
 
 // ----------------------------------------------------------------
 // Apartado del generador VIP (Usuario Registrado)
 document.getElementById("generar_vip").addEventListener("click", function () {
-  // Actualizar el arreglo charset según las opciones seleccionadas
-  let charset = "";
+  // Actualizar el conjunto de caracteres según las opciones seleccionadas
+  let cadena = "";
 
+  // Validacion de los campos de opciones
   if (incluir_todas.checked) {
-    charset += numeros;
-    charset += letras_min;
-    charset += letras_may;
-    charset += simbolos;
+    cadena += numeros + letras_min + letras_may + simbolos;
+  } else {
+    if (incluir_numeros.checked) cadena += numeros;
+    if (incluir_minusculas.checked) cadena += letras_min;
+    if (incluir_mayusculas.checked) cadena += letras_may;
+    if (incluir_simbolos.checked) cadena += simbolos;
   }
 
-  if (incluir_numeros.checked) {
-    charset += numeros;
-  }
-  if (incluir_minusculas.checked) {
-    charset += letras_min;
-  }
-  if (incluir_mayusculas.checked) {
-    charset += letras_may;
-  }
-  if (incluir_simbolos.checked) {
-    charset += simbolos;
-  }
-
-  // Verificar que al menos una opción esté seleccionada
-  if (charset === "") {
+  // En caso de no tener una opcion selecionada
+  if (cadena === "") {
     alert("Debes seleccionar al menos una opción para generar la contraseña.");
     return;
   }
@@ -50,15 +40,16 @@ document.getElementById("generar_vip").addEventListener("click", function () {
   // Generar contraseña aleatoria VIP
   let contrasena_vip = "";
   const tamano_vip = obtenerTamanoContrasena();
-
   while (contrasena_vip.length < tamano_vip) {
-    const num_aleatorio_vip = Math.floor(Math.random() * charset.length);
-    const nuevo_caracter_vip = charset.charAt(num_aleatorio_vip);
+    const num_aleatorio_vip = Math.floor(Math.random() * cadena.length);
+    const nuevo_caracter_vip = cadena.charAt(num_aleatorio_vip);
 
     if (!contrasena_vip.includes(nuevo_caracter_vip)) {
       contrasena_vip += nuevo_caracter_vip;
     }
   }
+  // Guardar la contraseña en el historial y en la base de datos
+  historialContraseñas.push(contrasena_vip);
 
   // Actualizar el campo de contraseña VIP
   document.getElementById("password_vip").value = contrasena_vip;
@@ -87,13 +78,12 @@ document.getElementById("longitud").addEventListener("input", function () {
 // Actualizamos el valor del span con el valor del input range
 let valor_input = document.getElementById("longitud");
 let valor_salida = document.getElementById("valor_rango");
-
 valor_input.addEventListener("input", function () {
   valor_salida.textContent = valor_input.value + " ";
 });
 
 // ----------------------------------------------------------------
-// Función para obtener el tamaño de la contraseña
+// Función para mostrarel tamaño de la contraseña
 function obtenerTamanoContrasena() {
   // Obtener el valor actual de la longitud seleccionada
   const longitudSeleccionada = parseInt(
@@ -120,7 +110,16 @@ document.getElementById("copiar").addEventListener("click", function () {
     // Puedes mostrar un mensaje o realizar cualquier acción adicional aquí
     alert("Contraseña copiada al portapapeles");
   } else {
+    // Aviso al no tener una contraseña que copiar
     alert("Genera una contraseña antes de intentar copiar.");
   }
 });
-// ----------------------------------------------------------------
+
+// ---------------------------------------------------------------
+// Funcion para generar un hostorial de contraseñas
+document
+  .getElementById("historial")
+  .addEventListener("click", function (event) {
+    event.preventDefault();
+    alert("Historial de contraseñas:\n" + historialContraseñas.join("\n"));
+  });
