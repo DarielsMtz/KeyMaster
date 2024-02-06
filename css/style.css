@@ -604,6 +604,17 @@ body {
         justify-content: space-evenly;
         padding: var(--padding);
         font-size: 20px;
+
+        & input[type="checkbox"] + label {
+          font-weight: bold;
+          line-height: 3em;
+          color: #ccc;
+          cursor: pointer;
+        }
+
+        & input[type="checkbox"]:checked {
+          color: #0fbf12;
+        }
       }
 
       /* Apartado de las longitudes */

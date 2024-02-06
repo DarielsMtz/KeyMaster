@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // VALIDACIONES NECESARIAS  
 
     // Funcion de validaciones
-    function validar_registro($correo, $nomnbre, $contrasena, $confirmar)
+    function validar_registro($correo, $nombre, $contrasena, $confirmar)
     {
         // Variable para almanecar los errores
         $errores = array();

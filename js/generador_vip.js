@@ -2,7 +2,7 @@
 const letras_may = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const letras_min = "abcdefghijklmnopqrstuvwxyz";
 const numeros = "0123456789";
-const simbolos = "!#$%&'()*+,-./:;<=>?@[]^_`{|~";
+const simbolos = "#$%&*+-./<=>?@_";
 
 // Campos de las opciones
 const incluir_mayusculas = document.getElementById("mayusculas");
@@ -49,13 +49,59 @@ function generarContrasenaVIP() {
 
   let contrasena_vip = "";
   const tamano_vip = obtenerTamanoContrasena();
+  let LetrasMayusculasConsecutivas = 0;
+  let NumerosConsecutivos = 0;
+  let LetrasMinusculasConsecutivas = 0;
+
   while (contrasena_vip.length < tamano_vip) {
     const num_aleatorio_vip = Math.floor(Math.random() * cadena.length);
     const nuevo_caracter_vip = cadena.charAt(num_aleatorio_vip);
 
-    if (!contrasena_vip.includes(nuevo_caracter_vip)) {
-      contrasena_vip += nuevo_caracter_vip;
+    // Se verifica si hay letras mayusculas consecutivas
+    if (/[A-Z]/.test(nuevo_caracter_vip)) {
+      LetrasMayusculasConsecutivas++;
+      if (LetrasMayusculasConsecutivas === 2) {
+        continue;
+      }
+    } else {
+      LetrasMayusculasConsecutivas = 0;
     }
+
+    // Se verifica si hay letras minusculas consecutivas
+    if (/[a-z]/.test(nuevo_caracter_vip)) {
+      LetrasMinusculasConsecutivas++;
+      if (LetrasMinusculasConsecutivas === 2) {
+        continue;
+      }
+    } else {
+      LetrasMinusculasConsecutivas = 0;
+    }
+
+    // Verificar si hay tres números consecutivos
+    if (/[0-9]/.test(nuevo_caracter_vip)) {
+      NumerosConsecutivos++;
+      if (NumerosConsecutivos === 3) {
+        continue;
+      }
+    } else {
+      NumerosConsecutivos = 0;
+    }
+
+    // Verificar si hay tres letras en orden alfabético
+    if (
+      /[A-Za-z]/.test(nuevo_caracter_vip) &&
+      /[A-Za-z]/.test(contrasena_vip.charAt(contrasena_vip.length - 1))
+    ) {
+      if (
+        nuevo_caracter_vip.charCodeAt(0) ===
+        contrasena_vip.charCodeAt(contrasena_vip.length - 1) + 1
+      ) {
+        continue;
+      }
+    }
+
+    // Se agregael nuevo caracter a la contraseña
+    contrasena_vip += nuevo_caracter_vip;
   }
 
   historialContraseñas.push(contrasena_vip);
