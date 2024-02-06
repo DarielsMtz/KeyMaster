@@ -53,14 +53,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Verificar la conexión
         if ($mysqli->connect_error) {
-            die("La conexión a la base de datos falló: " . $mysqli->connect_error);
+            echo "La conexión a la base de datos falló: " . $mysqli->connect_error;
         }
 
         // Insertar usuario en la base de datos
         $insertar_usuario = "INSERT INTO usuarios (correo, nombre, contrasena) VALUES ('$correo', '$nombre', '$contrasena')";
         if ($mysqli->query($insertar_usuario) === TRUE) {
             echo "Usuario registrado correctamente.";
-            // header("Location: ../inicio_sesion.html");
         } else {
             echo "Error al registrar el usuario: " . $mysqli->error;
         }
