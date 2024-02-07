@@ -1,67 +1,19 @@
-# Plantilla: Arquitectura FrontEnd
+# Generador de Contraseñas Aleatorias - Proyecto Final de Curso
 
-##### Plantilla Básica para poder empezar casi cualquier proyecto en **FrontEnd**
 
-> Metodología de carpetas en FrontEnd
+¡Bienvenidos al emocionante mundo de nuestro proyecto final de curso! Estamos entusiasmados de compartir con ustedes los detalles de nuestra próxima creación: un increíble generador de contraseñas aleatorias en forma de una aplicación web para escritorio. Este proyecto individual aprovecha tecnologías clave como HTML, CSS, JavaScript, PHP y bases de datos para ofrecer una experiencia robusta y segura.
 
-> Estructura en imágenes (svg, webp, iconos, etc)
-> Readme, licencia MIT, gitignore
-> Fuentes externas al OS
-> Semiestructuras en código
-> Comentarios introductorios
+## Descripción del Proyecto
 
----
+### Objetivo Principal
+El objetivo principal de esta aplicación web es proporcionar un generador de contraseñas aleatorias con un enfoque especial en la implementación de las mejores metodologías disponibles en la actualidad.
+
+### Modos de Funcionamiento
+
+#### Modo sin Registro
+En este modo, los usuarios pueden aprovechar un generador básico de contraseñas. La aplicación permite generar contraseñas aleatorias de manera sencilla y rápida sin necesidad de registrarse. Es la opción ideal para aquellos que solo necesitan contraseñas temporales o no desean almacenarlas.
+
+#### Modo con Registro
+El modo con registro ofrece un generador de contraseñas con funcionalidades adicionales y emocionantes. Además de generar contraseñas aleatorias, los usuarios pueden guardarlas de manera segura en una base de datos. Esto proporciona tranquilidad al contar con un lugar seguro para almacenar y acceder a las contraseñas cuando sea necesario. El modo con registro también ofrece opciones de configuración avanzadas para personalizar la generación de contraseñas según las preferencias individuales.
 
 ###### _Copyright 2024 - Dariels Martinez_
-
-## Archivos del proyecto web
-
-Explicación de la importancia de cada semiestructura de archivos:
-
-#### .gitignore
-
-Este archivo contiene una lista de archivos y directorios que no deben incluirse en el control de versiones de Git.
-
-#### 404.html
-
-Este archivo se muestra cuando un usuario intenta acceder a una URL que no existe.
-
-#### favicon.ico
-
-Este archivo es un icono que se muestra en la pestaña del navegador del usuario.
-
-#### humans.txt
-
-Este archivo es un documento que proporciona información sobre los creadores del proyecto.
-
-#### icon.png
-
-Este archivo es un icono que se muestra en las aplicaciones de escritorio.
-
-#### index.html
-
-Este archivo es el punto de entrada principal del sitio web.
-
-#### LICENSE
-
-Este archivo contiene la licencia de software del proyecto.
-
-#### README.md
-
-Este archivo es un documento que proporciona información sobre el proyecto.
-
-#### robots.txt
-
-Este archivo controla cómo los motores de búsqueda indexan el sitio web.
-
-#### site.webmanifest
-
-Este archivo contiene información sobre el sitio web, como su título, descripción y colores.
-
-#### sitemap.xml
-
-Este archivo contiene un mapa del sitio web, que ayuda a los motores de búsqueda a indexar el sitio web de manera más eficiente.
-
-#### assets
-
-Es la carpeta donde se guardan los archivos originales del proyecto o archivos complementarios al proyecto.
