@@ -22,7 +22,7 @@ $id_usuario = $_SESSION['id_usuario'];
 $contrasena = $_POST['contrasena'];
 
 // Insertar la contraseña en la base de datos vinculada al usuario
-$sql = "INSERT INTO contrasenas (id_usuario, usuario, contrasena) VALUES ('$id_usuario','$usuario', '$contrasena')";
+$sql = "INSERT INTO contrasenas (contrasena, id_usuario, usuario) VALUES ('$contrasena', '$id_usuario','$usuario')";
 if ($conexion->query($sql) === TRUE) {
     echo "Contraseña almacenada correctamente en la base de datos";
 } else {

@@ -55,6 +55,7 @@
 html {
   font-family: "HexosR" "serif";
   font-size: 1em;
+  scroll-behavior: smooth;
 }
 
 /* Apartado del cuerpo de la pagina */

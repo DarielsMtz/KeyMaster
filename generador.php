@@ -34,7 +34,9 @@ session_start();
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
     <!-- Enlace de inconos de interfaz -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
 
     <!-- links de estilos -->
     <link rel="stylesheet" href="css/style.css" />
@@ -123,6 +125,12 @@ session_start();
                 <!-- Boton de copiar -->
                 <button id="copiar" type="button" class="copiar">Copiar</button>
 
+
+                <!-- Boton de guardar contraseñas -->
+                <button type="button" id="guardar_contrasena" class="generar">
+                    Guardar
+                </button>
+
                 <!-- Boton de historial -->
                 <article class="generador__main-botones-tooltip">
                     <a href="" id="historial">
@@ -130,13 +138,6 @@ session_start();
                     </a>
                     <div class="generador__main-botones-tooltiptext">Historial</div>
                 </article>
-
-                <!-- <button id="guardar_contraseña">Guardar Contraseña</button> -->
-                <button type="button" id="guardar_contrasena" class="generar">
-                    Guardar
-                </button>
-
-
             </section>
 
             <!-- Apartado de informacion -->

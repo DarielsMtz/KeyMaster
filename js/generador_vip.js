@@ -14,6 +14,7 @@ const incluir_todas = document.getElementById("todas_opciones");
 // Declarar un array para almacenar el historial de contraseñas
 let historialContraseñas = [];
 
+// -------------------------------------------------------------------
 // Función para generar la cadena de caracteres según las opciones seleccionadas
 function generarCadena() {
   let cadena = "";
@@ -30,6 +31,7 @@ function generarCadena() {
   return cadena;
 }
 
+// -------------------------------------------------------------------
 // Función para obtener el tamaño de la contraseña
 function obtenerTamanoContrasena() {
   const longitudSeleccionada = parseInt(
@@ -38,6 +40,7 @@ function obtenerTamanoContrasena() {
   return longitudSeleccionada;
 }
 
+// -------------------------------------------------------------------
 // Función para generar una contraseña VIP
 function generarContrasenaVIP() {
   const cadena = generarCadena();
@@ -108,12 +111,14 @@ function generarContrasenaVIP() {
   document.getElementById("password_vip").value = contrasena_vip;
 }
 
+// -------------------------------------------------------------------
 // Función para mostrar el historial de contraseñas
 function mostrarHistorial(event) {
   event.preventDefault();
   alert("Historial de contraseñas:\n" + historialContraseñas.join("\n"));
 }
 
+// -------------------------------------------------------------------
 // Agregar eventos de clic a los botones
 document
   .getElementById("generar_vip")
@@ -134,6 +139,7 @@ document.getElementById("copiar").addEventListener("click", function () {
   }
 });
 
+// -------------------------------------------------------------------
 // Actualizar el valor del span con el valor del input range
 let valor_input = document.getElementById("longitud");
 let valor_salida = document.getElementById("valor_rango");
@@ -148,7 +154,7 @@ document
 
     // Realizar la solicitud AJAX al script PHP
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "alamcenamiento.php", true);
+    xhr.open("POST", "guardar_contrasenas.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
     xhr.onreadystatechange = function () {
@@ -159,3 +165,5 @@ document
 
     xhr.send("contrasena= " + contrasena);
   });
+
+// TODO Estila los mensajes de alerta

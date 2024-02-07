@@ -23,7 +23,7 @@ if ($conexion) {
                 id_usuario INT NOT NULL AUTO_INCREMENT,
                 nombre VARCHAR(255) NOT NULL,
                 correo VARCHAR(255) NOT NULL,
-                contraseña VARCHAR(255) NOT NULL,
+                contrasena VARCHAR(255) NOT NULL,
                 PRIMARY KEY (id_usuario))";
 
         $resultado = mysqli_query($conexion, $sql);

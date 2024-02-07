@@ -1,14 +1,9 @@
 /* TEAM */
 
-Developer: Juan Pérez
-Contact: juan.perez@example.com
-Twitter: @juanperez
-Location: Madrid, España
-
-Designer: María García
-Contact: maria.garcia@example.com
-Twitter: @mariagarcia
-Location: Barcelona, España
+Developer and Designer: Dariels Marttinez
+Contact: darielsmartinez926@gamil.com
+LinkedIn: @darielsmtz
+Location: Mallorca, España
 
 /* THANKS */
 
@@ -21,4 +16,6 @@ Thanks to:
 Last update: 2023-07-20
 Language: Spanish
 Doctype: HTML5
-Components: React, Redux, Material UI
+Language: HTML5, CSS, JavaScript, PHP, MySql
+Components: Material UI/UX
+

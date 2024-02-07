@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         // Verificamos que el usuario no exite ya!
-        $sql = "SELECT * FROM usuarios WHERE nombre = '$nombre' || correo = '$correo'";
+        $sql = "SELECT * FROM usuarios WHERE nombre = '$nombre' OR correo = '$correo'";
         $resultado = $mysqli->query($sql);
         if ($resultado->num_rows > 0) {
             echo "<script>
