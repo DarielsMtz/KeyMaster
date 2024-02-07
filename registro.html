@@ -48,7 +48,12 @@
         <h1>Crear cuenta</h1>
         <section class="registro__main-form">
           <!-- Formulario -->
-          <form action="php/registro.php" method="post" novalidate>
+          <form
+            id="form_registro"
+            action="php/registro.php"
+            method="post"
+            autocomplete="off"
+            novalidate>
             <section>
               <!-- Correo Electronico -->
               <label for="Correo"
@@ -60,7 +65,6 @@
                 name="Correo"
                 id="Correo"
                 required
-                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,6}"
                 placeholder="Introduce tu email" />
               <h5>Utilizarás tu correo electrónico para acceder.</h5>
             </section>

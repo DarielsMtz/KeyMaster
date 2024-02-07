@@ -56,14 +56,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "La conexión a la base de datos falló: " . $mysqli->connect_error;
         }
 
-        // Insertar usuario en la base de datos
-        $insertar_usuario = "INSERT INTO usuarios (correo, nombre, contrasena) VALUES ('$correo', '$nombre', '$contrasena')";
-        if ($mysqli->query($insertar_usuario) === TRUE) {
-            echo "Usuario registrado correctamente.";
+        // Verificamos que el usuario no exite ya!
+        $sql = "SELECT * FROM usuarios WHERE nombre = '$nombre' || correo = '$correo'";
+        $resultado = $mysqli->query($sql);
+        if ($resultado->num_rows > 0) {
+            echo "<script>
+            alert('¡Ya existe un usuario con esos datos!');
+            setTimeout(function() {
+                window.location.href = '../registro.html';
+            }, 1000); 
+          </script>";
+            //   TODO Implementar el envio del formulario si el usuario existiera!
         } else {
-            echo "Error al registrar el usuario: " . $mysqli->error;
+            // Insertar usuario en la base de datos
+            $sql = "INSERT INTO usuarios (nombre, correo, contrasena) VALUES ('$nombre', '$correo', '$contrasena')";
+            if ($mysqli->query($sql) === TRUE) {
+                // echo "Usuario registrado correctamente en la base de datos";
+                echo "<script>
+                alert('Usuario registrado, ya puedes iniciar sesión.');
+                window.location.href = '../inicio_sesion.html';
+                </script>";
+            } else {
+                echo "Error al registrar el usuario: " . $mysqli->error;
+            }
         }
-        // --------------------------------------------
+
         // Cerrar conexión
         $mysqli->close();
     }

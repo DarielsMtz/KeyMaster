@@ -26,8 +26,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Validación del correo electrónico
-    let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{1,}$/;
-    if (!emailRegex.test(correo)) {
+    let emailRegex = /^[a-zA-Z_]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (emailRegex.test(correo)) {
       alert("El correo electrónico no es válido.");
       return false;
     }
