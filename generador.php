@@ -34,7 +34,9 @@ session_start();
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
     <!-- Enlace de inconos de interfaz -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
 
     <!-- links de estilos -->
     <link rel="stylesheet" href="css/style.css" />
@@ -64,8 +66,14 @@ session_start();
             <!-- Apartado del campo de la contraseña -->
             <section class="generador__main-contrasena">
                 <article class="generador__main-contrasena-texto">
-                    <input type="text" id="password_vip" readonly placeholder="1QW3780$%$(mXASD" />
+                    <input type="text" id="password_vip" placeholder="1QW3780$%$(mXASD" readonly />
                 </article>
+
+                <!-- Boton de copiar -->
+                <button id="copiar" type="button" class="genarador__main-contrasena-btn_copiar">
+                    <img src="svg/Boton_copiar.svg" alt="Icono de copiar" />
+                </button>
+
             </section>
             <h6>Las contraseñas generadas estan compuestas entre 8 a 15 caracteres*</h6>
 
@@ -106,7 +114,7 @@ session_start();
             <section class="generador__main-longitudes">
                 <article>
                     <label>
-                        Longitud
+                        <h3>Longitud</h3>
                         <span id="valor_rango">8</span>
                     </label>
                     <input type="range" name="Longitud" id="longitud" value="8" min="8" max="15" />
@@ -115,19 +123,17 @@ session_start();
 
             <!-- Apartado de botones -->
             <section class="generador__main-botones">
-                <!-- Boton de generar -->
-                <button type="button" id="generar_vip" class="generar">
-                    Generar
-                </button>
+                <article>
+                    <!-- Boton de generar -->
+                    <button type="button" id="generar_vip" class="generar">
+                        Generar
+                    </button>
 
-                <!-- Boton de copiar -->
-                <button id="copiar" type="button" class="copiar">Copiar</button>
-
-
-                <!-- Boton de guardar contraseñas -->
-                <button type="button" id="guardar_contrasena" class="guardar">
-                    Guardar
-                </button>
+                    <!-- Boton de guardar contraseñas -->
+                    <button type="button" id="guardar_contrasena" class="guardar">
+                        Guardar
+                    </button>
+                </article>
 
                 <!-- Boton de historial -->
                 <article class="generador__main-botones-tooltip">
@@ -136,6 +142,7 @@ session_start();
                     </a>
                     <div class="generador__main-botones-tooltiptext">Historial</div>
                 </article>
+
             </section>
 
             <!-- Apartado de informacion -->
@@ -201,7 +208,6 @@ session_start();
             <h6>&copy;Copyright - KeyMaster</h6>
         </footer>
     </div>
-    <script></script>
 </body>
 <script src="js/generador_vip.js"></script>
 

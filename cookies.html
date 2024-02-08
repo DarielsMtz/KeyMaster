@@ -39,7 +39,12 @@
     <!-- Se cambia el tema de algunos navegadores -->
     <meta name="theme-color" content="#fafafa" />
     <!-- Código de las plataformas de Análisis -->
-    <script></script>
+    <script>
+      // Funcion de retorno de pagina
+      function goBack() {
+        window.history.back();
+      }
+    </script>
     <!-- Scripts a cargar antes de la renderización -->
     <script src="preloader.js"></script>
   </head>
@@ -48,12 +53,12 @@
       <main class="privacidad__main">
         <section class="cookies__main-info">
           <article class="cookies__main-equis">
-            <a href="../">
+            <a href="javascript:void(0);" onclick="goBack();">
               <img src="svg/equis.svg" alt="" />
             </a>
           </article>
           <h1>Política de Uso de Cookies</h1>
-          <p>Fecha de vigencia: [Fecha de entrada en vigencia]</p>
+          <p>Fecha de vigencia:00/00/2024</p>
           <p>
             Bienvenido/a a [Nombre de tu Sitio Web]. En [Nombre de tu empresa o
             nombre propio], utilizamos cookies y tecnologías similares para
@@ -135,10 +140,12 @@
           <p>
             Si tienes preguntas adicionales o necesitas más información, no
             dudes en ponerte en contacto con nosotros en
-            <a href="mailto:tu@email.com">tu@email.com</a>.
+            <a href="mailto:darielsvalladares@estudiante.edib.es"
+              >darielsvalladares@estudiante.edib.es</a
+            >.
           </p>
 
-          <p>Gracias por confiar en [Nombre de tu empresa o nombre propio].</p>
+          <p>Gracias por confiar en KeyMaster &reg;.</p>
         </section>
       </main>
     </div>

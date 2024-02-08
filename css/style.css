@@ -14,6 +14,7 @@
     url("../font/HexosItalic.woff") format("woff");
 }
 
+/* -------------------------------------------- */
 /* Variables */
 :root {
   /* colores */
@@ -34,7 +35,9 @@
   --tamano-minimo: 1200px;
   --tamano-maximo: 1920px;
 }
+/* -------------------------------------------- */
 
+/* -------------------------------------------- */
 /* Animacion de vista */
 @keyframes show {
   from {
@@ -46,65 +49,64 @@
     scale: 100%;
   }
 }
-/* ******************************** */
+/* -------------------------------------------- */
 
-/* *********************************** */
-/* *** ESTILOS GENERALES *** */
-/* *********************************** */
-
+/* ============================================ */
+/* ESTILOS GENERALES */
+/* ============================================ */
 html {
-  font-family: "HexosR" "serif";
+  /* font-family: "HexosR" "Arial"; */
   font-size: 1em;
   scroll-behavior: smooth;
-}
 
-/* Apartado del cuerpo de la pagina */
-body {
-  width: 100%;
-  height: 100vh;
-  color: var(--color-marfil);
-  background-image: url("../svg/lineas_fondo.svg");
-  background-color: var(--color-azul-marino);
-  background-position: center;
-  background-size: cover;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  /* Apartado de atributos generales */
-  #container,
-  #registro,
-  #invitado,
-  #generador {
-    /* background: radial-gradient(
-      ellipse at 50% -20%,
-      rgba(120, 119, 198, 0.3),
-      rgba(255, 255, 255, 0)
-    ); */
+  /* Apartado del cuerpo de la pagina */
+  body {
+    width: 100%;
+    height: 100vh;
+    color: var(--color-marfil);
+    background-image: url("../svg/lineas_fondo.svg");
+    background-color: var(--color-azul-marino);
+    background-position: center;
+    background-size: cover;
 
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    overflow-y: auto;
 
-    /* Apartado de footer del main */
-    .container__main-footer,
-    footer {
+    /* Apartado de atributos generales */
+    #container,
+    #registro,
+    #invitado,
+    #generador {
+      /* background: radial-gradient(
+        ellipse at 50% -20%,
+        rgba(120, 119, 198, 0.3),
+        rgba(255, 255, 255, 0)
+      ); */
+
       display: flex;
       justify-content: center;
-      flex-direction: column;
       align-items: center;
-      padding: var(--padding);
-      font-size: 18px;
+      flex-direction: column;
+      overflow-y: auto;
 
-      & h5 a {
-        text-decoration: none;
-        color: var(--color-gris-asuladob);
+      /* Apartado de footer del main */
+      .container__main-footer,
+      footer {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        padding: var(--padding);
+        font-size: 18px;
 
-        &:hover {
-          color: var(--color-amarillo-suave);
+        & h5 a {
+          text-decoration: none;
+          color: var(--color-gris-asuladob);
+
+          &:hover {
+            color: var(--color-amarillo-suave);
+          }
         }
       }
     }
@@ -512,23 +514,22 @@ body {
 /* Apartado del contenido de la pagina del generador (generador.html) */
 #body__generador {
   height: 100%;
-  background-image: url(../svg/lineas_fondo.svg);
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-image: url(../svg/lineas_fondo.svg) cover;
   background-position: left top;
+  background-repeat: no-repeat;
 
   & #generador {
     width: 600px;
     overflow: visible !important;
-    gap: 80px;
+    gap: 100px;
 
     /* Apartado del main */
     & .generador__main {
       padding: 20px 0;
-      /* border: 1px solid red; */
 
       & h6 {
         margin: 5px 0;
+        font-family: "HexosI" "serif";
       }
 
       /* Apartado de la sesion */
@@ -564,8 +565,9 @@ body {
 
       /* Apartado del encabezado */
       & .generador__main-header {
+        width: 100%;
         height: 50px;
-        margin: 40px;
+        margin: 40px 0;
         border-bottom: 1px solid var(--color-gris);
       }
 
@@ -598,6 +600,17 @@ body {
             outline: none;
           }
         }
+
+        /* Apartado del boton copiar */
+        & .genarador__main-contrasena-btn_copiar {
+          border: none;
+          cursor: pointer;
+          opacity: 0.2;
+
+          &:hover {
+            opacity: 0.6;
+          }
+        }
       }
 
       /* Apartado de opciones */
@@ -617,8 +630,8 @@ body {
         & article {
           display: flex;
           flex-direction: column;
-          gap: 10px 0;
-          width: 50%;
+          gap: 12px 0;
+          width: 100%;
 
           & label {
             display: flex;
@@ -641,15 +654,20 @@ body {
       /* Apartado de los botones */
       & .generador__main-botones {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-between;
         align-items: center;
 
+        & article {
+          width: fit-content;
+          display: flex;
+          gap: 20px;
+        }
+
+        /* Estilos para el boton de generar */
         .generar,
-        .copiar,
         .guardar {
-          width: 120px;
+          width: 150px;
           height: auto;
-          margin: 0 10px;
           cursor: pointer;
           border-radius: 5px;
           font-size: 18px;
@@ -660,26 +678,25 @@ body {
           }
         }
 
+        /* Estilos para el boton de generar */
         .generar {
           background-color: #6a99f0;
           color: var(--color-azul-marino);
         }
 
-        /* .guardar {
-        } */
-
-        & #historial img {
-          width: 70%;
-        }
-
+        /* Apartado del mensaje del boton de historial */
         .generador__main-botones-tooltip {
           position: relative;
           display: inline-block;
 
+          /* Estilos para el boton de historial */
+          & #historial img {
+            width: 70%;
+          }
+
           & .generador__main-botones-tooltiptext {
             visibility: hidden;
             width: 120px;
-            background-color: #333;
             color: #fff;
             text-align: center;
             border-radius: 6px;
@@ -691,6 +708,7 @@ body {
             margin-left: -60px;
             opacity: 0;
             transition: opacity 0.3s;
+            background-color: var(--color-azul-gris-claro);
           }
         }
 
@@ -748,10 +766,10 @@ body {
   /* Apartado del contenedor  */
   #privacidad,
   #cookies {
-    padding: 100px;
-
+    padding: var(--padding);
+    /* Apartado del main */
     & .privacidad__main {
-      width: 1200px;
+      max-width: 900px;
       height: auto;
 
       /* Apartado del texto */
@@ -762,13 +780,14 @@ body {
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         backdrop-filter: blur(2px);
         -webkit-backdrop-filter: blur(2px);
-        padding: 60px;
+        padding: 20px 40px;
 
         /* Apartado del icono equis */
         & .privacidad__main-equis,
         .cookies__main-equis {
           display: flex;
           justify-content: flex-end;
+          padding: var(--padding);
 
           & img {
             width: 40%;
@@ -805,6 +824,3 @@ body {
   }
 }
 /* ---------------------------------------------- */
-
-/* ---------------------------------------------- */
-/* Apartado del contenido de la pagina de politica de cookies */

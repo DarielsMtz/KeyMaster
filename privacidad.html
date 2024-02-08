@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- SEO = Básico -->
     <!-- Cada página del sitio tiene que ser diferente el título y la descripción -->
-    <title>KeyMaster</title>
+    <title>KeyMaster - Privacidad</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
@@ -39,7 +39,13 @@
     <!-- Se cambia el tema de algunos navegadores -->
     <meta name="theme-color" content="#fafafa" />
     <!-- Código de las plataformas de Análisis -->
-    <script></script>
+
+    <script>
+      // Funcion de retorno de pagina
+      function goBack() {
+        window.history.back();
+      }
+    </script>
     <!-- Scripts a cargar antes de la renderización -->
     <script src="preloader.js"></script>
   </head>
@@ -48,7 +54,7 @@
       <main class="privacidad__main">
         <section class="privacidad__main-info">
           <article class="privacidad__main-equis">
-            <a href="../">
+            <a href="javascript:void(0);" onclick="goBack();">
               <img src="svg/equis.svg" alt="" />
             </a>
           </article>
