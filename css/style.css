@@ -525,6 +525,7 @@ body {
     /* Apartado del main */
     & .generador__main {
       padding: 20px 0;
+      /* border: 1px solid red; */
 
       & h6 {
         margin: 5px 0;
@@ -602,33 +603,22 @@ body {
       /* Apartado de opciones */
       & .generador__main-opciones {
         display: flex;
-        justify-content: space-evenly;
-        padding: var(--padding);
+        justify-content: space-between;
+        padding: 5px;
         font-size: 20px;
-
-        & input[type="checkbox"] + label {
-          font-weight: bold;
-          line-height: 3em;
-          color: #ccc;
-          cursor: pointer;
-        }
-
-        & input[type="checkbox"]:checked {
-          color: #0fbf12;
-        }
       }
 
       /* Apartado de las longitudes */
       & .generador__main-longitudes {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         padding: 20px 0;
 
         & article {
           display: flex;
           flex-direction: column;
           gap: 10px 0;
-          width: 80%;
+          width: 50%;
 
           & label {
             display: flex;
@@ -655,8 +645,9 @@ body {
         align-items: center;
 
         .generar,
-        .copiar {
-          width: 200px;
+        .copiar,
+        .guardar {
+          width: 120px;
           height: auto;
           margin: 0 10px;
           cursor: pointer;
@@ -665,7 +656,7 @@ body {
 
           &:hover {
             box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
-            scale: 1.01;
+            scale: 1.02;
           }
         }
 
@@ -673,6 +664,9 @@ body {
           background-color: #6a99f0;
           color: var(--color-azul-marino);
         }
+
+        /* .guardar {
+        } */
 
         & #historial img {
           width: 70%;
@@ -748,7 +742,6 @@ body {
   justify-content: center;
   align-items: center;
   height: 100%;
-  background-image: url(../svg/Moon.svg);
   background-repeat: no-repeat;
   background-position: center;
 
@@ -756,8 +749,9 @@ body {
   #privacidad,
   #cookies {
     padding: 100px;
+
     & .privacidad__main {
-      width: 1000px;
+      width: 1200px;
       height: auto;
 
       /* Apartado del texto */
