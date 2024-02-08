@@ -2,7 +2,7 @@
 const letras_may = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const letras_min = "abcdefghijklmnopqrstuvwxyz";
 const numeros = "0123456789";
-const simbolos = "#$%&*+-./<=>?@_";
+const simbolos = "c";
 
 // Campos de las opciones
 const incluir_mayusculas = document.getElementById("mayusculas");
