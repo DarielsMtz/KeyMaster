@@ -351,7 +351,6 @@ html {
 /* Apartado del contenido de la pagina invidato(index.html) */
 #body__invitado {
   height: 100%;
-  color: var(--color-marfil);
   background-image: url(../svg/fondo_simple.svg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -361,7 +360,7 @@ html {
     width: 800px;
     height: 100%;
 
-    & main {
+    & .invitado__main {
       padding: 50px;
     }
 
@@ -408,53 +407,26 @@ html {
       flex-direction: row;
       align-items: center;
       justify-content: space-evenly;
+      padding: 40px 0;
+      border-bottom: 1px solid var(--color-azul-gris-claro);
 
-      & .invitado__main-boton button {
-        cursor: pointer;
+      &
+        button:where(
+          .invitado__main-accion-btn_generar,
+          .invitado__main-accion-btn-copiar
+        ) {
         width: 200px;
+        background-color: var(--color-azul-marino);
         border-radius: 5px;
-        background-color: var(--color-azul-grisado);
-        color: var(--color-marfil);
         font-size: 18px;
-        text-transform: uppercase;
+        color: var(--color-marfil);
+        cursor: pointer;
+        gap: 20px;
 
         &:hover {
-          box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-            rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
           scale: 1.01;
-        }
-      }
-
-      & .invitado__main-barra {
-        flex-grow: 1;
-        text-align: center;
-        padding: var(--padding);
-
-        & h3 {
-          padding: 10px 0;
-        }
-
-        & .progress-container {
-          width: 80%;
-          margin: auto;
-
-          & .progress-bar {
-            height: 20px;
-            background-color: #f1f1f1;
-            border-radius: 5px;
-            overflow: hidden;
-
-            & .progress-bar-inner {
-              height: 100%;
-              width: 0;
-              background-color: #4caf50;
-              border-radius: 5px;
-              transition: width 0.5s ease-in-out;
-            }
-          }
-          & .progress-label {
-            margin-top: 10px;
-          }
+          background-color: var(--color-gris-asulado);
+          color: var(--color-azul-marino);
         }
       }
     }
@@ -471,9 +443,12 @@ html {
         color: var(--color-marfil);
         text-decoration: none;
 
-        & b:hover {
-          color: var(--color-gris-lcaro-asulado);
-          text-decoration: underline;
+        & .invitado__main-form-enlaces-magno {
+          &:hover {
+            color: var(--color-gris-lcaro-asulado);
+            text-decoration: underline;
+            scale: 1.02;
+          }
         }
       }
     }

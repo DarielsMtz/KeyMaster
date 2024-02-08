@@ -43,10 +43,9 @@
   </head>
   <body id="body__invitado">
     <div id="invitado">
-      <main>
+      <main class="invitado__main">
         <section class="invitado__main-header">
           <img src="svg/Logotipo.svg" alt="Imagen del Logotipo" />
-          <!-- <p>Identifícate o crea una nueva cuenta.</p> -->
         </section>
 
         <!-- Apartado del campo de la contraseña -->
@@ -54,7 +53,7 @@
           <article class="invitado__main-contrasena-texto">
             <input
               type="text"
-              id="password"
+              id="contrasena"
               readonly
               placeholder="1QW3780$%$(mXASD" />
           </article>
@@ -64,9 +63,9 @@
         <!-- Apartado del boton de generar y la barra se nivel de seguridad de la contraseña -->
         <section class="invitado__main-accion">
           <!-- Boton de generado -->
-          <article class="invitado__main-boton">
-            <button type="button" id="generar_invitado">Generar</button>
-          </article>
+          
+          <button type="button" id="invitado__generar" class="invitado__main-accion-btn_generar">Generar</button>
+          <button type="button" id="invitado__copiar" class="invitado__main-accion-btn-copiar">Copiar</button>
 
           <!-- Barra de nivel de seguridad -->
           <!-- <article class="invitado__main-barra">
@@ -84,9 +83,9 @@
 
         <!-- Enlaces externos -->
         <article class="invitado__main-form-enlaces">
-          <a href="registro.html">¿Nuevo por aquí? <b> Crear cuenta</b></a>
+          <a href="registro.html">¿Nuevo por aquí? <b class="invitado__main-form-enlaces-magno"> Crea una cuenta</b></a>
           <a href="inicio_sesion.html">
-            ¿Ya tienes una cuenta? <b> Identifícate</b></a
+            ¿Ya tienes una cuenta? <b class="invitado__main-form-enlaces-magno"> Identifícate</b></a
           >
         </article>
 
