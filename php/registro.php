@@ -8,7 +8,7 @@ $bbdd_name = 'keymaster';
 // Validacion del metodo de envio del formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validar campos aquí (por ejemplo, longitud, formato, etc.)
-    $correo = $_POST["Correo"];
+    $correo = htmlentities($_POST["Correo"]);
     $nombre = $_POST["Nombre"];
     $contrasena = $_POST["Contrasena"];
     $confirmar = $_POST["Confirmar"];
@@ -26,6 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (empty($correo) ||  empty($nombre) || empty($contrasena) || empty($confirmar)) {
             $errores[] = "Todos los campos son obligatorios.";
         }
+
 
         // Validacion al campo de correo 
         if (empty($correo) || !filter_var($correo, FILTER_VALIDATE_EMAIL)) {
@@ -66,7 +67,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 window.location.href = '../registro.html';
             }, 1000); 
           </script>";
-            //   TODO Implementar el envio del formulario si el usuario existiera!
         } else {
             // Insertar usuario en la base de datos
             $sql = "INSERT INTO usuarios (nombre, correo, contrasena) VALUES ('$nombre', '$correo', '$contrasena')";

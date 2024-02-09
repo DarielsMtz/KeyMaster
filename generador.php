@@ -73,7 +73,6 @@ session_start();
                 <button id="copiar" type="button" class="genarador__main-contrasena-btn_copiar">
                     <img src="svg/Boton_copiar.svg" alt="Icono de copiar" />
                 </button>
-
             </section>
             <h5>Las contraseñas generadas estan compuestas entre 8 a 15 caracteres*</h5>
 
@@ -137,12 +136,11 @@ session_start();
 
                 <!-- Boton de historial -->
                 <article class="generador__main-botones-tooltip">
-                    <a href="" id="historial">
+                    <a href="php/mostrar_contrasena.php" id="historial">
                         <img src="svg/reloj.svg" alt="Icono de reloj" />
                     </a>
-                    <div class="generador__main-botones-tooltiptext">Historial</div>
+                    <div class="generador__main-botones-tooltiptext">Caja Fuerte</div>
                 </article>
-
             </section>
 
             <!-- Apartado de informacion -->

@@ -77,13 +77,8 @@ html {
     #container,
     #registro,
     #invitado,
-    #generador {
-      /* background: radial-gradient(
-        ellipse at 50% -20%,
-        rgba(120, 119, 198, 0.3),
-        rgba(255, 255, 255, 0)
-      ); */
-
+    #generador,
+    #contrasenas {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -808,3 +803,83 @@ html {
   }
 }
 /* ---------------------------------------------- */
+
+/* ---------------------------------------------- */
+/* Apartado del contenido de la pagina de las contraseñas */
+#contrasenas {
+  background: url(../svg/fondo_simple.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+
+  & .container {
+    max-width: 800px;
+    padding: var(--padding);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    backdrop-filter: blur(2.6px);
+    -webkit-backdrop-filter: blur(2.6px);
+
+    & .contrasenas__sesion {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+
+      & a {
+        & img {
+          width: 30%;
+        }
+        &:hover {
+          scale: 1.1;
+        }
+      }
+    }
+
+    & h2 {
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      text-align: center;
+    }
+
+    th,
+    td {
+      border-bottom: 1px solid var(--color-marfil);
+      padding: 5px 0;
+
+      & .btn_accion {
+        border: none;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+
+        & .copiar,
+        .borrar {
+          width: 30px;
+          height: 30px;
+          padding: 5px;
+          border: none;
+
+          &:hover {
+            scale: 1.09;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    th {
+      background-color: var(--color-gris-asulado);
+      color: var(--color-azul-marino);
+      text-transform: uppercase;
+    }
+  }
+}

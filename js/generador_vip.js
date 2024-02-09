@@ -1,8 +1,19 @@
+// ---------------------------------------------------------------
+// Pequeño detalle del estilo de la ventana
+let titulo_pagina = document.title;
+window.addEventListener("blur", () => {
+  document.title = "No te vayas ☹";
+});
+window.addEventListener("focus", () => {
+  document.title = titulo_pagina;
+});
+
+// ---------------------------------------------------------------
 // Caracteres permitidos en la contraseña
 const letras_may = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const letras_min = "abcdefghijklmnopqrstuvwxyz";
 const numeros = "0123456789";
-const simbolos = "c";
+const simbolos = "!#$%&/*+-_?@";
 
 // Campos de las opciones
 const incluir_mayusculas = document.getElementById("mayusculas");
@@ -119,16 +130,19 @@ function mostrarHistorial(event) {
 }
 
 // -------------------------------------------------------------------
-// Agregar eventos de clic a los botones
+// Evento para generar la contraseña
 document
   .getElementById("generar_vip")
   .addEventListener("click", generarContrasenaVIP);
-document
-  .getElementById("historial")
-  .addEventListener("click", mostrarHistorial);
+
+// Evento para mostrar un hostorial de contraseñas localemente
+// document
+//   .getElementById("historial")
+//   .addEventListener("click", mostrarHistorial);
+
+// evento para copiar la contraseña generada
 document.getElementById("copiar").addEventListener("click", function () {
   const campo_contrasena = document.getElementById("password_vip");
-
   if (campo_contrasena.value) {
     campo_contrasena.select();
     document.execCommand("copy");
@@ -147,11 +161,16 @@ valor_input.addEventListener("input", function () {
   valor_salida.textContent = valor_input.value + " ";
 });
 
+// -------------------------------------------------------------------
+// Evento para el momento de guardar una contraseña
 document
   .getElementById("guardar_contrasena")
   .addEventListener("click", function () {
     let contrasena = document.getElementById("password_vip").value;
-
+    if (contrasena === "") {
+      alert("No se puede guardar una contraseña en blanco!!!");
+      return;
+    }
     // Realizar la solicitud AJAX al script PHP
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "guardar_contrasenas.php", true);
@@ -162,16 +181,38 @@ document
         alert(xhr.responseText);
       }
     };
-
     xhr.send("contrasena= " + contrasena);
   });
 
-// TODO Estilar los mensajes de alerta
+// ---------------------------------------------------------------
+// ACCIONES DE LA PAGINA DEL LISTADO DE CONTRASEÑAS
+// Funcion para copiar el texto al portapapeles
+function copiarTexto(texto) {
+  var textarea = document.createElement("textarea");
+  textarea.value = texto;
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand("copy");
+  document.body.removeChild(textarea);
+  alert("Contraseña copia en el portapapel");
+}
 
-let titulo_pagina = document.title;
-window.addEventListener("blur", () => {
-  document.title = "Vuelve 😥";
-});
-window.addEventListener("focus", () => {
-  document.title = titulo_pagina;
-});
+// Funcion para eliminar una contraseña
+function borrarContrasena(contrasena) {
+  // Agrega aquí la lógica para borrar la contraseña de la base de datos
+  // Puedes usar AJAX para enviar una solicitud al servidor y realizar la eliminación
+  // Aquí un ejemplo de cómo podrías hacerlo con jQuery
+
+  $.ajax({
+    url: "../php/acciones_listado.php",
+    type: "POST",
+    data: { contrasena: contrasena },
+    success: function (response) {
+      // Manejar la respuesta del servidor, por ejemplo, recargar la página
+      location.reload();
+    },
+    error: function (error) {
+      console.error("Error al borrar contraseña:", error);
+    },
+  });
+}
