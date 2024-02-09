@@ -166,4 +166,12 @@ document
     xhr.send("contrasena= " + contrasena);
   });
 
-// TODO Estila los mensajes de alerta
+// TODO Estilar los mensajes de alerta
+
+let titulo_pagina = document.title;
+window.addEventListener("blur", () => {
+  document.title = "Vuelve 😥";
+});
+window.addEventListener("focus", () => {
+  document.title = titulo_pagina;
+});

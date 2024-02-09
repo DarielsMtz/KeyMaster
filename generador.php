@@ -54,13 +54,13 @@ session_start();
         <main class="generador__main">
             <!-- Apartado del saludo al usuario -->
             <section class="generador__main-sesion">
-                <p>Bienvenido, <b> <?php echo $_SESSION['nombre'] ?></b>!</p>
+                <p>Bienvenido, <b> <?php echo $_SESSION['nombre'] ?></b></p>
                 <a href="php/cierre_sesion.php"><i class="fas fa-sign-out-alt"></i>Cerrar Sesion</a>
             </section>
 
             <!-- Apartado del encabezado de main -->
             <section class="generador__main-header">
-                <h1>Generador de contraseñas</h1>
+                <h1>Generador de contraseñas v1.0</h1>
             </section>
 
             <!-- Apartado del campo de la contraseña -->
@@ -75,7 +75,7 @@ session_start();
                 </button>
 
             </section>
-            <h6>Las contraseñas generadas estan compuestas entre 8 a 15 caracteres*</h6>
+            <h5>Las contraseñas generadas estan compuestas entre 8 a 15 caracteres*</h5>
 
             <!-- Apartado de opciones -->
             <section class="generador__main-opciones">
@@ -147,24 +147,22 @@ session_start();
 
             <!-- Apartado de informacion -->
             <section class="generador__main-info">
+                <h2 class="generador__main-info-titulo">Información</h2>
                 <article>
                     <h3>¿Qué es un generador de contraseñas y para qué sirve?</h3>
                     <p>
-                        Un generador de contraseñas segura permite crear contraseñas en
-                        función de unos parámetros como longitud y caracteres de forma
-                        aleatoria. Gracias a esta funcionalidad podremos usar contraseñas
-                        seguras y alejarnos de las contraseñas que son más obvias y por lo
-                        tanto hackeables.
+                        Un generador de contraseñas es una herramienta que crea contraseñas seguras y únicas para cada
+                        cuenta que tengas. En lugar de usar la misma contraseña para todo, o de crear contraseñas
+                        fáciles de adivinar como "123456" o tu fecha de nacimiento, un generador de contraseñas crea una
+                        combinación aleatoria de letras, números y símbolos que es muy difícil de hackear.
                     </p>
                 </article>
                 <article>
                     <h3>¿Es importante usar contraseñas seguras?</h3>
                     <p>
-                        Si queremos proteger nuestros accesos a nuestras cuentas usar
-                        contraseñas segura es una buena manera de empezar. Es cierto que
-                        podemos tomar medidas complementarias para aumentar nuestras
-                        medidas de seguridad como puede ser el utilizar un 2fa (segundo
-                        factor de autenticación).
+                        Sí, es fundamental usar contraseñas seguras para proteger tus accesos online. Las contraseñas
+                        débiles son la puerta de entrada para los piratas informáticos que pueden acceder a tus cuentas,
+                        robar tus datos personales y financieros, e incluso suplantar tu identidad.
                     </p>
                 </article>
                 <article>
@@ -173,11 +171,14 @@ session_start();
                         Las características más comunes de una buena contraseña con alto
                         nivel de seguridad encontramos:
                     <ul>
-                        <li>Más de 12 caracteres de longitud.</li>
-                        <li>Combinación de letras, números, mayúsculas, minúsculas y
-                            caracteres.</li>
-                        <li>Únicas, no debes usar la misma contraseña en más de un
-                            sitio.</li>
+                        <li>Longitud: Debe tener al menos 12 caracteres. Cuanto más larga sea la contraseña, más difícil
+                            será de adivinar..</li>
+                        <li>Complejidad: Debe incluir una combinación de letras mayúsculas y minúsculas, números y
+                            símbolos.</li>
+                        <li>Unicidad: Debe ser única para cada cuenta. No uses la misma contraseña en diferentes sitios
+                            web o servicios.</li>
+                        <li>Memorización: Aunque las contraseñas seguras son complejas, es importante que puedas
+                            recordarlas sin necesidad de apuntarlas en un lugar inseguro.</li>
                     </ul>
                     </p>
                 </article>
@@ -189,12 +190,34 @@ session_start();
                         nuestra información, entre las contraseñas más comunes podemos
                         encontrar:
                     <ul>
-                        <li> 12345</li>
-                        <li> Fecha de nacimiento</li>
-                        <li> Contraseña</li>
-                        <li> qwert</li>
+                        <li> Contraseñas simples: 12345, contraseña, qwerty, etc.</li>
+                        <li> Información personal: Fecha de nacimiento, nombre de tu mascota, etc.</li>
+                        <li> Palabras comunes: Amor, fútbol, Barcelona, etc.</li>
                     </ul>
                     </p>
+                </article>
+                <article>
+                    <h3>Consejos para crear y usar contraseñas seguras:</h3>
+                    <ul>
+                        <li>Utiliza un generador de contraseñas para crear contraseñas seguras y únicas.</li>
+                        <li>No compartas tus contraseñas con nadie, ni siquiera con amigos o familiares.</li>
+                        <li>Cambia tus contraseñas regularmente, especialmente si sospechas que han sido comprometidas.
+                        </li>
+                        <li>Utiliza un gestor de contraseñas para almacenar tus contraseñas de forma segura</li>
+                    </ul>
+                </article>
+                <article>
+                    <h3>Seguridad en Internet</h3>
+                    <p>
+                        Usar contraseñas seguras es solo una parte de la seguridad en Internet. También es importante:
+                    </p>
+                    <ul>
+                        <li>Mantener tu software actualizado.</li>
+                        <li>Tener cuidado con los correos electrónicos y sitios web sospechosos.</li>
+                        <li>Utilizar una conexión a internet segura.</li>
+                        <li>Ser consciente de las últimas amenazas de seguridad.</li>
+                    </ul>
+
                 </article>
             </section>
         </main>

@@ -4,9 +4,9 @@
 
 /* Tipografía */
 @font-face {
-  font-family: "HexosR";
-  src: url("../font/HexosRegular.woff2") format("woff2"),
-    url("../font/HexosRegular.woff") format("woff");
+  font-family: "Hexos";
+  src: url("../font/Apercu_regular.woff2") format("woff2"),
+    url("../font/Apercu_regular.woff") format("woff");
 }
 @font-face {
   font-family: "HexosI";
@@ -55,7 +55,7 @@
 /* ESTILOS GENERALES */
 /* ============================================ */
 html {
-  /* font-family: "HexosR" "Arial"; */
+  font-family: "Hexos";
   font-size: 1em;
   scroll-behavior: smooth;
 
@@ -488,10 +488,12 @@ html {
 /* --------------------------------------------- */
 /* Apartado del contenido de la pagina del generador (generador.html) */
 #body__generador {
+  width: 100%;
   height: 100%;
-  background-image: url(../svg/lineas_fondo.svg) cover;
+  background-image: url(../svg/lineas_fondo.svg);
+  background-size: 100%;
   background-position: left top;
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
 
   & #generador {
     width: 600px;
@@ -502,9 +504,9 @@ html {
     & .generador__main {
       padding: 20px 0;
 
-      & h6 {
+      & h5 {
         margin: 5px 0;
-        font-family: "HexosI" "serif";
+        font-size: 12px;
       }
 
       /* Apartado de la sesion */
@@ -513,11 +515,6 @@ html {
         flex-direction: row;
         justify-content: space-between;
         padding: 10px 0;
-
-        & p > b {
-          text-transform: uppercase;
-          font-style: italic;
-        }
 
         & a {
           color: var(--color-marfil);
@@ -554,12 +551,12 @@ html {
         align-items: center;
         justify-content: space-around;
         background: rgba(255, 255, 255, 0);
-        border-radius: 16px;
+        border-radius: 10px;
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         backdrop-filter: blur(2.3px);
         -webkit-backdrop-filter: blur(2.3px);
         border: 1px solid rgba(255, 255, 255, 0.19);
-        border-radius: 10px;
+        padding: 20px 0;
 
         /* El texto de la contraseña */
         & .generador__main-contrasena-texto {
@@ -592,7 +589,7 @@ html {
       & .generador__main-opciones {
         display: flex;
         justify-content: space-between;
-        padding: 5px;
+        padding: 10px 0;
         font-size: 20px;
       }
 
@@ -631,6 +628,7 @@ html {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding: 20px 0;
 
         & article {
           width: fit-content;
@@ -700,24 +698,35 @@ html {
         flex-direction: column;
         width: 100%;
         padding-top: 80px;
-        gap: 50px;
         text-wrap: pretty;
 
+        /* Animacion de entrada */
+        view-timeline: --texto;
+        view-timeline-axis: block;
+        animation-timeline: --texto;
+        animation-name: show;
+        animation-range: entry 25% cover 28%;
+        animation-fill-mode: both;
+
+        & .generador__main-info-titulo {
+          border-bottom: 0.8px solid var(--color-marfil);
+          margin-bottom: 20px;
+        }
         & article {
-          /* Animacion de aparición */
-          view-timeline: --texto;
-          view-timeline-axis: block;
-          animation-timeline: --texto;
-          animation-name: show;
-          animation-range: entry 25% cover 28%;
-          animation-fill-mode: both;
+          padding-bottom: 20px;
 
           & h3 {
-            font-weight: 700;
+            font-weight: 600;
             margin: 10px 0;
           }
-          & ul li {
-            list-style: circle;
+
+          & p {
+            font-weight: 200;
+            padding-bottom: 5px;
+          }
+
+          & ul > li {
+            list-style: "- ";
             list-style-position: inside;
           }
         }
