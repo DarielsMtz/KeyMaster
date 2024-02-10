@@ -1,6 +1,15 @@
 <?php
 // Inicialisamos la sesion
 session_start();
+
+// Verificar si el usuario ha iniciado sesión
+if (!isset($_SESSION['nombre'])) {
+    // die("Usuario no autenticado");
+    echo "<script>
+            alert('¡Espera, Sherlock! Antes de explorar más, asegúrate de registrarte. Tu destino está a un clic de distancia.');
+            window.location.href = 'index.html';
+          </script>";
+}
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +43,10 @@ session_start();
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
     <!-- Enlace de inconos de interfaz -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
 
     <!-- links de estilos -->
     <link rel="stylesheet" href="css/style.css" />

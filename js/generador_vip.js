@@ -208,6 +208,7 @@ function copiarTexto(texto) {
   alert("Contraseña copia en el portapapel");
 }
 
+// TODO Implementar la funcionalidad del boton borrar
 // Funcion para eliminar una contraseña
 function borrarContrasena(contrasena) {
   // Agrega aquí la lógica para borrar la contraseña de la base de datos
