@@ -586,6 +586,10 @@ html {
         justify-content: space-between;
         padding: 10px 0;
         font-size: 20px;
+
+        & .generador__main__opciones-simbolos > span {
+          color: #cd5c5c;
+        }
       }
 
       /* Apartado de las longitudes */

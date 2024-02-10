@@ -66,6 +66,7 @@ function generarContrasenaVIP() {
   let LetrasMayusculasConsecutivas = 0;
   let NumerosConsecutivos = 0;
   let LetrasMinusculasConsecutivas = 0;
+  let SimbolosConsecutivos = 0;
 
   while (contrasena_vip.length < tamano_vip) {
     const num_aleatorio_vip = Math.floor(Math.random() * cadena.length);
@@ -79,6 +80,16 @@ function generarContrasenaVIP() {
       }
     } else {
       LetrasMayusculasConsecutivas = 0;
+    }
+
+    // Se verifica si hay simbolos consecutivos
+    if (/[!#$%&/*+-_?@]/.test(nuevo_caracter_vip)) {
+      SimbolosConsecutivos++;
+      if (SimbolosConsecutivos === 2) {
+        continue;
+      } else {
+        SimbolosConsecutivos = 0;
+      }
     }
 
     // Se verifica si hay letras minusculas consecutivas

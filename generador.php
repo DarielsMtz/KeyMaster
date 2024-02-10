@@ -34,9 +34,7 @@ session_start();
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
     <!-- Enlace de inconos de interfaz -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
     <!-- links de estilos -->
     <link rel="stylesheet" href="css/style.css" />
@@ -46,7 +44,7 @@ session_start();
     <!-- Código de las plataformas de Análisis -->
     <script></script>
     <!-- Scripts a cargar antes de la renderización -->
-    <!-- <script src="preloader.js"></script> -->
+
 </head>
 
 <body id="body__generador">
@@ -103,9 +101,11 @@ session_start();
                 </label>
 
                 <!-- Simbolos -->
-                <label>
+                <label class="generador__main__opciones-simbolos">
                     <input type="checkbox" name="simbolos" id="simbolos" />
-                    !@#$*%^&
+                    <span>
+                        !@#$*%^&
+                    </span>
                 </label>
             </section>
 
