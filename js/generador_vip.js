@@ -199,32 +199,13 @@ document
 // ACCIONES DE LA PAGINA DEL LISTADO DE CONTRASEÑAS
 // Funcion para copiar el texto al portapapeles
 function copiarTexto(texto) {
-  var textarea = document.createElement("textarea");
-  textarea.value = texto;
-  document.body.appendChild(textarea);
-  textarea.select();
+  var copiar_contrasena = document.createElement("textarea");
+  copiar_contrasena.value = texto;
+  document.body.appendChild(copiar_contrasena);
+  copiar_contrasena.select();
   document.execCommand("copy");
-  document.body.removeChild(textarea);
+  document.body.removeChild(copiar_contrasena);
   alert("Contraseña copia en el portapapel");
 }
 
 // TODO Implementar la funcionalidad del boton borrar
-// Funcion para eliminar una contraseña
-function borrarContrasena(contrasena) {
-  // Agrega aquí la lógica para borrar la contraseña de la base de datos
-  // Puedes usar AJAX para enviar una solicitud al servidor y realizar la eliminación
-  // Aquí un ejemplo de cómo podrías hacerlo con jQuery
-
-  $.ajax({
-    url: "../php/acciones_listado.php",
-    type: "POST",
-    data: { contrasena: contrasena },
-    success: function (response) {
-      // Manejar la respuesta del servidor, por ejemplo, recargar la página
-      location.reload();
-    },
-    error: function (error) {
-      console.error("Error al borrar contraseña:", error);
-    },
-  });
-}
