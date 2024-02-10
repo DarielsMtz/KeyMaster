@@ -93,7 +93,7 @@ if (!isset($_SESSION['nombre'])) {
 
                 // Si no hay contraseñas guardadas por el usuario
                 if ($resultado->num_rows == 0) {
-                    echo "<p>No se han encontrado contraseñas</p>";
+                    echo "<p>¡Ups! Parece que aún no has almacenado ninguna contraseña. <br>¡Ve y crea algunas experiencias seguras!</p>";
                 } else {
                     // En el caso de que el usuario tenga contraseñas guardadas
                     echo "<h2>Contraseñas Almacenadas:</h2>";
@@ -110,6 +110,7 @@ if (!isset($_SESSION['nombre'])) {
                                 <button id='copiar' class='copiar' type='button' onclick='copiarTexto(\"" . $fila['contrasena'] . "\")'>
                                     Copiar<img  src='../svg/Boton_copiar.svg' alt='Icono de copiar' />
                                 </button>
+                            
                                 <button id='borrar' class='borrar' type='button' onclick='borrarTexto(\"" . $fila['contrasena'] . "\")'>
                                     Borrar<img  src='../svg/Boton_borrar.svg' alt='Icono de borrar' />
                                 </button>
@@ -118,6 +119,7 @@ if (!isset($_SESSION['nombre'])) {
                         echo "</tr>";
                     }
                     echo "</table>";
+                    // TODO Implementar la logica de borrar la contraseña
                     // Liberar el resultado
                     $resultado->free_result();
                 }
