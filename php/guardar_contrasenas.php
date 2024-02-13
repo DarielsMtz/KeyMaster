@@ -1,36 +1,33 @@
 <?php
 session_start();
 
-// Incluimos el archivo de conexión 
-include 'conexion.php';
-
-
 // Verificar si el usuario ha iniciado sesión
 if (!isset($_SESSION['nombre'])) {
     die("Usuario no autenticado");
 }
 
 // Conexión a la base de datos
-// $conexion = new mysqli("localhost", "admin", "admin123", "keymaster");
+$conexion = new mysqli("localhost", "admin", "admin123", "keymaster");
 
+// Verificar la conexión
+if ($conexion->connect_error) {
+    die("Conexión fallida: " . $conexion->connect_error);
+}
 
 // Obtener el usuario de la sesión
 $usuario = $_SESSION['nombre'];
 $id_usuario = $_SESSION['id_usuario'];
-$contrasena = $_POST['contrasena']; // Obtener la contraseña de la sesión
+
+// Obtener la contraseña de la sesión
+$contrasena = $_POST['contrasena'];
 
 // Insertar la contraseña en la base de datos vinculada al usuario
-$pdo = new Conexion();
-$sql = $pdo->prepare("INSERT INTO contrasenas (contrasena, id_usuario, usuario) VALUES ('$contrasena', '$id_usuario','$usuario')");
-$sql->execute();
-$sql->setFetchMode(PDO::FETCH_ASSOC);
-header("HTTP/1.1 200 OK");
-
-$resultado = $sql->fetchAll();
-
-// Verificar si la consulta fue exitosa
-if ($resultado) {
-    echo "Contraseña guardada con éxito";
+$sql = "INSERT INTO contrasenas (contrasena, id_usuario, usuario) VALUES ('$contrasena', '$id_usuario','$usuario')";
+if ($conexion->query($sql) === TRUE) {
+    echo "Contraseña almacenada correctamente en la base de datos";
 } else {
-    echo "Error al intentar guardar la contraseña: ";
+    echo "Error al almacenar la contraseña: " . $conexion->error;
 }
+
+// Cerrar la conexión
+$conexion->close();
