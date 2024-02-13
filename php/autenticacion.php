@@ -65,6 +65,7 @@
 
 
 session_start();
+include 'conexion.php';
 
 // Recibe los datos del formulario
 $usuario = $_POST['usuario'];
