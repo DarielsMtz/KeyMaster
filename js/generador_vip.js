@@ -208,4 +208,24 @@ function copiarTexto(texto) {
   alert("Contraseña copia en el portapapel");
 }
 
-// TODO Implementar la funcionalidad del boton borrar
+// Funcion para borrar una contraseña
+function borrarTexto(contrasena) {
+  // Pregunta al usuario si realmente desea borrar la contraseña
+  var confirmacion = confirm(
+    "¿Estás seguro de que deseas borrar esta contraseña?"
+  );
+
+  if (confirmacion) {
+    // Realiza una solicitud AJAX para borrar la contraseña en el servidor
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        // Actualiza la página después de borrar la contraseña
+        location.reload();
+      }
+    };
+    xhr.open("POST", "borrar_contrasena.php", true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.send("contrasena=" + contrasena);
+  }
+}
