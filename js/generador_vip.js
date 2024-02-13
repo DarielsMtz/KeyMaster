@@ -184,7 +184,7 @@ document
     }
     // Realizar la solicitud AJAX al script PHP
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "guardar_contrasenas.php", true);
+    xhr.open("POST", "./php/guardar_contrasenas.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
     xhr.onreadystatechange = function () {

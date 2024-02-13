@@ -120,6 +120,7 @@ if (!isset($_SESSION['nombre'])) {
                     }
                     echo "</table>";
                     // TODO Implementar la logica de borrar la contraseña
+                    
                     // Liberar el resultado
                     $resultado->free_result();
                 }
