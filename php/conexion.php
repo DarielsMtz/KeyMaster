@@ -1,56 +1,26 @@
 <?php
-session_start();
+// ----------Conexion a la base de datos mediante PDO----------------------
+class Conexion extends PDO
+{
+    private $tipo_de_base = 'mysql';
+    private $host = 'bbdd.darielsmartinezedib.com';
+    private $nombre_de_base = 'ddb219218';
+    private $usuario = 'ddb219218';
+    private $contrasena = 'vmKvQ1Iix+JXr)';
 
-// Datos de acceso a Mysql
-$host = "bbdd.darielsmartinezedib.com";
-$user = "ddb219218";
-$pass = "vmKvQ1Iix+JXr";
-$bd = "";
-
-// Realización de la conexion 
-$conexion = mysqli_connect($host, $user, $pass, $bd);
-if ($conexion) {
-    echo "Conexion exitosa";
-
-    // Creacion de la base de datos keymaster
-    $sql = "CREATE DATABASE IF NOT EXISTS keymaster";
-    $resultado = mysqli_query($conexion, $sql);
-    if ($resultado) {
-        echo "<br>Base de datos '<b>keymaster</b>' creada";
-
-        // Creacion de las tablas de la base de datos
-        $sql = "CREATE TABLE IF NOT EXISTS keymaster.usuarios (
-                id_usuario INT NOT NULL AUTO_INCREMENT,
-                nombre VARCHAR(255) NOT NULL,
-                correo VARCHAR(255) NOT NULL,
-                contrasena VARCHAR(255) NOT NULL,
-                PRIMARY KEY (id_usuario))";
-
-        $resultado = mysqli_query($conexion, $sql);
-        if ($resultado) {
-            echo "<br>Tabla '<b>usuarios</b>' creada";
-        } else {
-            echo "<br>Tabla '<b>usuarios</b>' no creada";
+    public function __construct()
+    {
+        try {
+            parent::__construct(
+                $this->tipo_de_base . ':host=' .
+                    $this->host . ';dbname=' .
+                    $this->nombre_de_base,
+                $this->usuario,
+                $this->contrasena
+            );
+            echo 'Conexión exitosa';
+        } catch (PDOException $e) {
+            echo 'Error al conectar a la base de datos: ' . $e->getMessage();
         }
-    } else {
-        echo "Error al crear la base de datos keymaster";
     }
-
-    // Creacion de la tabla de contraseñas
-    $sql = "CREATE TABLE IF NOT EXISTS keymaster.contrasenas (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        contrasena VARCHAR(255) NOT NULL,
-        fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        id_usuario INT NOT NULL,
-        usuario VARCHAR(225) NOT NULL
-      );";
-
-    $resultado = mysqli_query($conexion, $sql);
-    if ($resultado) {
-        echo "<br>Tabla '<b>contrasenas</b>' creada";
-    } else {
-        echo "<br>Tabla '<b>contrasenas</b>' no creada";
-    }
-} else {
-    echo "Error al conectar a la base de datos";
 }
