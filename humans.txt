@@ -1,21 +1,22 @@
-/* TEAM */
+/* EQUIPO */
 
-Developer and Designer: Dariels Marttinez
-Contact: darielsmartinez926@gamil.com
+Desarrollador y Diseñador: Dariels Martinez
+Contacto: darielsmartinez926@gmail.com
 LinkedIn: @darielsmtz
-Location: Mallorca, España
+Ubicación: Mallorca, España
 
-/* THANKS */
+/* AGRADECIMIENTOS */
 
-Thanks to:
+Gracias a:
 
 * [Lista de agradecimientos]
 
-/* SITE */
 
-Last update: 2023-07-20
-Language: Spanish
+/* SITIO */
+
+Última actualización: 2024-02-14
+Idioma: Español
 Doctype: HTML5
-Language: HTML5, CSS, JavaScript, PHP, MySql
-Components: Material UI/UX
+Lenguajes: HTML5, CSS, JavaScript, PHP, MySql
+Componentes: Material UI/UX
 

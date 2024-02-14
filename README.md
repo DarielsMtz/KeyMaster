@@ -17,3 +17,4 @@ En este modo, los usuarios pueden aprovechar un generador básico de contraseña
 El modo con registro ofrece un generador de contraseñas con funcionalidades adicionales y emocionantes. Además de generar contraseñas aleatorias, los usuarios pueden guardarlas de manera segura en una base de datos. Esto proporciona tranquilidad al contar con un lugar seguro para almacenar y acceder a las contraseñas cuando sea necesario. El modo con registro también ofrece opciones de configuración avanzadas para personalizar la generación de contraseñas según las preferencias individuales.
 
 ###### _Copyright 2024 - Dariels Martinez_ 
+

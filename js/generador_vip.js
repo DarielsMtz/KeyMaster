@@ -175,7 +175,7 @@ document
   .addEventListener("click", function () {
     let contrasena = document.getElementById("password_vip").value;
     if (contrasena === "") {
-      alert("No se puede guardar una contraseña en blanco!!!");
+      alert("No se puede  guardar una contraseña en blanco!!!");
       return;
     }
     // Realizar la solicitud AJAX al script PHP
