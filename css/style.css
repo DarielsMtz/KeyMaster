@@ -1,6 +1,8 @@
 /* *********************************** */
+/* Apartado de las importaciones */
 @import url(normalize.min.css);
 @import url(reset.css);
+/* *********************************** */
 
 /* Tipografía */
 @font-face {
@@ -8,16 +10,10 @@
   src: url("../font/Apercu_regular.woff2") format("woff2"),
     url("../font/Apercu_regular.woff") format("woff");
 }
-@font-face {
-  font-family: "HexosI";
-  src: url("../font/HexosItalic.woff2") format("woff2"),
-    url("../font/HexosItalic.woff") format("woff");
-}
 
-/* -------------------------------------------- */
-/* Variables */
+/* --------- Variables -------------- */
+/* colores */
 :root {
-  /* colores */
   --color-amarillo-suave: #fbd544;
   --color-azul-grisado: #2f343d;
   --color-azul-lila: #b4ccf9;
@@ -29,16 +25,17 @@
   --color-marfil: #dae0e6;
   --color-rojo-suave: #e45f5f;
   --color-verde-suave: #88c34a;
+}
 
-  /* numbers */
+/* Tamaños */
+:root {
   --padding: 1.25rem;
   --tamano-minimo: 1200px;
   --tamano-maximo: 1920px;
 }
-/* -------------------------------------------- */
 
-/* -------------------------------------------- */
-/* Animacion de vista */
+/* ---------- Animaciones ------------ */
+/* Animacion de aparición */
 @keyframes show {
   from {
     opacity: 0;
@@ -49,11 +46,8 @@
     scale: 100%;
   }
 }
-/* -------------------------------------------- */
 
-/* ============================================ */
-/* ESTILOS GENERALES */
-/* ============================================ */
+/* ========== ESTILOS GENERALES ============== */
 html {
   font-family: "Hexos";
   font-size: 1em;
@@ -68,7 +62,6 @@ html {
     background-color: var(--color-azul-marino);
     background-position: center;
     background-size: cover;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -94,10 +87,12 @@ html {
         padding: var(--padding);
         font-size: 18px;
 
+        /* Estilod para los enlaces de los titulos */
         & h5 a {
           text-decoration: none;
           color: var(--color-gris-asuladob);
 
+          /* Efecto de cernerse */
           &:hover {
             color: var(--color-amarillo-suave);
           }
@@ -107,10 +102,10 @@ html {
   }
 }
 
-/* -------------------------------------------- */
-/* Apartado del contenedor inicio de sesion (inicio_sesion.html) */
+/* -------- ESTILOS DE LA PAGINA DE INICIO DE SESION (inicio_sesion.html)----------- */
+/* Contenedor Principal */
 #container {
-  /* Apartado de header del main */
+  /* Apartado de encabezado principal*/
   & .container__main-header {
     display: flex;
     justify-content: center;
@@ -129,15 +124,13 @@ html {
     padding: var(--padding);
     border-radius: 7px;
     border: 2px solid #ffffff1a;
-
     background: rgba(255, 255, 255, 0.05);
-    /* border-radius: 16px; */
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(2px);
     border: 1px solid rgba(255, 255, 255, 0.12);
 
-    /* Apartado de los titulos */
+    /* Apartado de los sutitulos de los campos*/
     & label {
       align-self: stretch;
       flex: 1;
@@ -170,6 +163,7 @@ html {
       text-align: center;
       font-size: 20px;
 
+      /* Estilos de cernerse */
       &:hover {
         background-color: var(--color-gris-lcaro-asulado);
         transform: scale(1.01);
@@ -195,6 +189,7 @@ html {
       justify-content: space-around;
       gap: 10px;
 
+      /* Estilos para los enlaces */
       & a {
         text-decoration: none;
         color: var(--color-marfil);
@@ -211,14 +206,15 @@ html {
     }
   }
 }
-/* -------------------------------------------- */
 
-/* -------------------------------------------- */
-/* Apartado del contenido de la pagina registro (registro.html) */
+/* -------- ESTILOS DE LA PAGINA DE REGISTRO (registro.html) ----------- */
+/* Cuerpo de la pagina */
 #body__registro {
   height: 100%;
 
+  /* Apartado de contenedor principal */
   #registro {
+    /* Estilos de titulo */
     & .registro__main h1 {
       text-align: center;
       padding: var(--padding);
@@ -234,9 +230,7 @@ html {
       padding: var(--padding);
       border-radius: 7px;
       border: 2px solid #ffffff1a;
-
       background: rgba(255, 255, 255, 0.05);
-      /* border-radius: 16px; */
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
       backdrop-filter: blur(2px);
       -webkit-backdrop-filter: blur(2px);
@@ -258,7 +252,6 @@ html {
         display: flex;
         flex-direction: row;
         align-items: center;
-        /* padding: 10px 0; */
       }
 
       /* Apartado de los campos */
@@ -269,7 +262,7 @@ html {
         padding: 5px;
       }
 
-      /* Apartado del boton */
+      /* Apartado de los botones */
       button[type="submit"],
       button[type="reset"] {
         width: 100%;
@@ -313,6 +306,7 @@ html {
         border-radius: 10px;
       }
 
+      /* Apartado del sutitulo del campo */
       & .registro__main-form-checkbox label {
         display: flex;
         gap: 10px;
@@ -339,10 +333,9 @@ html {
     }
   }
 }
-/* --------------------------------------------- */
 
-/* --------------------------------------------- */
-/* Apartado del contenido de la pagina invidato(index.html) */
+/* --------- ESTILOS DE LA PAGINA DE INVITADO (index.html)-------- */
+/* Cuerpo de la pagina */
 #body__invitado {
   height: 100%;
   background-image: url(../svg/fondo_simple.svg);
@@ -350,10 +343,12 @@ html {
   background-size: cover;
   background-position: center;
 
+  /* Contenedor principal */
   #invitado {
     width: 800px;
     height: 100%;
 
+    /* Apartado del main */
     & .invitado__main {
       padding: 50px;
     }
@@ -379,6 +374,7 @@ html {
         font-size: 32px;
         text-align: center;
 
+        /* Estilos para el campo de texto */
         & input[type="text"] {
           padding: 25px 100px;
           border-radius: 8px;
@@ -396,6 +392,7 @@ html {
       }
     }
 
+    /* Apartado de los botones */
     & .invitado__main-accion {
       display: flex;
       flex-direction: row;
@@ -456,7 +453,7 @@ html {
       gap: 50px;
       text-wrap: pretty;
 
-      /* Animacion de aparición */
+      /* Animacion de entrada */
       view-timeline: --texto;
       view-timeline-axis: block;
       animation-timeline: --texto;
@@ -477,18 +474,17 @@ html {
     }
   }
 }
-/* --------------------------------------------- */
 
-/* --------------------------------------------- */
-/* Apartado del contenido de la pagina del generador (generador.html) */
+/* ------- ESTILOS DE LA PAGINA DEL GENERADOR NORMAL (generador.html)------------- */
+/* Cuerpo de la pagina */
 #body__generador {
   width: 100%;
   height: 100%;
   background-image: url(../svg/lineas_fondo.svg);
   background-size: 100%;
   background-position: left top;
-  /* background-repeat: no-repeat; */
 
+  /* Contenedor principal */
   & #generador {
     width: 600px;
     overflow: visible !important;
@@ -498,6 +494,7 @@ html {
     & .generador__main {
       padding: 20px 0;
 
+      /* Apartado del encabezado */
       & h5 {
         margin: 5px 0;
         font-size: 12px;
@@ -559,6 +556,7 @@ html {
           font-size: 32px;
           text-align: center;
 
+          /* Estilos para el campo de texto */
           & input[type="text"] {
             background: transparent;
             text-align: center;
@@ -667,6 +665,7 @@ html {
             width: 70%;
           }
 
+          /* Estilos para el tooltip */
           & .generador__main-botones-tooltiptext {
             visibility: hidden;
             width: 120px;
@@ -685,6 +684,7 @@ html {
           }
         }
 
+        /* Estilos para el boton de historial */
         .generador__main-botones-tooltip:hover
           .generador__main-botones-tooltiptext {
           visibility: visible;
@@ -734,10 +734,9 @@ html {
     }
   }
 }
-/* --------------------------------------------- */
 
-/* ---------------------------------------------- */
-/* Apartado del contenido de la pagina de politica de privacidad */
+/* --------- ESTILOS DE LA PAGINA DE LAS POLITICAS ---------- */
+/* Cuerpo de la pagina */
 #body__privacidad,
 #body__cookies {
   display: flex;
@@ -751,6 +750,7 @@ html {
   #privacidad,
   #cookies {
     padding: var(--padding);
+
     /* Apartado del main */
     & .privacidad__main {
       max-width: 900px;
@@ -807,16 +807,16 @@ html {
     }
   }
 }
-/* ---------------------------------------------- */
 
-/* ---------------------------------------------- */
-/* Apartado del contenido de la pagina de las contraseñas */
+/* ----------- ESTILOS DE LA PAGINA DEL LISTADO DE CONTRASEÑAS -------------- */
+/* Contenedor principal */
 #contrasenas {
   background: url(../svg/fondo_simple.svg) center/cover;
   background-repeat: no-repeat;
   height: 100%;
   user-select: none;
 
+  /* Apartado del contenedor */
   & .container {
     padding: 100px;
     & main {
@@ -828,6 +828,7 @@ html {
       backdrop-filter: blur(2.6px);
       -webkit-backdrop-filter: blur(2.6px);
 
+      /* Apartado del encabezado */
       & .contrasenas__sesion {
         display: flex;
         justify-content: space-between;
@@ -845,22 +846,26 @@ html {
         }
       }
 
+      /* Apartado del titulo */
       & h2 {
         text-align: center;
         padding: 10px 0;
       }
 
+      /* Apartado de la tabla */
       table {
         border-collapse: collapse;
         width: 100%;
         text-align: center;
       }
 
+      /* Apartado de las celdas */
       th,
       td {
         border-bottom: 1px solid var(--color-marfil);
         padding: 2px 0;
 
+        /* Estilos de los botones de accion */
         & .btn_accion {
           border: none;
           width: 100%;

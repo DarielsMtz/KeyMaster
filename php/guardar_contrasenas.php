@@ -17,9 +17,7 @@ if ($conexion->connect_error) {
 // Obtener el usuario de la sesión
 $usuario = $_SESSION['nombre'];
 $id_usuario = $_SESSION['id_usuario'];
-
-// Obtener la contraseña de la sesión
-$contrasena = $_POST['contrasena'];
+$contrasena = $_POST['contrasena']; // Obtener la contraseña de la sesión
 
 // Insertar la contraseña en la base de datos vinculada al usuario
 $sql = "INSERT INTO contrasenas (contrasena, id_usuario, usuario) VALUES ('$contrasena', '$id_usuario','$usuario')";

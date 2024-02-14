@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtener el usuario de la sesión
     $usuario = $_SESSION['nombre'];
     $id_usuario = $_SESSION['id_usuario'];
-    $contrasena_a_borrar = $_POST['contrasena'];
+    $contrasena_a_borrar = $_POST['contrasena']; // Obtener la contraseña de la sesión
 
     // Consulta para borrar la contraseña específica
     $borrar_contrasena = "DELETE FROM contrasenas WHERE id_usuario = ? AND contrasena = ?";

@@ -18,10 +18,9 @@ if (!isset($_SESSION['nombre'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- SEO = Básico -->
     <!-- Cada página del sitio tiene que ser diferente el título y la descripción -->
-    <title>KeyMaster</title>
+    <title>KeyMaster - Caja Fuerte</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-
     <!-- Etiquetas Open Graph y Twitter Card, para crear el SEO de Redes Sociales -->
     <meta property="og:title" content="Título de tu página" />
     <meta property="og:description" content="Descripción de tu página" />
@@ -32,30 +31,20 @@ if (!isset($_SESSION['nombre'])) {
     <meta name="twitter:title" content="Título de tu página" />
     <meta name="twitter:description" content="Descripción de tu página" />
     <meta name="twitter:image" content="URL de la imagen que quieres mostrar en Twitter" />
-
     <!-- App Web, inidicar al navegador que elementos mostrar en un JSON -->
     <link rel="manifest" href="site.webmanifest" />
-
     <!-- icono de acceso para IOS -->
     <link rel="apple-touch-icon" href="icon.png" />
-
     <!-- Recordar que favicon.ico tiene que estar en el directorio inicial -->
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
-
     <!-- Enlace de inconos de interfaz -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
         integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
-
     <!-- links de estilos -->
     <link rel="stylesheet" href="../css/style.css" />
-
     <!-- Se cambia el tema de algunos navegadores -->
     <meta name="theme-color" content="#fafafa" />
-
-    <!-- Código de las plataformas de Análisis -->
-    <script></script>
-    <!-- Scripts a cargar antes de la renderización -->
 </head>
 
 <body id="contrasenas">
@@ -64,7 +53,7 @@ if (!isset($_SESSION['nombre'])) {
             <!-- Apartado del saludo al usuario -->
             <section class="contrasenas__sesion">
                 <p>Tú caja fuerte, <b><?php echo $_SESSION['nombre'] ?></b></p>
-                <a href="../generador.php">
+                <a href="./generador.php">
                     <img src="../svg/equis.svg" alt="Icono de equis">
                 </a>
             </section>

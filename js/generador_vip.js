@@ -25,7 +25,7 @@ const incluir_todas = document.getElementById("todas_opciones");
 // Declarar un array para almacenar el historial de contraseñas
 let historialContraseñas = [];
 
-// -------------------------------------------------------------------
+// ------------ ACCIONES DE LA PAGINA DEL GENERADOR V.I.P --------------------
 // Función para generar la cadena de caracteres según las opciones seleccionadas
 function generarCadena() {
   let cadena = "";
@@ -146,11 +146,7 @@ document
   .getElementById("generar_vip")
   .addEventListener("click", generarContrasenaVIP);
 
-// Evento para mostrar un hostorial de contraseñas localemente
-// document
-//   .getElementById("historial")
-//   .addEventListener("click", mostrarHistorial);
-
+// -------------------------------------------------------------------
 // evento para copiar la contraseña generada
 document.getElementById("copiar").addEventListener("click", function () {
   const campo_contrasena = document.getElementById("password_vip");
@@ -184,7 +180,7 @@ document
     }
     // Realizar la solicitud AJAX al script PHP
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "./php/guardar_contrasenas.php", true);
+    xhr.open("POST", "../php/guardar_contrasenas.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
     xhr.onreadystatechange = function () {
@@ -195,8 +191,7 @@ document
     xhr.send("contrasena= " + contrasena);
   });
 
-// ---------------------------------------------------------------
-// ACCIONES DE LA PAGINA DEL LISTADO DE CONTRASEÑAS
+// ------------- ACCIONES DE LA PAGINA DEL LISTADO DE CONTRASEÑAS ----------------
 // Funcion para copiar el texto al portapapeles
 function copiarTexto(texto) {
   var copiar_contrasena = document.createElement("textarea");
@@ -224,7 +219,7 @@ function borrarTexto(contrasena) {
         location.reload();
       }
     };
-    xhr.open("POST", "borrar_contrasena.php", true);
+    xhr.open("POST", "../php/borrar_contrasena.php", true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send("contrasena=" + contrasena);
   }

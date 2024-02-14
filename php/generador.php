@@ -20,10 +20,9 @@ if (!isset($_SESSION['nombre'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- SEO = Básico -->
     <!-- Cada página del sitio tiene que ser diferente el título y la descripción -->
-    <title>KeyMaster - Generador</title>
+    <title>KeyMaster - Generador-Pro</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-
     <!-- Etiquetas Open Graph y Twitter Card, para crear el SEO de Redes Sociales -->
     <meta property="og:title" content="Título de tu página" />
     <meta property="og:description" content="Descripción de tu página" />
@@ -34,29 +33,20 @@ if (!isset($_SESSION['nombre'])) {
     <meta name="twitter:title" content="Título de tu página" />
     <meta name="twitter:description" content="Descripción de tu página" />
     <meta name="twitter:image" content="URL de la imagen que quieres mostrar en Twitter" />
-
     <!-- App Web, inidicar al navegador que elementos mostrar en un JSON -->
     <link rel="manifest" href="site.webmanifest" />
-
     <!-- icono de acceso para IOS -->
     <link rel="apple-touch-icon" href="icon.png" />
-
     <!-- Recordar que favicon.ico tiene que estar en el directorio inicial -->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-
     <!-- Enlace de inconos de interfaz -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
     <!-- links de estilos -->
-    <link rel="stylesheet" href="css/style.css" />
-
+    <link rel="stylesheet" href="../css/style.css" />
     <!-- Se cambia el tema de algunos navegadores -->
     <meta name="theme-color" content="#fafafa" />
-
-    <!-- Código de las plataformas de Análisis -->
-    <script></script>
-    <!-- Scripts a cargar antes de la renderización -->
-
 </head>
 
 <body id="body__generador">
@@ -65,7 +55,7 @@ if (!isset($_SESSION['nombre'])) {
             <!-- Apartado del saludo al usuario -->
             <section class="generador__main-sesion">
                 <p>Bienvenido, <b> <?php echo $_SESSION['nombre'] ?></b></p>
-                <a href="php/cierre_sesion.php"><i class="fas fa-sign-out-alt"></i>Cerrar Sesion</a>
+                <a href="cierre_sesion.php"><i class="fas fa-sign-out-alt"></i>Cerrar Sesion</a>
             </section>
 
             <!-- Apartado del encabezado de main -->
@@ -81,7 +71,7 @@ if (!isset($_SESSION['nombre'])) {
 
                 <!-- Boton de copiar -->
                 <button id="copiar" type="button" class="genarador__main-contrasena-btn_copiar">
-                    <img src="svg/Boton_copiar.svg" alt="Icono de copiar" />
+                    <img src="../svg/Boton_copiar.svg" alt="Icono de copiar" />
                 </button>
             </section>
             <h5>Las contraseñas generadas estan compuestas entre 8 a 15 caracteres*</h5>
@@ -148,8 +138,8 @@ if (!isset($_SESSION['nombre'])) {
 
                 <!-- Boton de historial -->
                 <article class="generador__main-botones-tooltip">
-                    <a href="php/acciones_listado.php" id="historial">
-                        <img src="svg/reloj.svg" alt="Icono de reloj" />
+                    <a href="./acciones_listado.php" id="historial">
+                        <img src="../svg/reloj.svg" alt="Icono de reloj" />
                     </a>
                     <div class="generador__main-botones-tooltiptext">Caja Fuerte</div>
                 </article>
@@ -242,6 +232,6 @@ if (!isset($_SESSION['nombre'])) {
         </footer>
     </div>
 </body>
-<script src="js/generador_vip.js"></script>
+<script src="../js/generador_vip.js"></script>
 
 </html>
