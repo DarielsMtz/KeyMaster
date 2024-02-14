@@ -1,21 +1,17 @@
 <?php
-// Datos de conexion
-$bbdd_host = 'localhost';
-$bbdd_user = 'admin';
-$bbdd_pass = 'admin123';
-$bbdd_name = 'keymaster';
+// Importamos la conexion a la base de datos
+require_once 'conexion.php';
 
 // Validacion del metodo de envio del formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validar campos aquí (por ejemplo, longitud, formato, etc.)
-    $correo = htmlentities($_POST["Correo"]);
+    $correo = $_POST["Correo"];
     $nombre = $_POST["Nombre"];
     $contrasena = $_POST["Contrasena"];
     $confirmar = $_POST["Confirmar"];
 
     // ------------------------------------------------------
-    // VALIDACIONES NECESARIAS  
-
+    // VALIDACIONES NECESARIAS  PARA EL REGISTRO DE USUARIOS
     // Funcion de validaciones
     function validar_registro($correo, $nombre, $contrasena, $confirmar)
     {
@@ -26,7 +22,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (empty($correo) ||  empty($nombre) || empty($contrasena) || empty($confirmar)) {
             $errores[] = "Todos los campos son obligatorios.";
         }
-
 
         // Validacion al campo de correo 
         if (empty($correo) || !filter_var($correo, FILTER_VALIDATE_EMAIL)) {
@@ -50,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     } else {
         // Si no hay errores, procede a la inserción en la base de datos
-        $mysqli = new mysqli($bbdd_host, $bbdd_user, $bbdd_pass, $bbdd_name);
+        $mysqli = obtener_conexion();
 
         // Verificar la conexión
         if ($mysqli->connect_error) {

@@ -1,20 +1,11 @@
 <?php
 // Inciamos la sesion
 session_start();
+// Importamos la conexion a la base de datos
+require_once 'conexion.php';
 
-// Datos de conexion
-$bbdd_host = 'localhost';
-$bbdd_user = 'admin';
-$bbdd_pass = 'admin123';
-$bbdd_name = 'keymaster';
-
-// ----------------------------------------------------------------
-// Realizamos la conexion con MySQL
-$conector = mysqli_connect($bbdd_host, $bbdd_user, $bbdd_pass, $bbdd_name);
-if (mysqli_connect_errno()) {
-    echo "No se pudo conectar a la base de datos";
-    exit();
-}
+// Obtenemos la conexion a la base de datos
+$conector = obtener_conexion();
 
 // ----------------------------------------------------------------
 // Verificamos que los campos de inicio de sesion esten rellenados

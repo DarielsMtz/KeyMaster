@@ -7,7 +7,6 @@ if (!isset($_SESSION['nombre'])) {
              window.location.href = '../index.html';
         </script>";
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -58,8 +57,11 @@ if (!isset($_SESSION['nombre'])) {
                 </a>
             </section>
             <?php
-            // Conexión a la base de datos
-            $conexion = new mysqli("localhost", "admin", "admin123", "keymaster");
+            // Importamos la conexion a la base de datos
+            require_once 'conexion.php';
+
+            // Obtenemos la conexion a la base de datos
+            $conexion = obtener_conexion();
 
             // Verificar la conexión
             if ($conexion->connect_error) {
