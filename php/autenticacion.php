@@ -2,7 +2,7 @@
 // Inciamos la sesion
 session_start();
 // Importamos la conexion a la base de datos
-require_once 'conexion.php';
+require_once './conexion.php';
 
 // Obtenemos la conexion a la base de datos
 $conector = obtener_conexion();
@@ -35,7 +35,7 @@ if ($stmt = $conector->prepare('SELECT id_usuario, contrasena FROM usuarios WHER
             $_SESSION['loggedin'] = TRUE;
             $_SESSION['nombre'] = $_POST['usuario'];
             $_SESSION['id_usuario'] = $id_usuario;
-            header('Location: ../php/generador.php');
+            header('Location: ./php/generador.php');
         } else {
             // Contraseña incorrecta
             echo "Usuario y/o Contraseña incorrecta";
