@@ -35,7 +35,7 @@ if ($stmt = $conector->prepare('SELECT id_usuario, contrasena FROM usuarios WHER
             $_SESSION['loggedin'] = TRUE;
             $_SESSION['nombre'] = $_POST['usuario'];
             $_SESSION['id_usuario'] = $id_usuario;
-            header('Location: ./php/generador.php');
+            header('Location: ./generador.php');
         } else {
             // Contraseña incorrecta
             echo "Usuario y/o Contraseña incorrecta";
