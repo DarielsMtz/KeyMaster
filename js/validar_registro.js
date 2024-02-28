@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  // Función para validar el formulario de registro
   function validateForm() {
     let correo = document.getElementById("Correo");
     let nombre = document.getElementById("Usuario");
