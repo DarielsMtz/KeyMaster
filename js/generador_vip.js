@@ -8,7 +8,10 @@ window.addEventListener("focus", () => {
   document.title = titulo_pagina;
 });
 
-// ---------------------------------------------------------------
+// ************************************************
+// --------- Generador de contraseñas Pro ---------
+// ************************************************
+
 // Caracteres permitidos en la contraseña
 const letras_may = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const letras_min = "abcdefghijklmnopqrstuvwxyz";
@@ -30,6 +33,7 @@ let historialContraseñas = [];
 function generarCadena() {
   let cadena = "";
 
+  // Verificar las opciones seleccionadas
   if (incluir_todas.checked) {
     cadena += numeros + letras_min + letras_may + simbolos;
   } else {
@@ -38,7 +42,6 @@ function generarCadena() {
     if (incluir_mayusculas.checked) cadena += letras_may;
     if (incluir_simbolos.checked) cadena += simbolos;
   }
-
   return cadena;
 }
 
@@ -56,6 +59,7 @@ function obtenerTamanoContrasena() {
 function generarContrasenaVIP() {
   const cadena = generarCadena();
 
+  // Verificar si se seleccionó al menos una opción
   if (cadena === "") {
     alert("Debes seleccionar al menos una opción para generar la contraseña.");
     return;
@@ -68,6 +72,7 @@ function generarContrasenaVIP() {
   let LetrasMinusculasConsecutivas = 0;
   let SimbolosConsecutivos = 0;
 
+  // Generar la contraseña aleatoria con los caracteres permitidos
   while (contrasena_vip.length < tamano_vip) {
     const num_aleatorio_vip = Math.floor(Math.random() * cadena.length);
     const nuevo_caracter_vip = cadena.charAt(num_aleatorio_vip);
@@ -129,6 +134,7 @@ function generarContrasenaVIP() {
     contrasena_vip += nuevo_caracter_vip;
   }
 
+  // Agregar la contraseña al historial
   historialContraseñas.push(contrasena_vip);
   document.getElementById("password_vip").value = contrasena_vip;
 }
@@ -210,6 +216,7 @@ function borrarTexto(contrasena) {
     "¿Estás seguro de que deseas borrar esta contraseña?"
   );
 
+  // Si el usuario confirma, se realiza la solicitud AJAX para borrar la contraseña
   if (confirmacion) {
     // Realiza una solicitud AJAX para borrar la contraseña en el servidor
     var xhr = new XMLHttpRequest();
