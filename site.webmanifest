@@ -1,6 +1,6 @@
 {
-  "name": "Mi sitio web",
-  "short_name": "Sitio web",
+  "name": "Generador de Contraseñas - KeyMaster",
+  "short_name": "SKeyMaster",
   "icons": [
     {
       "src": "/favicon.ico",
@@ -14,4 +14,3 @@
   "start_url": "/",
   "display": "standalone"
 }
-

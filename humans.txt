@@ -2,15 +2,8 @@
 
 Desarrollador y Diseñador: Dariels Martinez
 Contacto: darielsmartinez926@gmail.com
-LinkedIn: @darielsmtz
+LinkedIn: dariels-martinez
 Ubicación: Mallorca, España
-
-/* AGRADECIMIENTOS */
-
-Gracias a:
-
-* [Lista de agradecimientos]
-
 
 /* SITIO */
 
