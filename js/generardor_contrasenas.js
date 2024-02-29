@@ -6,14 +6,6 @@
 document
   .getElementById("invitado__generar")
   .addEventListener("click", function () {
-    // Longitud de la contraseña
-    const tam_min = 8;
-    const tam_max = 15;
-
-    // Intervalo del tamaño
-    const tamano =
-      Math.floor(Math.random() * (tam_max - tam_min + 1)) + tam_min;
-
     // Caracteres permitidos en la contraseña
     const numeros = "0123456789"; // Caracteres numéricos
     const letras_min = "abcdefghijklmnopqrstuvwxyz"; // Letras minúsculas
@@ -25,7 +17,7 @@ document
     let contrasena = "";
 
     // Generar la contraseña aleatoria con los caracteres permitidos
-    while (contrasena.length < tamano) {
+    while (contrasena.length < 8) {
       const num_aleatorio = Math.floor(Math.random() * charset.length);
       const nuevo_caracter = charset.charAt(num_aleatorio);
       if (!contrasena.includes(nuevo_caracter)) {
