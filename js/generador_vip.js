@@ -25,9 +25,6 @@ const incluir_numeros = document.getElementById("numeros");
 const incluir_simbolos = document.getElementById("simbolos");
 const incluir_todas = document.getElementById("todas_opciones");
 
-// Declarar un array para almacenar el historial de contraseñas
-let historialContraseñas = [];
-
 // ------------ ACCIONES DE LA PAGINA DEL GENERADOR V.I.P --------------------
 // Función para generar la cadena de caracteres según las opciones seleccionadas
 function generarCadena() {
@@ -129,21 +126,10 @@ function generarContrasenaVIP() {
         continue;
       }
     }
-
     // Se agregael nuevo caracter a la contraseña
     contrasena_vip += nuevo_caracter_vip;
   }
-
-  // Agregar la contraseña al historial
-  historialContraseñas.push(contrasena_vip);
   document.getElementById("password_vip").value = contrasena_vip;
-}
-
-// -------------------------------------------------------------------
-// Función para mostrar el historial de contraseñas
-function mostrarHistorial(event) {
-  event.preventDefault();
-  alert("Historial de contraseñas:\n" + historialContraseñas.join("\n"));
 }
 
 // -------------------------------------------------------------------

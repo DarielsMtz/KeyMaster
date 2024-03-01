@@ -13,9 +13,9 @@ document
 
     // Arreglo con los caracteres de las contraseña
     let charset = numeros + letras_min + letras_may;
+
     // Generar contraseña aleatoria
     let contrasena = "";
-
     // Generar la contraseña aleatoria con los caracteres permitidos
     while (contrasena.length < 8) {
       const num_aleatorio = Math.floor(Math.random() * charset.length);
