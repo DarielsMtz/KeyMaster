@@ -909,3 +909,219 @@ html {
     }
   }
 }
+
+/* ------- APARTADO DE RESPONSIVE MOVIL (420px) -------- */
+@media (max-width: 420px) {
+  /* Contenedor principal */
+  #container,
+  #registro,
+  #invitado,
+  #generador {
+    padding: 10px;
+  }
+
+  /* Apartado del formulario */
+  & .container__main-form,
+  .registro__main-form,
+  .invitado__main-contrasena,
+  .generador__main-contrasena,
+  .privacidad__main-info,
+  .cookies__main-info {
+    width: 100%;
+    padding: 10px;
+  }
+
+  /* Apartado de los botones */
+  .container__main-form-boton,
+  button[type="submit"],
+  button[type="reset"],
+  .generador__main-botones,
+  .generador__main-botones article {
+    width: 100%;
+    padding: 10px;
+  }
+
+  /* Apartado de los enlaces externos */
+  .container__main-form-enlaces,
+  .registro__main-form-enlaces,
+  .invitado__main-form-enlaces,
+  .generador__main-form-enlaces,
+  .invitado__main-form-enlaces,
+  .generador__main-form-enlaces,
+  .generador__main-botones-tooltip,
+  .generador__main-botones-tooltiptext,
+  .invitado__main-form-enlaces,
+  .invitado__main-form-enlaces {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Apartado de la informacion */
+  .invitado__main-info,
+  .generador__main-info,
+  .privacidad__main-info,
+  .cookies__main-info {
+    padding: 10px;
+  }
+
+  /* Apartado de la tabla */
+  table {
+    font-size: 12px;
+  }
+
+  /* Apartado de las celdas */
+  th,
+  td {
+    padding: 2px;
+  }
+
+  /* Estilos de los botones de accion */
+  .btn_accion {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* ------- APARTADO DE RESPONSIVE TABLET (768px) -------- */
+@media (max-width: 768px) {
+  /* Contenedor principal */
+  #container,
+  #registro,
+  #invitado,
+  #generador {
+    padding: 20px;
+  }
+
+  /* Apartado del formulario */
+  & .container__main-form,
+  .registro__main-form,
+  .invitado__main-contrasena,
+  .generador__main-contrasena,
+  .privacidad__main-info,
+  .cookies__main-info {
+    width: 100%;
+    padding: 20px;
+  }
+
+  /* Apartado de los botones */
+  .container__main-form-boton,
+  button[type="submit"],
+  button[type="reset"],
+  .generador__main-botones,
+  .generador__main-botones article {
+    width: 100%;
+    padding: 20px;
+  }
+
+  /* Apartado de los enlaces externos */
+  .container__main-form-enlaces,
+  .registro__main-form-enlaces,
+  .invitado__main-form-enlaces,
+  .generador__main-form-enlaces,
+  .invitado__main-form-enlaces,
+  .generador__main-form-enlaces,
+  .generador__main-botones-tooltip,
+  .generador__main-botones-tooltiptext,
+  .invitado__main-form-enlaces,
+  .invitado__main-form-enlaces {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* Apartado de la informacion */
+  .invitado__main-info,
+  .generador__main-info,
+  .privacidad__main-info,
+  .cookies__main-info {
+    padding: 20px;
+  }
+
+  /* Apartado de la tabla */
+  table {
+    font-size: 14px;
+  }
+
+  /* Apartado de las celdas */
+  th,
+  td {
+    padding: 5px;
+  }
+
+  /* Estilos de los botones de accion */
+  .btn_accion {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+/* ------- APARTADO DE RESPONSIVE TABLET (1024px) -------- */
+@media (max-width: 1024px) {
+  /* Contenedor principal */
+  #container,
+  #registro,
+  #invitado,
+  #generador {
+    padding: 30px;
+  }
+
+  /* Apartado del formulario */
+  & .container__main-form,
+  .registro__main-form,
+  .invitado__main-contrasena,
+  .generador__main-contrasena,
+  .privacidad__main-info,
+  .cookies__main-info {
+    width: 100%;
+    padding: 30px;
+  }
+
+  /* Apartado de los botones */
+  .container__main-form-boton,
+  button[type="submit"],
+  button[type="reset"],
+  .generador__main-botones,
+  .generador__main-botones article {
+    width: 100%;
+    padding: 30px;
+  }
+
+  /* Apartado de los enlaces externos */
+  .container__main-form-enlaces,
+  .registro__main-form-enlaces,
+  .invitado__main-form-enlaces,
+  .generador__main-form-enlaces,
+  .invitado__main-form-enlaces,
+  .generador__main-form-enlaces,
+  .generador__main-botones-tooltip,
+  .generador__main-botones-tooltiptext,
+  .invitado__main-form-enlaces,
+  .invitado__main-form-enlaces {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  /* Apartado de la informacion */
+  .invitado__main-info,
+  .generador__main-info,
+  .privacidad__main-info,
+  .cookies__main-info {
+    padding: 30px;
+  }
+
+  /* Apartado de la tabla */
+  table {
+    font-size: 16px;
+  }
+
+  /* Apartado de las celdas */
+  th,
+  td {
+    padding: 10px;
+  }
+
+  /* Estilos de los botones de accion */
+  .btn_accion {
+    flex-direction: column;
+    gap: 30px;
+  }
+}

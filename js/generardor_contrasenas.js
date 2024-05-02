@@ -38,9 +38,39 @@ document
       contrasena.select(); // Seleccionar el texto
       document.execCommand("copy");
       contrasena.blur(); // Quitar el foco del input
-      alert("Contraseña copiada al portapapeles"); // Mostrar mensaje de copiado
+
+      // Componente de alerta de SweetAlert2
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 2800,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        },
+      });
+      Toast.fire({
+        icon: "success",
+        title: "Contraseña copiada al portapapeles", // Mostrar mensaje de copiado
+      });
     } else {
-      // Mostrar mensaje si no hay contraseña generada
-      alert("Genera una contraseña antes de intentar copiar.");
+      // Componente de alerta de SweetAlert2
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 2800,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        },
+      });
+      Toast.fire({
+        icon: "error",
+        title: "Genera una contraseña antes de intentar copiar.", // Mostrar mensaje si no hay contraseña generada
+      });
     }
   });

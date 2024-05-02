@@ -58,7 +58,25 @@ function generarContrasenaVIP() {
 
   // Verificar si se seleccionó al menos una opción
   if (cadena === "") {
-    alert("Debes seleccionar al menos una opción para generar la contraseña.");
+    // Componente de alerta de SweetAlert2
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 2800,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+    });
+    Toast.fire({
+      background: "#61738f",
+      color: "#dae0e6",
+      icon: "error",
+      title:
+        "Debes seleccionar al menos una opción para generar la contraseña.", // Mostrar mensaje si no hay contraseña generada
+    });
     return;
   }
 
@@ -146,9 +164,41 @@ document.getElementById("copiar").addEventListener("click", function () {
     campo_contrasena.select();
     document.execCommand("copy");
     campo_contrasena.blur();
-    alert("Contraseña copiada al portapapeles");
+    // alert("Contraseña copiada al portapapeles");
+    // Componente de alerta de SweetAlert2
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 2800,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+    });
+    Toast.fire({
+      icon: "success",
+      title: "Contraseña copiada al portapapeles", // Mostrar mensaje de copiado
+    });
   } else {
-    alert("Genera una contraseña antes de intentar copiar.");
+    // alert("Genera una contraseña antes de intentar copiar.");
+    // Componente de alerta de SweetAlert2
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 2800,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+    });
+    Toast.fire({
+      icon: "error",
+      title: "Genera una contraseña antes de intentar copiar.", // Mostrar mensaje si no hay contraseña generada
+    });
   }
 });
 
@@ -167,14 +217,28 @@ document
   .addEventListener("click", function () {
     let contrasena = document.getElementById("password_vip").value;
     if (contrasena === "") {
-      alert("No se puede  guardar una contraseña en blanco!!!");
+      // Componente de alerta de SweetAlert2
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 2800,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        },
+      });
+      Toast.fire({
+        icon: "error",
+        title: "No se puede  guardar una contraseña en blanco!!!.", // Mostrar mensaje si no hay contraseña generada
+      });
       return;
     }
     // Realizar la solicitud AJAX al script PHP
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "../php/guardar_contrasenas.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4 && xhr.status === 200) {
         alert(xhr.responseText);
@@ -192,28 +256,59 @@ function copiarTexto(texto) {
   copiar_contrasena.select();
   document.execCommand("copy");
   document.body.removeChild(copiar_contrasena);
-  alert("Contraseña copia en el portapapel");
+  // alert("Contraseña copia en el portapapel");
+  // Componente de alerta de SweetAlert2
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 2800,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    },
+  });
+  Toast.fire({
+    icon: "success",
+    title: "Contraseña copiada al portapapeles", // Mostrar mensaje de copiado
+  });
 }
 
 // Funcion para borrar una contraseña
 function borrarTexto(contrasena) {
   // Pregunta al usuario si realmente desea borrar la contraseña
-  var confirmacion = confirm(
-    "¿Estás seguro de que deseas borrar esta contraseña?"
-  );
+  Swal.fire({
+    title: "¿Estas seguro de borrar la contraseña?",
+    text: "No podrás recuperar la contraseña borrada!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    confirmButtonText: "Si, borrar!",
+    cancelButtonText: "Cancelar",
+    cancelButtonColor: "tomato",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // Si el usuario confirma, se realiza la solicitud AJAX para borrar la contraseña
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          // Actualiza la página después de borrar la contraseña
+          setTimeout(() => {
+            location.reload();
+          }, 1000);
+        }
+      };
+      xhr.open("POST", "../php/borrar_contrasena.php", true);
+      xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhr.send("contrasena=" + contrasena);
 
-  // Si el usuario confirma, se realiza la solicitud AJAX para borrar la contraseña
-  if (confirmacion) {
-    // Realiza una solicitud AJAX para borrar la contraseña en el servidor
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState == 4 && xhr.status == 200) {
-        // Actualiza la página después de borrar la contraseña
-        location.reload();
-      }
-    };
-    xhr.open("POST", "../php/borrar_contrasena.php", true);
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.send("contrasena=" + contrasena);
-  }
+      Swal.fire({
+        title: "Eliminada!",
+        text: "Tu contraseña ha sido eliminada.",
+        icon: "success",
+        confirmButtonText: "Vale",
+      });
+    }
+  });
 }

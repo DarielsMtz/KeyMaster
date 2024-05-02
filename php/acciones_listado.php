@@ -44,6 +44,8 @@ if (!isset($_SESSION['nombre'])) {
     <link rel="stylesheet" href="../css/style.css" />
     <!-- Se cambia el tema de algunos navegadores -->
     <meta name="theme-color" content="#fafafa" />
+    <!-- Scripts de diseño de alertas(JS) -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body id="contrasenas">
