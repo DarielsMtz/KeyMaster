@@ -136,14 +136,6 @@ if (!isset($_SESSION['nombre'])) {
                         <button type="button" id="generar_vip" class="generar">
                             Regenerar
                         </button>
-
-                        <!-- Boton de historial -->
-                        <!-- <article class="generador__main-botones-tooltip">
-                            <a href="./acciones_listado.php" id="historial">
-                                <img src="../svg/reloj.svg" alt="Icono de reloj" />
-                            </a>
-                            <div class="generador__main-botones-tooltiptext">Caja Fuerte</div>
-                        </article> -->
                     </section>
 
                     <!-- Apartado de las longitudes de la contraseña -->
@@ -291,9 +283,9 @@ if (!isset($_SESSION['nombre'])) {
             <section class="generador__footer-main">
                 <nav class="generador__footer-nav">
                     <h4>®️ 2024 KeyMaster</h4>
-                    <a href="">Terminos</a>
-                    <a href="">Privacidad</a>
-                    <a href=""> Uso de Cookies</a>
+                    <a href="../privacidad.html">Terminos</a>
+                    <a href="../privacidad.html">Privacidad</a>
+                    <a href="../cookies.html"> Uso de Cookies</a>
                 </nav>
                 <section class="generador__footer-redes">
                     <a href=""><img src="../svg/instagram.svg" alt=""></a>
