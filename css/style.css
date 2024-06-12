@@ -23,7 +23,7 @@
   --color-gris: #e6ebef;
   --color-gris-asulado: #5a6c86;
   --color-gris-lcaro-asulado: #61738f;
-  --color-marfil: #dae0e6;
+  --color-marfil: #ECF0F5;
   --color-blanco: #ffffff;
   --color-rojo-suave: #e45f5f;
   --color-verde-suave: #88c34a;
@@ -63,15 +63,12 @@ html {
     height: 100vh;
     color: var(--color-marfil);
     /* background-image: url("../svg/lineas_fondo.svg"); */
-    background-color: var(--color-blanco);
-    background-position: center;
-    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
 
     /* Apartado de atributos generales */
-    #container,
+
     #registro,
     #invitado {
       display: flex;
@@ -108,105 +105,167 @@ html {
 /* -------- ESTILOS DE LA PAGINA DE INICIO DE SESION (inicio_sesion.html)----------- */
 /* Contenedor Principal */
 #container {
+  margin: 0 40px;
 
+
+  /* Estilos generales */
   /* Apartado de encabezado principal*/
-  & .container__main-header {
+  .container__main-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--padding);
+    color: var(--color-azul-marino-claro);
+  }
+
+  .container__main-header>img {
+    width: 200px;
+  }
+
+  .container__main-header p {
+    font-size: 14px;
+    padding: 10px 0;
+  }
+
+  /* Apartado del formulario */
+  .container__main-form {
+    padding: var(--padding);
+    border-radius: 7px;
+    border: 0.5px solid #666;
+    width: 400px;
+  }
+
+  .container__main-form label {
+    align-self: stretch;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 10px;
+    color: var(--color-azul-marino-claro);
+  }
+
+  .container__main-form input {
+    background: transparent;
+    width: 100%;
+    border-radius: 4px;
+    padding: 5px;
+    color: var(--color-azul-grisado);
+  }
+
+  .container__main-form-boton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    border-radius: 5px;
+    background-color: var(--color-azul-marino-claro);
+    padding: 5px 0;
+    margin: 20px 0;
+    text-decoration: none;
+    color: var(--color-marfil);
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .container__main-form-boton:hover {
+    background-color: var(--color-gris-lcaro-asulado);
+    transform: scale(1.01);
+    color: var(--color-marfil);
+  }
+
+  .container__main-form-divisor {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-gris);
+    margin: 10px 0;
+  }
+
+  .container__main-form-enlaces {
+    padding: 10px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+
+  }
+
+  .container__main-form-enlaces a {
+    text-decoration: none;
+    color: var(--color-azul-marino-claro);
+    font-size: 10px;
+  }
+
+  .container__main-form-enlaces a:is(b) {
+    text-decoration: underline var(--color-azul-lila);
+  }
+
+  .container__main-form-enlaces a:is(b):hover {
+    color: var(--color-azul-lila);
+    text-decoration: underline var(--color-rojo-suave);
+  }
+
+  .container__main-footer {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     padding: var(--padding);
+    font-size: 14px;
+
+    /* Estilod para los enlaces de los titulos */
+    & h5 a,
+    h6 {
+      text-decoration: none;
+      color: var(--color-azul-marino-claro);
+
+      /* Efecto de cernerse */
+      &:hover:not(h6) {
+        color: var(--color-amarillo-suave);
+      }
+    }
+
   }
 
-  /* Apartado del formulario */
-  & .container__main-form {
-    display: flex;
-    flex-direction: column;
-    min-width: 500px;
-    height: auto;
-    gap: 20px;
-    padding: var(--padding);
-    border-radius: 7px;
-    border: 2px solid #ffffff1a;
-    background: rgba(255, 255, 255, 0.05);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-
-    /* Apartado de los sutitulos de los campos*/
-    & label {
-      align-self: stretch;
-      flex: 1;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      padding: 10px 0;
-    }
-
-    /* Apartado de los campos */
-    & input {
-      background: transparent;
-      width: 100%;
-      border-radius: 4px;
-      padding: 5px;
-    }
-
-    /* Apartado del boton */
-    .container__main-form-boton {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      width: 100%;
-      border-radius: 5px;
-      background-color: var(--color-gris-asulado);
+  /* Media queries para dispositivos móviles */
+  @media (max-width: 375px) {
+    .container__main-header {
       padding: 10px;
-      margin: 20px 0;
-      text-decoration: none;
-      color: var(--color-marfil);
-      text-align: center;
-      font-size: 20px;
-
-      /* Estilos de cernerse */
-      &:hover {
-        background-color: var(--color-gris-lcaro-asulado);
-        transform: scale(1.01);
-        color: var(--color-marfil);
-      }
     }
 
-    /* Apartado de la linea divisora */
-    .container__main-form-divisor {
-      display: block;
-      width: 100%;
-      height: 1px;
-      background-color: var(--color-gris);
-      margin: 10px 0;
+    .container__main-header>img {
+      width: 150px;
     }
 
-    /* Apartado de los enlaces externos */
+    .container__main-form {
+      padding: 10px;
+      width: 280px;
+    }
+
+    .container__main-form label {
+      padding-top: 10px;
+      font-size: 14px;
+    }
+
+    .container__main-form input {
+      padding: 5px;
+      font-size: 14px;
+    }
+
+    .container__main-form-boton {
+      padding: 8px;
+      font-size: 12px;
+    }
+
     .container__main-form-enlaces {
-      padding: 10px 0;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-around;
-      gap: 10px;
+      /* flex-direction: column; */
+      gap: 5px;
+    }
 
-      /* Estilos para los enlaces */
-      & a {
-        text-decoration: none;
-        color: var(--color-marfil);
-
-        & :is(b) {
-          text-decoration: underline var(--color-azul-lila);
-
-          &:hover {
-            color: var(--color-azul-lila);
-            text-decoration: underline var(--color-rojo-suave);
-          }
-        }
-      }
+    .container__main-form-enlaces a {
+      text-align: center;
     }
   }
 }
@@ -1067,8 +1126,6 @@ html {
     }
   }
 }
-
-
 
 /* --------- ESTILOS DE LA PAGINA DE LAS POLITICAS ---------- */
 /* Cuerpo de la pagina */

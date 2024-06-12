@@ -37,7 +37,7 @@
     <div id="container">
       <main class="container__main">
         <section class="container__main-header">
-          <img src="svg/Logotipo.svg" alt="Imagen del Logotipo" />
+          <img src="svg/Logotipo_negativo.svg" alt="Imagen del Logotipo" />
           <p>Identifícate o crea una nueva cuenta.</p>
         </section>
 
@@ -45,25 +45,22 @@
         <section class="container__main-form">
           <!-- Formulario -->
           <form
+            onSubmit="login(); return false;"
             id="formulario_sesion"
-            action="php/autenticacion.php" 
+            action="php/autenticacion.php"
             method="POST"
             novalidate>
             <!-- Usuario -->
-            <label>Nombre Usuario*</label>
-            <input
-              type="text"
-              name="usuario"
-              id="usuario"
-              placeholder="Usuario" />
+            <label>Nombre Usuario</label>
+            <input type="text" name="usuario" id="usuario" placeholder="" />
 
             <!-- Contraseña -->
-            <label>Contraseña*</label>
+            <label>Contraseña</label>
             <input
               type="password"
               name="contrasena"
               id="contrasena"
-              placeholder="Contraseña" />
+              placeholder="" />
 
             <!-- Boton -->
             <button
@@ -72,6 +69,9 @@
               value="Login">
               Continuar
             </button>
+
+            <!-- Respuesta -->
+            <div id="resp" class="form_msj"></div>
 
             <!-- Linear divisora -->
             <span class="container__main-form-divisor"></span>
