@@ -6,9 +6,21 @@
 
 /* Tipografía */
 @font-face {
-  font-family: "Hexos";
-  src: url("../font/Apercu_regular.woff2") format("woff2"),
-    url("../font/Apercu_regular.woff") format("woff");
+  font-family: "Open Sans";
+  src: url("../font/opensans-regular.woff2") format("woff2"),
+    url("../font/opensans-regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Open Sans Bold";
+  src: url("../font/opensans-bold.woff2") format("woff2"),
+    url("../font/opensans-bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Open Sans Light";
+  src: url("../font/opensans-light.woff2") format("woff2"),
+    url("../font/opensans-light.woff") format("woff");
 }
 
 /* --------- Variables -------------- */
@@ -23,19 +35,31 @@
   --color-gris: #e6ebef;
   --color-gris-asulado: #5a6c86;
   --color-gris-lcaro-asulado: #61738f;
-  --color-marfil: #ECF0F5;
+  --color-marfil: #ecf0f5;
   --color-blanco: #ffffff;
   --color-rojo-suave: #e45f5f;
   --color-verde-suave: #88c34a;
-}
 
-/* Tamaños */
-:root {
+  /* Tamaños */
   --padding: 1.25rem;
   --tamano-minimo: 1200px;
   --tamano-maximo: 1920px;
   --borde: 20px;
+
+  /* Fuentes */
+  --h1: 28px;
+  --h2: 24px;
+  --h3: 20px;
+  --h4: 18px;
+  --h5: 16px;
+  --h6: 14px;
+  --p: 16px;
+  --small: 10px;
+  --small2: 12px;
+
 }
+
+
 
 /* ---------- Animaciones ------------ */
 /* Animacion de aparición */
@@ -53,8 +77,8 @@
 
 /* ========== ESTILOS GENERALES ============== */
 html {
-  font-family: "Hexos";
-  font-size: 1em;
+  font-family: "Open Sans", sans-serif;
+  font-size: var(--p);
   scroll-behavior: smooth;
 
   /* Apartado del cuerpo de la pagina */
@@ -107,7 +131,6 @@ html {
 #container {
   margin: 0 40px;
 
-
   /* Estilos generales */
   /* Apartado de encabezado principal*/
   .container__main-header {
@@ -159,7 +182,7 @@ html {
     justify-content: center;
     width: 100%;
     border-radius: 5px;
-    background-color: var(--color-azul-marino-claro);
+    background-color: var(--color-azul-marino);
     padding: 5px 0;
     margin: 20px 0;
     text-decoration: none;
@@ -169,15 +192,15 @@ html {
   }
 
   .container__main-form-boton:hover {
-    background-color: var(--color-gris-lcaro-asulado);
-    transform: scale(1.01);
+    background-color: var(--color-azul-marino-claro);
     color: var(--color-marfil);
+    cursor: pointer;
   }
 
   .container__main-form-divisor {
     display: block;
     width: 100%;
-    height: 1px;
+    height: 1.2px;
     background-color: var(--color-gris);
     margin: 10px 0;
   }
@@ -196,15 +219,10 @@ html {
     text-decoration: none;
     color: var(--color-azul-marino-claro);
     font-size: 10px;
-  }
 
-  .container__main-form-enlaces a:is(b) {
-    text-decoration: underline var(--color-azul-lila);
-  }
-
-  .container__main-form-enlaces a:is(b):hover {
-    color: var(--color-azul-lila);
-    text-decoration: underline var(--color-rojo-suave);
+    >b:hover {
+      text-decoration: underline;
+    }
   }
 
   .container__main-footer {
@@ -273,15 +291,22 @@ html {
 /* -------- ESTILOS DE LA PAGINA DE REGISTRO (registro.html) ----------- */
 /* Cuerpo de la pagina */
 #body__registro {
+  width: 100vw;
   height: 100%;
+  overflow-x: hidden;
 
   /* Apartado de contenedor principal */
   #registro {
+    color: var(--color-azul-marino-claro);
+    padding: 50px 0 50px;
 
     /* Estilos de titulo */
     & .registro__main h1 {
       text-align: center;
       padding: var(--padding);
+      font-size: var(--h2);
+      font-weight: normal;
+
     }
 
     /* Apartado del formulario */
@@ -291,21 +316,17 @@ html {
       width: 450px;
       height: auto;
       gap: 15px;
-      padding: var(--padding);
+      padding: 5px 20px;
       border-radius: 7px;
-      border: 2px solid #ffffff1a;
-      background: rgba(255, 255, 255, 0.05);
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(2px);
-      -webkit-backdrop-filter: blur(2px);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      border: 0.5px solid #666;
+      background-color: var(--color-blanco);
 
       & :is(section) {
         margin: 20px 0px;
         vertical-align: middle;
 
         & h5 {
-          font-size: 10px;
+          font-size: var(--small);
         }
       }
 
@@ -316,6 +337,14 @@ html {
         display: flex;
         flex-direction: row;
         align-items: center;
+        vertical-align: middle;
+        font-size: var(--h6);
+
+        & .requerido {
+          font-size: var(--small);
+          margin-left: 5px;
+
+        }
       }
 
       /* Apartado de los campos */
@@ -323,40 +352,30 @@ html {
         background: transparent;
         width: 100%;
         border-radius: 4px;
-        padding: 5px;
+        padding: 5px 0 0;
+      }
+
+      & small {
+        font-size: var(--small);
       }
 
       /* Apartado de los botones */
-      button[type="submit"],
-      button[type="reset"] {
+      button[type="submit"] {
         width: 100%;
         display: flex;
         justify-content: center;
         border-radius: 5px;
-        background-color: var(--color-gris-asulado);
+        background-color: var(--color-azul-marino);
         padding: 10px;
         margin: 20px 0;
-        color: var(--color-azul-grisado);
+        color: var(--color-blanco);
         text-align: center;
-        font-size: 18px;
+        font-size: var(--h4);
 
         &:hover {
-          background-color: var(--color-gris-lcaro-asulado);
-          transform: scale(1.01);
-          color: var(--color-marfil);
-          box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
-            rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+          background-color: var(--color-azul-marino-claro);
+          cursor: pointer;
         }
-      }
-
-      /* Apartado de la linea divisora */
-      .containe02__main-form-divisor {
-        display: block;
-        width: 100%;
-        height: 5px;
-        border-radius: 20px;
-        background-color: var(--color-azul-gris-claro);
-        margin: 15px 0;
       }
 
       /* Apartado de la casilla de verificación */
@@ -373,24 +392,26 @@ html {
       /* Apartado del sutitulo del campo */
       & .registro__main-form-checkbox label {
         display: flex;
-        gap: 10px;
-        text-wrap: pretty;
-        font-size: 12px;
+        width: 100%;
+        font-size: var(--small2);
+        margin-left: -10px;
       }
 
       /* Apartado de los enlaces externos */
       .registro__main-form-enlaces {
-        padding: 10px 0;
         display: flex;
         flex-direction: row;
+        justify-content: center;
+        padding: 10px 0;
         gap: 10px;
+        font-size: var(--small2);
 
         & a {
-          color: var(--color-marfil);
+          color: var(--color-azul-marino-claro);
+          text-decoration: none;
 
           &:hover {
-            scale: 1.1;
-            color: var(--color-gris-asulado);
+            text-decoration: underline;
           }
         }
       }

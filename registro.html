@@ -38,6 +38,7 @@
     <meta name="theme-color" content="#fafafa" />
     <!-- Código de las plataformas de Análisis -->
     <script></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Scripts a cargar antes de la renderización -->
     <script src="preloader.js"></script>
   </head>
@@ -50,77 +51,80 @@
           <!-- Formulario -->
           <form
             id="form_registro"
-            action="php/registro.php"
+            onsubmit="registro(); return false;"
             method="post"
-            autocomplete="off"
             novalidate>
             <section>
               <!-- Correo Electronico -->
               <label for="Correo"
-                >Correo electronico
-                <h6>(requerido)</h6>
-              </label>
+                >Correo electrónico
+                <span class="requerido">(requerido)</span></label>
               <input
-                type="text"
+                type="email"
                 name="Correo"
                 id="Correo"
                 required
-                placeholder="Introduce tu email" />
-              <h5>Utilizarás tu correo electrónico para acceder.</h5>
+                aria-describedby="email-help" />
+              <small id="email-help"
+                >Utilizarás tu correo electrónico para acceder.</small
+              >
             </section>
 
             <section>
               <!-- Nombre -->
-              <label for="Usuario"> Nombre</label>
+              <label for="Nombre">Nombre</label>
               <input
                 type="text"
                 name="Nombre"
-                id="Usuario"
+                id="Nombre"
                 pattern="[A-Za-z]{2,20}"
-                placeholder="Introduzca su nombre" />
-              <h5>¿Cómo deberíamos llamarte?</h5>
+                aria-describedby="name-help" />
+              <small id="name-help">¿Cómo deberíamos llamarte?</small>
             </section>
 
             <section>
               <!-- Contraseña -->
-              <label for="Contraseña">Contraseña</label>
+              <label for="Contrasena">Contraseña
+                <span class="requerido">(requerido)</span></label>
+              </label>
               <input
                 type="password"
                 name="Contrasena"
                 id="Contrasena"
                 required
-                placeholder="Introduzca su contraseña" />
-              <h5>
+                minlength="8"
+                aria-describedby="password-help" />
+              <small id="password-help">
                 <b>Importante:</b> ¡Las contraseñas no pueden ser recuperadas si
-                las olvidas? <i>12 caracteres minimo</i>
-              </h5>
-            </section>
-
-            <section>
-              <!-- Linear divisora -->
-              <span class="containe02__main-form-divisor"></span>
+                las olvidas! <i>8 caracteres mínimo</i>
+              </small>
             </section>
 
             <section>
               <!-- Confirmar la contraseña -->
               <label for="Confirmar"
                 >Vuelve a escribir tu Contraseña
-                <h6>(requerido)</h6>
-              </label>
+                <span class="requerido">(requerido)</span></label>
               <input
                 type="password"
                 name="Confirmar"
                 id="Confirmar"
                 required
-                placeholder="Vuelve a repetir la contraseña" />
+                aria-describedby="confirm-help" />
+              <small id="confirm-help"
+                >Repite tu contraseña para confirmarla.</small
+              >
             </section>
 
             <section class="registro__main-form-checkbox">
               <!-- Checkbox -->
               <label>
-                <input type="checkbox" name="politicas" />
-                Al seleccionar esta casilla, acepta lo siguiente: <br />
-                Términos y Condiciones del servicio, Política de privacidad.
+                <input type="checkbox" name="politicas" required />
+                <p>
+                  Al seleccionar esta casilla, acepta lo siguiente: <br />
+                <a href="terminos.html">Términos y Condiciones del servicio</a>,
+                <a href="privacidad.html">Política de privacidad</a>.
+              </p>
               </label>
             </section>
 
@@ -132,9 +136,8 @@
             <section>
               <!-- Enlaces externos -->
               <article class="registro__main-form-enlaces">
-                ¿Ya tienes una cuenta?<a href="inicio_sesion.html">
-                  Identifícate
-                </a>
+                ¿Ya tienes una cuenta?
+                <a href="inicio_sesion.html">Identifícate</a>
               </article>
             </section>
           </form>
@@ -153,3 +156,4 @@
   </body>
   <script src="js/validar_registro.js"></script>
 </html>
+

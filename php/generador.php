@@ -279,7 +279,7 @@ if (!isset($_SESSION['nombre'])) {
 
             <section class="generador__main_call">
                 <h2>KeyMaster es la forma más segura de generar nuevas contraseñas</h2>
-                <a href="">Crear una cuenta</a>
+                <a href="../registro.html">Crear una cuenta</a>
 
 
             </section>
