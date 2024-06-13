@@ -22,7 +22,8 @@ document.addEventListener("DOMContentLoaded", function () {
       contrasena.value === "" ||
       confirmar.value === ""
     ) {
-      alert("Debes rellenar todos los campos.");
+      // alert("Debes rellenar todos los campos.");
+      Swal.fire("Debes rellenar todos los campos.");
       return false;
     }
 
@@ -34,8 +35,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Validación de la contraseña
-    if (contrasena.value.length < 12) {
-      alert("La contraseña debe tener al menos 12 caracteres.");
+    if (contrasena.value.length < 8) {
+      alert("La contraseña debe tener al menos 8 caracteres.");
       return false;
     }
 
@@ -50,6 +51,21 @@ document.addEventListener("DOMContentLoaded", function () {
       alert("Debes aceptar los Términos y Condiciones para continuar");
       return false;
     }
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+    });
+    Toast.fire({
+      icon: "success",
+      title: "Signed in successfully",
+    });
     return true;
   }
 });

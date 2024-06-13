@@ -3,8 +3,8 @@
 // Funcion para obtener la conexion a la base de datos
 function obtener_conexion()
 {
-    // Datos de conexion
-    // $bbdd_host = 'bbdd.darielsmartinezedib.com';
+
+    // $bbdd_host = 'ftp.darielsmartinezedib.com';
     // $bbdd_user = 'ddb219218';
     // $bbdd_pass = 'vmKvQ1Iix+JXr)';
     // $bbdd_name = 'ddb219218';

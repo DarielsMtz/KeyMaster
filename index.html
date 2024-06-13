@@ -1,52 +1,57 @@
-
 <!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- SEO = Básico -->
-    <!-- Cada página del sitio tiene que ser diferente el título y la descripción -->
-    <title>KeyMaster - Invitado</title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
 
-    <!-- Etiquetas Open Graph y Twitter Card, para crear el SEO de Redes Sociales -->
-    <meta property="og:title" content="Título de tu página" />
-    <meta property="og:description" content="Descripción de tu página" />
+    <!-- SEO básico -->
+    <title>KeyMaster - Invitado</title>
+    <meta
+      name="description"
+      content="Genera contraseñas seguras y protegidas con KeyMaster" />
+    <meta
+      name="keywords"
+      content="generador de contraseñas, seguridad, contraseñas seguras" />
+
+    <!-- Etiquetas Open Graph y Twitter Card -->
+    <meta
+      property="og:title"
+      content="KeyMaster - Generador de Contraseñas Seguras" />
+    <meta
+      property="og:description"
+      content="Genera contraseñas seguras y protegidas con KeyMaster" />
     <meta
       property="og:image"
       content="URL de la imagen que quieres mostrar en las redes sociales" />
     <meta property="og:url" content="URL de tu página" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Título de tu página" />
-    <meta name="twitter:description" content="Descripción de tu página" />
+    <meta
+      name="twitter:title"
+      content="KeyMaster - Generador de Contraseñas Seguras" />
+    <meta
+      name="twitter:description"
+      content="Genera contraseñas seguras y protegidas con KeyMaster" />
     <meta
       name="twitter:image"
       content="URL de la imagen que quieres mostrar en Twitter" />
-    <!-- App Web, inidicar al navegador que elementos mostrar en un JSON -->
+
+    <!-- App Web -->
     <link rel="manifest" href="site.webmanifest" />
-    <!-- icono de acceso para IOS -->
     <link rel="apple-touch-icon" href="icon.png" />
-    <!-- Recordar que favicon.ico tiene que estar en el directorio inicial -->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <!-- links de estilos -->
     <link rel="stylesheet" href="css/style.css" />
-    <!-- Se cambia el tema de algunos navegadores -->
     <meta name="theme-color" content="#fafafa" />
-    <!-- Código de las plataformas de Análisis -->
-    <script></script>
-    <!-- Scripts a cargar antes de la renderización -->
-    <!-- <script src="preloader.js"></script> -->
-    <!-- Scripts de diseño de alertas(JS) -->
+
+    <!-- Scripts externos -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
+    <script src="js/generardor_contrasenas.js" defer></script>
   </head>
-  <body id="body__invitado">  
+  <body id="body__invitado">
     <div id="invitado">
       <main class="invitado__main">
         <section class="invitado__main-header">
-          <img src="svg/Logotipo.svg" alt="Imagen del Logotipo" />
+          <img src="svg/Logotipo.svg" alt="Logotipo de KeyMaster" />
         </section>
 
         <!-- Apartado del campo de la contraseña -->
@@ -56,91 +61,104 @@
               type="text"
               id="contrasena"
               readonly
-              placeholder="1QW3780$%$(mXASD" />
+              placeholder="1QW3780$%$mXASD" />
           </article>
         </section>
-        <h6>La contraseña generar esta compuesta de 8 *</h6>
+        <h6>La contraseña generada está compuesta de 8 caracteres *</h6>
 
-        <!-- Apartado del boton de generar y la barra se nivel de seguridad de la contraseña -->
+        <!-- Apartado del botón de generar y la barra de nivel de seguridad de la contraseña -->
         <section class="invitado__main-accion">
-          <!-- Boton de generado -->
-          
-          <button type="button" id="invitado__generar" class="invitado__main-accion-btn_generar">Generar</button>
-          <button type="button" id="invitado__copiar" class="invitado__main-accion-btn-copiar">Copiar</button>
+          <button
+            type="button"
+            id="invitado__generar"
+            class="invitado__main-accion-btn_generar">
+            Generar
+          </button>
+          <button
+            type="button"
+            id="invitado__copiar"
+            class="invitado__main-accion-btn-copiar">
+            Copiar
+          </button>
         </section>
 
         <!-- Enlaces externos -->
         <article class="invitado__main-form-enlaces">
-          <a href="registro.html">¿Nuevo por aquí? <b class="invitado__main-form-enlaces-magno"> Crea una cuenta</b></a>
-          <a href="inicio_sesion.html">
-            ¿Ya tienes una cuenta? <b class="invitado__main-form-enlaces-magno"> Identifícate</b></a>
+          <a href="registro.html"
+            >¿Nuevo por aquí?
+            <b class="invitado__main-form-enlaces-magno">Crea una cuenta</b></a
+          >
+          <a href="inicio_sesion.html"
+            >¿Ya tienes una cuenta?
+            <b class="invitado__main-form-enlaces-magno">Identifícate</b></a
+          >
         </article>
 
-      <!-- Apartado de informacion -->
+        <!-- Apartado de información -->
         <section class="invitado__main-info">
-          <article >
+          <article>
             <h3>¿Qué es un generador de contraseñas y para qué sirve?</h3>
             <p>
-              Un generador de contraseñas segura permite crear contraseñas en
+              Un generador de contraseñas seguras permite crear contraseñas en
               función de unos parámetros como longitud y caracteres de forma
-              aleatoria. Gracias a esta funcionalidad podremos usar contraseñas
+              aleatoria. Gracias a esta funcionalidad, podremos usar contraseñas
               seguras y alejarnos de las contraseñas que son más obvias y por lo
               tanto hackeables.
             </p>
           </article>
-          <article >
+          <article>
             <h3>¿Es importante usar contraseñas seguras?</h3>
             <p>
-              Si queremos proteger nuestros accesos a nuestras cuentas usar
-              contraseñas segura es una buena manera de empezar. Es cierto que
+              Si queremos proteger nuestros accesos a nuestras cuentas, usar
+              contraseñas seguras es una buena manera de empezar. Es cierto que
               podemos tomar medidas complementarias para aumentar nuestras
-              medidas de seguridad como puede ser el utilizar un 2fa (segundo
+              medidas de seguridad, como puede ser el utilizar un 2FA (segundo
               factor de autenticación).
             </p>
           </article>
           <article>
-            <h3>Características de una contraseñas segura</h3>
+            <h3>Características de una contraseña segura</h3>
             <p>
               Las características más comunes de una buena contraseña con alto
-              nivel de seguridad encontramos: 
-              <ul>
-                <li>Más de 12 caracteres de longitud.</li>
-                <li>Combinación de letras, números, mayúsculas, minúsculas y
-                  caracteres.</li>
-                <li>Únicas, no debes usar la misma contraseña en más de un
-                  sitio.</li>
-              </ul>
+              nivel de seguridad son:
             </p>
+            <ul>
+              <li>Más de 12 caracteres de longitud.</li>
+              <li>
+                Combinación de letras, números, mayúsculas, minúsculas y
+                caracteres especiales.
+              </li>
+              <li>
+                Únicas, no debes usar la misma contraseña en más de un sitio.
+              </li>
+            </ul>
           </article>
           <article>
-            <h3>Contraseña más usadas?</h3>
+            <h3>Contraseñas más usadas</h3>
             <p>
               Es muy común que muchos usuarios usen contraseñas sencillas de
-              recordar pero a su vez es la forma más fácil de que accedan a
-              nuestra información, entre las contraseñas más comunes podemos
-              encontrar: 
-              <ul>
-                <li> 12345</li>
-                <li> Fecha de nacimiento</li>
-                <li> Contraseña</li>
-                <li> qwert</li>
-              </ul>
+              recordar, pero a su vez es la forma más fácil de que accedan a
+              nuestra información. Entre las contraseñas más comunes podemos
+              encontrar:
             </p>
+            <ul>
+              <li>12345</li>
+              <li>Fecha de nacimiento</li>
+              <li>Contraseña</li>
+              <li>qwert</li>
+            </ul>
           </article>
         </section>
       </main>
 
-      <!-- Apartado del pie de pagina -->
+      <!-- Apartado del pie de página -->
       <footer>
         <h5>
-          <a href="privacidad.html">Politica de Privacidad</a> |
-          <a href="cookies.html">Politica de Cookies</a>
+          <a href="privacidad.html">Política de Privacidad</a> |
+          <a href="cookies.html">Política de Cookies</a>
         </h5>
-        <h6>&copy;Copyright - KeyMaster</h6>
+        <h6>&copy; KeyMaster</h6>
       </footer>
     </div>
   </body>
-  <!-- <script src="js/barra_nivel_seguridad.js"></script> -->
-  <script src="js/generardor_contrasenas.js"></script>
 </html>
-

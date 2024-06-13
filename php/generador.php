@@ -64,7 +64,7 @@ if (!isset($_SESSION['nombre'])) {
                         <a href="#conjeso_info">Consejos</a>
                     </li>
                     <li class="generador__main-sesion">
-                        <i class="fa-regular fa-user"></i><b> <?php echo $_SESSION['nombre'] ?></b>
+                        Hola, <b> <?php echo $_SESSION['nombre'] ?></b><i class="fa-regular fa-user"></i>
                         <ul class="submenu">
                             <li><a href="./acciones_listado.php"><i class="fa-solid fa-vault"></i> Caja Fuerte</a></li>
                             <li><a href="./cierre_sesion.php"><i class="fa-solid fa-right-from-bracket"></i> Cerrar

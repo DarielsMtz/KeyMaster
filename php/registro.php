@@ -1,82 +1,78 @@
 <?php
-// Importamos la conexion a la base de datos
 require_once 'conexion.php';
 
-// Validacion del metodo de envio del formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Validar campos aquí (por ejemplo, longitud, formato, etc.)
     $correo = $_POST["Correo"];
     $nombre = $_POST["Nombre"];
     $contrasena = $_POST["Contrasena"];
     $confirmar = $_POST["Confirmar"];
 
-    // ------------------------------------------------------
-    // VALIDACIONES NECESARIAS  PARA EL REGISTRO DE USUARIOS
-    // Funcion de validaciones
     function validar_registro($correo, $nombre, $contrasena, $confirmar)
     {
-        // Variable para almanecar los errores
         $errores = array();
 
-        // Validacion si los campos esta vacios
-        if (empty($correo) ||  empty($nombre) || empty($contrasena) || empty($confirmar)) {
+        if (empty($correo) || empty($nombre) || empty($contrasena) || empty($confirmar)) {
             $errores[] = "Todos los campos son obligatorios.";
         }
 
-        // Validacion al campo de correo 
-        if (empty($correo) || !filter_var($correo, FILTER_VALIDATE_EMAIL)) {
+        if (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
             $errores[] = "El correo electrónico no es válido.";
         }
 
-        // Validacion al campo nombre
-        if (!$contrasena === $confirmar) {
+        if ($contrasena !== $confirmar) {
             $errores[] = "Las contraseñas no coinciden.";
         }
+
+        if (strlen($contrasena) < 8) {
+            $errores[] = "La contraseña debe tener al menos 8 caracteres.";
+        }
+
         return $errores;
     }
-    // ---------------------------------------------------------
 
-    // Llamamos a la funcion para llevar a cabo las validaciones
     $errores = validar_registro($correo, $nombre, $contrasena, $confirmar);
+
     if (count($errores) > 0) {
-        // Muestra los errores
         foreach ($errores as $error) {
             echo $error . "<br>";
         }
     } else {
-        // Si no hay errores, procede a la inserción en la base de datos
         $mysqli = obtener_conexion();
 
-        // Verificar la conexión
         if ($mysqli->connect_error) {
             echo "La conexión a la base de datos falló: " . $mysqli->connect_error;
+            exit();
         }
 
-        // Verificamos que el usuario no exite ya!
-        $sql = "SELECT * FROM usuarios WHERE nombre = '$nombre' OR correo = '$correo'";
-        $resultado = $mysqli->query($sql);
+        $stmt = $mysqli->prepare("SELECT * FROM usuarios WHERE nombre = ? OR correo = ?");
+        $stmt->bind_param("ss", $nombre, $correo);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
+
         if ($resultado->num_rows > 0) {
             echo "<script>
-            alert('¡Ya existe un usuario con esos datos!');
-            setTimeout(function() {
-                window.location.href = '../registro.html';
-            }, 1000); 
-          </script>";
+                    alert('¡Ya existe un usuario con esos datos!');
+                    setTimeout(function() {
+                        window.location.href = '../registro.html';
+                    }, 1000);
+                  </script>";
         } else {
-            // Insertar usuario en la base de datos
-            $sql = "INSERT INTO usuarios (nombre, correo, contrasena) VALUES ('$nombre', '$correo', '$contrasena')";
-            if ($mysqli->query($sql) === TRUE) {
-                // echo "Usuario registrado correctamente en la base de datos";
+            $hash_contrasena = password_hash($contrasena, PASSWORD_DEFAULT);
+
+            $stmt = $mysqli->prepare("INSERT INTO usuarios (nombre, correo, contrasena) VALUES (?, ?, ?)");
+            $stmt->bind_param("sss", $nombre, $correo, $hash_contrasena);
+
+            if ($stmt->execute()) {
                 echo "<script>
-                alert('Usuario registrado, ya puedes iniciar sesión.');
-                window.location.href = '../inicio_sesion.html';
-                </script>";
+                        alert('Usuario registrado, ya puedes iniciar sesión.');
+                        window.location.href = '../inicio_sesion.html';
+                      </script>";
             } else {
-                echo "Error al registrar el usuario: " . $mysqli->error;
+                echo "Error al registrar el usuario: " . $stmt->error;
             }
         }
 
-        // Cerrar conexión
+        $stmt->close();
         $mysqli->close();
     }
 }

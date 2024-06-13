@@ -1,13 +1,3 @@
-// ---------------------------------------------------------------
-// Pequeño detalle del estilo de la ventana
-let titulo_pagina = document.title;
-window.addEventListener("blur", () => {
-  document.title = "No te vayas ☹";
-});
-window.addEventListener("focus", () => {
-  document.title = titulo_pagina;
-});
-
 // ************************************************
 // --------- Generador de contraseñas Pro ---------
 // ************************************************
@@ -75,7 +65,7 @@ function generarContrasenaVIP() {
       color: "#dae0e6",
       icon: "error",
       title:
-        "Debes seleccionar al menos una opción para generar la contraseña.", // Mostrar mensaje si no hay contraseña generada
+        "Debes seleccionar al menos una opción para generar la contraseña.",
     });
     return;
   }
@@ -158,56 +148,41 @@ document
 
 // -------------------------------------------------------------------
 // evento para copiar la contraseña generada
-document.getElementById("copiar").addEventListener("click", function () {
-  const campo_contrasena = document.getElementById("password_vip");
-  if (campo_contrasena.value) {
-    campo_contrasena.select();
-    document.execCommand("copy");
-    campo_contrasena.blur();
-    // alert("Contraseña copiada al portapapeles");
-    // Componente de alerta de SweetAlert2
-    const Toast = Swal.mixin({
-      toast: true,
-      position: "top-end",
-      showConfirmButton: false,
-      timer: 2800,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.onmouseenter = Swal.stopTimer;
-        toast.onmouseleave = Swal.resumeTimer;
-      },
-    });
-    Toast.fire({
-      icon: "success",
-      title: "Contraseña copiada al portapapeles", // Mostrar mensaje de copiado
-    });
-  } else {
-    // alert("Genera una contraseña antes de intentar copiar.");
-    // Componente de alerta de SweetAlert2
-    const Toast = Swal.mixin({
-      toast: true,
-      position: "top-end",
-      showConfirmButton: false,
-      timer: 2800,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.onmouseenter = Swal.stopTimer;
-        toast.onmouseleave = Swal.resumeTimer;
-      },
-    });
-    Toast.fire({
-      icon: "error",
-      title: "Genera una contraseña antes de intentar copiar.", // Mostrar mensaje si no hay contraseña generada
-    });
-  }
-});
+document
+  .getElementById("copiar_contrasena")
+  .addEventListener("click", function () {
+    const campo_contrasena = document.getElementById("password_vip");
+    if (campo_contrasena.value) {
+      campo_contrasena.select();
+      document.execCommand("copy");
+      campo_contrasena.blur();
+      // alert("Contraseña copiada al portapapeles");
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        },
+      });
+      Toast.fire({
+        icon: "success",
+        title: "Contraseña copiada al portapapeles",
+      });
+    } else {
+      alert("Genera una contraseña antes de intentar copiar.");
+    }
+  });
 
 // -------------------------------------------------------------------
 // Actualizar el valor del span con el valor del input range
 let valor_input = document.getElementById("longitud");
 let valor_salida = document.getElementById("valor_rango");
 valor_input.addEventListener("input", function () {
-  valor_salida.textContent = valor_input.value + " ";
+  valor_salida.textContent = valor_input.value + "";
 });
 
 // -------------------------------------------------------------------
@@ -217,22 +192,7 @@ document
   .addEventListener("click", function () {
     let contrasena = document.getElementById("password_vip").value;
     if (contrasena === "") {
-      // Componente de alerta de SweetAlert2
-      const Toast = Swal.mixin({
-        toast: true,
-        position: "top-end",
-        showConfirmButton: false,
-        timer: 2800,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.onmouseenter = Swal.stopTimer;
-          toast.onmouseleave = Swal.resumeTimer;
-        },
-      });
-      Toast.fire({
-        icon: "error",
-        title: "No se puede  guardar una contraseña en blanco!!!.", // Mostrar mensaje si no hay contraseña generada
-      });
+      alert("Genera una contraseña antes de intentar guardarla.");
       return;
     }
     // Realizar la solicitud AJAX al script PHP

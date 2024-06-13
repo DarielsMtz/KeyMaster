@@ -2,13 +2,9 @@
 session_start();
 // Verificar si el usuario ha iniciado sesión
 if (!isset($_SESSION['nombre'])) {
-    echo "<script>
-            alert('¡Error de espía! Las contraseñas son como secretos. Debes registrarte para obtener el permiso de \"Top Secret\".');
-             window.location.href = '../index.html';
-        </script>";
+    echo "<script>alert('¡Error de espía! Las contraseñas son como secretos. Debes registrarte para obtener el permiso de \"Top Secret\".');window.location.href = '../index.html';</script>";
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -61,7 +57,6 @@ if (!isset($_SESSION['nombre'])) {
             <?php
             // Importamos la conexion a la base de datos
             require_once 'conexion.php';
-
             // Obtenemos la conexion a la base de datos
             $conexion = obtener_conexion();
 
@@ -79,7 +74,6 @@ if (!isset($_SESSION['nombre'])) {
             $mostrar_contrasena = "SELECT * FROM contrasenas WHERE id_usuario = ? ORDER BY  fecha_creacion DESC";
             $consulta_preparada = $conexion->prepare($mostrar_contrasena);
             $consulta_preparada->bind_param("i", $id_usuario);
-
             if ($consulta_preparada->execute()) {
                 // Obtener el resultado de la consulta
                 $resultado = $consulta_preparada->get_result();
