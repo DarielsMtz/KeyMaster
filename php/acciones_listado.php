@@ -1,9 +1,5 @@
 <?php
 session_start();
-// Verificar si el usuario ha iniciado sesión
-if (!isset($_SESSION['nombre'])) {
-    echo "<script>alert('¡Error de espía! Las contraseñas son como secretos. Debes registrarte para obtener el permiso de \"Top Secret\".');window.location.href = '../index.html';</script>";
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,15 +45,15 @@ if (!isset($_SESSION['nombre'])) {
         <main>
             <!-- Apartado del saludo al usuario -->
             <section class="contrasenas__sesion">
-                <p>Tú caja fuerte, <b><?php echo $_SESSION['nombre'] ?></b></p>
-                <a href="./generador.php">
+                <p>Tu caja fuerte, <b><?php echo $_SESSION['nombre'] ?></b></p>
+                <a href="../index.php">
                     <img src="../svg/equis.svg" alt="Icono de equis">
                 </a>
             </section>
             <?php
-            // Importamos la conexion a la base de datos
+            // Importamos la conexión a la base de datos
             require_once 'conexion.php';
-            // Obtenemos la conexion a la base de datos
+            // Obtenemos la conexión a la base de datos
             $conexion = obtener_conexion();
 
             // Verificar la conexión
@@ -68,10 +64,9 @@ if (!isset($_SESSION['nombre'])) {
             // Obtener el usuario de la sesión
             $usuario = $_SESSION['nombre'];
             $id_usuario = $_SESSION['id_usuario'];
-            // $id_Contrasena = $_POST['id_Contrasena'];
 
             // Extraer las contraseñas de la base de datos
-            $mostrar_contrasena = "SELECT * FROM contrasenas WHERE id_usuario = ? ORDER BY  fecha_creacion DESC";
+            $mostrar_contrasena = "SELECT * FROM contrasenas WHERE id_usuario = ? ORDER BY fecha_creacion DESC";
             $consulta_preparada = $conexion->prepare($mostrar_contrasena);
             $consulta_preparada->bind_param("i", $id_usuario);
             if ($consulta_preparada->execute()) {
@@ -84,38 +79,37 @@ if (!isset($_SESSION['nombre'])) {
                 } else {
                     // En el caso de que el usuario tenga contraseñas guardadas
                     echo "<h2>Contraseñas Almacenadas:</h2>";
-                    echo "<table>";
-                    echo "<tr><th>Contraseñas</th><th style='width:50%'>Fecha y Hora de su creación</th><th>Accion </th></tr>";
+                    echo "<div class='cards-container'>";
 
-                    // Obtener los resultados y mostrarlos en una tabla
+                    // Obtener los resultados y mostrarlos como tarjetas
                     while ($fila = $resultado->fetch_assoc()) {
-                        echo "<tr>";
-                        echo "<td>" . $fila['contrasena'] . "</td>";
-                        echo "<td>" . $fila['fecha_creacion'] . "</td>";
-                        echo "<td>
-                             <section class='btn_accion'>
-                                <button id='copiar' class='copiar' type='button' onclick='copiarTexto(\"" . $fila['contrasena'] . "\")'>
-                                    Copiar<img  src='../svg/Boton_copiar.svg' alt='Icono de copiar' />
-                                </button>
-                            
-                                <button id='borrar' class='borrar' type='button' onclick='borrarTexto(\"" . $fila['contrasena'] . "\")'>
-                                    Borrar<img  src='../svg/Boton_borrar.svg' alt='Icono de borrar' />
-                                </button>
-                            </section>
-                        </td>";
-                        echo "</tr>";
+                        echo "<div class='card'>";
+                        echo "<h3>Contraseña:</h3>";
+                        echo "<p>" . htmlspecialchars($fila['contrasena']) . "</p>";
+                        echo "<h3>Fecha y Hora de Creación:</h3>";
+                        echo "<p>" . htmlspecialchars($fila['fecha_creacion']) . "</p>";
+                        echo "<section class='btn_accion'>";
+                        echo "<button class='copiar' type='button' onclick='copiarTexto(\"" . htmlspecialchars($fila['contrasena']) . "\")'>";
+                        echo "Copiar <img src='../svg/Boton_copiar.svg' alt='Icono de copiar' />";
+                        echo "</button>";
+                        echo "<button class='borrar' type='button' onclick='borrarTexto(\"" . htmlspecialchars($fila['contrasena']) . "\")'>";
+                        echo "Borrar <img src='../svg/Boton_borrar.svg' alt='Icono de borrar' />";
+                        echo "</button>";
+                        echo "</section>";
+                        echo "</div>";
                     }
-                    echo "</table>";
 
-                    // Liberar el resultado
-                    $resultado->free_result();
+                    echo "</div>";
                 }
-                // Cerrar la conexión
-                $conexion->close();
+                // Liberar el resultado
+                $resultado->free_result();
             } else {
                 // Mostrar un mensaje de error si la consulta falla
                 echo "Error en la consulta: " . $conexion->error;
             }
+
+            // Cerrar la conexión
+            $conexion->close();
             ?>
         </main>
     </div>

@@ -1,5 +1,5 @@
 <?php
-require_once 'conexion.php';
+require_once '../php/conexion.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $correo = $_POST["Correo"];
@@ -57,15 +57,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     }, 1000);
                   </script>";
         } else {
-            $hash_contrasena = password_hash($contrasena, PASSWORD_DEFAULT);
 
             $stmt = $mysqli->prepare("INSERT INTO usuarios (nombre, correo, contrasena) VALUES (?, ?, ?)");
-            $stmt->bind_param("sss", $nombre, $correo, $hash_contrasena);
+            $stmt->bind_param("sss", $nombre, $correo, $contrasena);
 
             if ($stmt->execute()) {
                 echo "<script>
                         alert('Usuario registrado, ya puedes iniciar sesión.');
-                        window.location.href = '../inicio_sesion.html';
+                        window.location.href = '../inicio_sesion.php';
                       </script>";
             } else {
                 echo "Error al registrar el usuario: " . $stmt->error;

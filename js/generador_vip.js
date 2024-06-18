@@ -1,7 +1,3 @@
-// ************************************************
-// --------- Generador de contraseñas Pro ---------
-// ************************************************
-
 // Caracteres permitidos en la contraseña
 const letras_may = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const letras_min = "abcdefghijklmnopqrstuvwxyz";
@@ -48,7 +44,7 @@ function generarContrasenaVIP() {
 
   // Verificar si se seleccionó al menos una opción
   if (cadena === "") {
-    // Componente de alerta de SweetAlert2
+    // Mostrar mensaje de error con SweetAlert2
     const Toast = Swal.mixin({
       toast: true,
       position: "top-end",
@@ -72,72 +68,109 @@ function generarContrasenaVIP() {
 
   let contrasena_vip = "";
   const tamano_vip = obtenerTamanoContrasena();
-  let LetrasMayusculasConsecutivas = 0;
-  let NumerosConsecutivos = 0;
-  let LetrasMinusculasConsecutivas = 0;
-  let SimbolosConsecutivos = 0;
+
+  // Variables para contar tipos de caracteres
+  let tieneMayuscula = false;
+  let tieneMinuscula = false;
+  let tieneNumero = false;
+  let tieneSimbolo = false;
 
   // Generar la contraseña aleatoria con los caracteres permitidos
   while (contrasena_vip.length < tamano_vip) {
     const num_aleatorio_vip = Math.floor(Math.random() * cadena.length);
     const nuevo_caracter_vip = cadena.charAt(num_aleatorio_vip);
 
-    // Se verifica si hay letras mayusculas consecutivas
+    // Verificar tipo de caracter y contar
     if (/[A-Z]/.test(nuevo_caracter_vip)) {
-      LetrasMayusculasConsecutivas++;
-      if (LetrasMayusculasConsecutivas === 2) {
-        continue;
-      }
-    } else {
-      LetrasMayusculasConsecutivas = 0;
+      tieneMayuscula = true;
+    } else if (/[a-z]/.test(nuevo_caracter_vip)) {
+      tieneMinuscula = true;
+    } else if (/[0-9]/.test(nuevo_caracter_vip)) {
+      tieneNumero = true;
+    } else if (/[!#$%&/*+-_?@]/.test(nuevo_caracter_vip)) {
+      tieneSimbolo = true;
     }
 
-    // Se verifica si hay simbolos consecutivos
-    if (/[!#$%&/*+-_?@]/.test(nuevo_caracter_vip)) {
-      SimbolosConsecutivos++;
-      if (SimbolosConsecutivos === 2) {
-        continue;
-      } else {
-        SimbolosConsecutivos = 0;
-      }
-    }
-
-    // Se verifica si hay letras minusculas consecutivas
-    if (/[a-z]/.test(nuevo_caracter_vip)) {
-      LetrasMinusculasConsecutivas++;
-      if (LetrasMinusculasConsecutivas === 2) {
-        continue;
-      }
-    } else {
-      LetrasMinusculasConsecutivas = 0;
-    }
-
-    // Verificar si hay tres números consecutivos
-    if (/[0-9]/.test(nuevo_caracter_vip)) {
-      NumerosConsecutivos++;
-      if (NumerosConsecutivos === 3) {
-        continue;
-      }
-    } else {
-      NumerosConsecutivos = 0;
-    }
-
-    // Verificar si hay tres letras en orden alfabético
-    if (
-      /[A-Za-z]/.test(nuevo_caracter_vip) &&
-      /[A-Za-z]/.test(contrasena_vip.charAt(contrasena_vip.length - 1))
-    ) {
-      if (
-        nuevo_caracter_vip.charCodeAt(0) ===
-        contrasena_vip.charCodeAt(contrasena_vip.length - 1) + 1
-      ) {
-        continue;
-      }
-    }
-    // Se agregael nuevo caracter a la contraseña
+    // Agregar el nuevo caracter a la contraseña
     contrasena_vip += nuevo_caracter_vip;
   }
-  document.getElementById("password_vip").value = contrasena_vip;
+
+  // Verificar cumplimiento mínimo y aplicar bonificaciones y penalizaciones
+  const cumpleRequisitos =
+    (tieneMayuscula ? 1 : 0) +
+    (tieneMinuscula ? 1 : 0) +
+    (tieneNumero ? 1 : 0) +
+    (tieneSimbolo ? 1 : 0);
+
+  let resultadoFinal = 0;
+
+  // Tamaño mínimo de 8 caracteres
+  if (contrasena_vip.length >= 8) {
+    resultadoFinal += contrasena_vip.length * 4;
+  } else {
+    // Penalización por tamaño insuficiente
+    resultadoFinal -= 16;
+  }
+
+  // Bonificaciones y penalizaciones adicionales
+  if (tieneMayuscula) {
+    resultadoFinal += (contrasena_vip.length - 1) * 2;
+  }
+  if (tieneMinuscula) {
+    resultadoFinal += (contrasena_vip.length - 1) * 2;
+  }
+  if (tieneNumero) {
+    resultadoFinal += contrasena_vip.length * 4;
+  }
+  if (tieneSimbolo) {
+    resultadoFinal += contrasena_vip.length * 6;
+  }
+
+  // Penalización por caracteres repetidos
+  const caracteresRepetidos = contarCaracteresRepetidos(contrasena_vip);
+  if (caracteresRepetidos > 0) {
+    resultadoFinal -= caracteresRepetidos * (caracteresRepetidos - 1);
+  }
+
+  // Mostrar la contraseña generada si cumple con los requisitos mínimos
+  if (cumpleRequisitos >= 3 && contrasena_vip.length >= 8) {
+    document.getElementById("password_vip").value = contrasena_vip;
+  } else {
+    // Mostrar mensaje de error con SweetAlert2
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 2800,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+    });
+    Toast.fire({
+      background: "#61738f",
+      color: "#dae0e6",
+      icon: "error",
+      title:
+        "La contraseña generada no cumple con los requisitos mínimos de seguridad.",
+    });
+  }
+
+  // Función auxiliar para contar caracteres repetidos
+  function contarCaracteresRepetidos(contrasena) {
+    let contador = {};
+    contrasena.split("").forEach(function (caracter) {
+      contador[caracter] = (contador[caracter] || 0) + 1;
+    });
+    let caracteresRepetidos = 0;
+    for (let key in contador) {
+      if (contador[key] > 1) {
+        caracteresRepetidos += contador[key] - 1;
+      }
+    }
+    return caracteresRepetidos;
+  }
 }
 
 // -------------------------------------------------------------------
@@ -156,12 +189,11 @@ document
       campo_contrasena.select();
       document.execCommand("copy");
       campo_contrasena.blur();
-      // alert("Contraseña copiada al portapapeles");
       const Toast = Swal.mixin({
         toast: true,
         position: "top-end",
         showConfirmButton: false,
-        timer: 3000,
+        timer: 1000,
         timerProgressBar: true,
         didOpen: (toast) => {
           toast.onmouseenter = Swal.stopTimer;
@@ -197,14 +229,16 @@ document
     }
     // Realizar la solicitud AJAX al script PHP
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "../php/guardar_contrasenas.php", true);
+    xhr.open("POST", "php/guardar_contrasenas.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4 && xhr.status === 200) {
         alert(xhr.responseText);
+        // Simular un clic fuera del campo de contraseña para que pierda el foco
+        document.body.click();
       }
     };
-    xhr.send("contrasena= " + contrasena);
+    xhr.send("contrasena=" + encodeURIComponent(contrasena));
   });
 
 // ------------- ACCIONES DE LA PAGINA DEL LISTADO DE CONTRASEÑAS ----------------
