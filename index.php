@@ -137,7 +137,7 @@ session_start();
 
                         <!-- Boton de copiar -->
                         <button id="copiar_contrasena" type="button" class="genarador__main-contrasena-btn_copiar">
-                            <img src="svg/Boton_copiar.svg" alt="Icono de copiar" />
+                            <img src="svg/Btn-copiar.svg" alt="Icono de copiar" />
                         </button>
                     </section>
 

@@ -847,6 +847,10 @@ html {
         cursor: pointer;
         opacity: 0.2;
 
+        & img {
+          width: 25px;
+        }
+
         &:hover {
           opacity: 0.6;
         }
@@ -901,7 +905,8 @@ html {
           width: 15px;
           height: 15px;
           vertical-align: middle;
-          background-image: url("../svg/Copiar.svg");
+          margin-top: -2px;
+          background-image: url("../svg/candado.svg");
           background-size: contain;
           background-repeat: no-repeat;
         }
