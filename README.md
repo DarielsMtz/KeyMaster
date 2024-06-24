@@ -1,7 +1,7 @@
 # Generador de Contraseñas Aleatorias - Proyecto Final de Curso Edib 23/24
 
 <div align="center">
-  <img height="150" src="https://github.com/DarielsMtz/KeyMaster/blob/master/img/desktop/Frame%202.jpg"  />
+  <img height="450" src="https://github.com/DarielsMtz/KeyMaster/blob/master/img/desktop/Frame%202.jpg"  />
 </div>
 
 ¡Bienvenidos al emocionante mundo de nuestro proyecto final de curso! Estamos entusiasmados de compartir con ustedes los detalles de nuestra próxima creación: un increíble generador de contraseñas aleatorias en forma de una aplicación web para escritorio. Este proyecto individual aprovecha tecnologías clave como HTML, CSS, JavaScript, PHP y bases de datos para ofrecer una experiencia robusta y segura.
