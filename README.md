@@ -1,6 +1,6 @@
 # Generador de Contraseñas Aleatorias - Proyecto Final de Curso Edib 23/24
 
-<div align="center">
+<div align="center" style="border-radius:30px">
   <img height="450" src="https://github.com/DarielsMtz/KeyMaster/blob/master/img/desktop/Frame%202.jpg"  />
 </div>
 
