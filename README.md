@@ -1,20 +1,58 @@
 # Generador de Contraseñas Aleatorias - Proyecto Final de Curso Edib 23/24
 
+<div align="center">
+  <img height="450" src="https://github.com/DarielsMtz/KeyMaster/blob/master/img/desktop/Frame%202.jpg" />
+</div>
 
-¡Bienvenidos al emocionante mundo de nuestro proyecto final de curso! Estamos entusiasmados de compartir con ustedes los detalles de nuestra próxima creación: un increíble generador de contraseñas aleatorias en forma de una aplicación web para escritorio. Este proyecto individual aprovecha tecnologías clave como HTML, CSS, JavaScript, PHP y bases de datos para ofrecer una experiencia robusta y segura.
+¡Bienvenidos al emocionante mundo de nuestro proyecto final de curso! Estamos entusiasmados de compartir con ustedes los detalles de nuestra creación: un generador de contraseñas aleatorias en forma de aplicación web para escritorio. Este proyecto individual utiliza tecnologías clave como HTML, CSS, JavaScript, PHP y bases de datos para ofrecer una experiencia robusta y segura.
 
 ## Descripción del Proyecto
 
 ### Objetivo Principal
-El objetivo principal de esta aplicación web es proporcionar un generador de contraseñas aleatorias con un enfoque especial en la implementación de las mejores metodologías disponibles en la actualidad.
+Proporcionar un generador de contraseñas aleatorias con las mejores metodologías de seguridad disponibles en la actualidad.
 
 ### Modos de Funcionamiento
 
 #### Modo sin Registro
-En este modo, los usuarios pueden aprovechar un generador básico de contraseñas. La aplicación permite generar contraseñas aleatorias de manera sencilla y rápida sin necesidad de registrarse. Es la opción ideal para aquellos que solo necesitan contraseñas temporales o no desean almacenarlas.
+Permite generar contraseñas aleatorias de manera rápida y sencilla sin necesidad de registrarse, ideal para contraseñas temporales.
 
 #### Modo con Registro
-El modo con registro ofrece un generador de contraseñas con funcionalidades adicionales y emocionantes. Además de generar contraseñas aleatorias, los usuarios pueden guardarlas de manera segura en una base de datos. Esto proporciona tranquilidad al contar con un lugar seguro para almacenar y acceder a las contraseñas cuando sea necesario. El modo con registro también ofrece opciones de configuración avanzadas para personalizar la generación de contraseñas según las preferencias individuales.
+Ofrece funcionalidades adicionales como guardar contraseñas en una base de datos para un almacenamiento seguro y opciones avanzadas de personalización.
 
-###### _Copyright 2024 - Dariels Martinez_ 
+## Tecnologías Utilizadas
+- **HTML**
+- **CSS**
+- **JavaScript**
+- **PHP**
+- **Bases de datos**
 
+## Instalación
+
+1. Clona este repositorio:
+    ```bash
+    git clone https://github.com/DarielsMtz/KeyMaster.git
+    ```
+2. Navega al directorio del proyecto:
+    ```bash
+    cd KeyMaster
+    ```
+3. Configura la base de datos según las instrucciones en `config/database.php`.
+4. Abre `index.html` en tu navegador web preferido.
+
+## Contribución
+
+1. Haz un fork del repositorio.
+2. Crea una nueva rama (`git checkout -b feature/nueva-caracteristica`).
+3. Realiza tus cambios y haz commit de ellos (`git commit -m 'Agrega nueva característica'`).
+4. Envía tus cambios (`git push origin feature/nueva-caracteristica`).
+5. Abre un Pull Request.
+
+## Licencia
+
+Este proyecto está bajo la Licencia MIT. Para más detalles, consulta el archivo [LICENSE](LICENSE).
+
+---
+
+## Autor
+
+Copyright 2024 - Dariels Martinez
