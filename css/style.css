@@ -866,7 +866,8 @@ body {
 
       /* Estilos para el boton de generar */
       .generar,
-      .guardar {
+      .guardar,
+      .copiar {
         width: fit-content;
         height: 35px;
         cursor: pointer;
@@ -894,6 +895,23 @@ body {
         }
       }
 
+      /* Estilos para el boton de copiar */
+      .copiar {
+        background-color: #133a64;
+        color: var(--color-marfil);
+
+        &::before {
+          content: "";
+          display: inline-block;
+          width: 15px;
+          height: 15px;
+          vertical-align: middle;
+          background-image: url("../svg/Copiar.svg");
+          background-size: contain;
+          background-repeat: no-repeat;
+        }
+      }
+
       /* Estilos para el boton de guardar */
       .guardar {
         background-color: var(--color-azul-marino-claro);
@@ -911,6 +929,7 @@ body {
           background-repeat: no-repeat;
         }
       }
+
 
       /* Apartado del mensaje del boton de historial */
       .generador__main-botones-tooltip {

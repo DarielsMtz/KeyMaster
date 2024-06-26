@@ -237,7 +237,7 @@ session_start();
                             <button type="button" id="invitado__generar" class="generar">
                                 Generar
                             </button>
-                            <button type="button" id="invitado__copiar" class="guardar">
+                            <button type="button" id="invitado__copiar" class="copiar">
                                 Copiar
                             </button>
                         </section>
