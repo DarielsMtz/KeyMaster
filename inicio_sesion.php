@@ -11,29 +11,30 @@ session_start();
   <!-- SEO = Básico -->
   <!-- Cada página del sitio tiene que ser diferente el título y la descripción -->
   <title>KeyMaster - Inicio de Sesion</title>
-  <meta name="description" content="" />
-  <meta name="keywords" content="" />
+  <meta name="description" content="Inicio de sesión en KeyMaster. Ingresa para acceder a tu cuenta." />
+  <meta name="keywords" content="KeyMaster, inicio de sesión, cuenta, seguridad, contraseña" />
   <!-- Etiquetas Open Graph y Twitter Card, para crear el SEO de Redes Sociales -->
-  <meta property="og:title" content="Título de tu página" />
-  <meta property="og:description" content="Descripción de tu página" />
+  <meta property="og:title" content="KeyMaster - Inicio de Sesion" />
+  <meta property="og:description" content="Inicio de sesión en KeyMaster. Ingresa para acceder a tu cuenta." />
   <meta property="og:image" content="URL de la imagen que quieres mostrar en las redes sociales" />
   <meta property="og:url" content="URL de tu página" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Título de tu página" />
-  <meta name="twitter:description" content="Descripción de tu página" />
+  <meta name="twitter:title" content="KeyMaster - Inicio de Sesion" />
+  <meta name="twitter:description" content="Inicio de sesión en KeyMaster. Ingresa para acceder a tu cuenta." />
   <meta name="twitter:image" content="URL de la imagen que quieres mostrar en Twitter" />
-  <!-- App Web, inidicar al navegador que elementos mostrar en un JSON -->
+  <!-- App Web, indicar al navegador qué elementos mostrar en un JSON -->
   <link rel="manifest" href="site.webmanifest" />
-  <!-- icono de acceso para IOS -->
+  <!-- Icono de acceso para iOS -->
   <link rel="apple-touch-icon" href="icon.png" />
   <!-- Recordar que favicon.ico tiene que estar en el directorio inicial -->
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-  <!-- links de estilos -->
+  <!-- Links de estilos -->
   <link rel="stylesheet" href="css/style.css" />
   <!-- Se cambia el tema de algunos navegadores -->
   <meta name="theme-color" content="#fafafa" />
 </head>
+
 
 <body>
   <div id="container">
@@ -75,7 +76,7 @@ session_start();
           <!-- Enlaces externos -->
           <article class="container__main-form-enlaces">
             <a href="registro.html">¿Nuevo por aquí? <b> Crear cuenta</b></a>
-            <a href="index.html"><b> Continuar como invitado</b></a>
+            <a href="index.php"><b> Continuar como invitado</b></a>
           </article>
         </form>
       </section>
@@ -84,7 +85,7 @@ session_start();
     <footer class="container__main-footer">
       <h5>
         <a href="#">Politica de Privacidad</a> |
-        <a href="#l">Politica de Cookies</a>
+        <a href="#">Politica de Cookies</a>
       </h5>
       <h6>&copy;Copyright - KeyMaster</h6>
     </footer>

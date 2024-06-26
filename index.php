@@ -11,36 +11,35 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- SEO = Básico -->
     <!-- Cada página del sitio tiene que ser diferente el título y la descripción -->
-    <title>KeyMaster - Generador-Pro</title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <title>KeyMaster - Generador</title>
+    <meta name="description" content="Descripción de la página Generador-Pro de KeyMaster." />
+    <meta name="keywords" content="KeyMaster, Generador-Pro, herramienta, generador de contenido" />
     <!-- Etiquetas Open Graph y Twitter Card, para crear el SEO de Redes Sociales -->
-    <meta property="og:title" content="Título de tu página" />
-    <meta property="og:description" content="Descripción de tu página" />
+    <meta property="og:title" content="KeyMaster - Generador-Pro" />
+    <meta property="og:description" content="Descripción de la página Generador-Pro de KeyMaster." />
     <meta property="og:image" content="URL de la imagen que quieres mostrar en las redes sociales" />
     <meta property="og:url" content="URL de tu página" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Título de tu página" />
-    <meta name="twitter:description" content="Descripción de tu página" />
+    <meta name="twitter:title" content="KeyMaster - Generador-Pro" />
+    <meta name="twitter:description" content="Descripción de la página Generador-Pro de KeyMaster." />
     <meta name="twitter:image" content="URL de la imagen que quieres mostrar en Twitter" />
-    <!-- App Web, inidicar al navegador que elementos mostrar en un JSON -->
+    <!-- App Web, indicar al navegador qué elementos mostrar en un JSON -->
     <link rel="manifest" href="site.webmanifest" />
-    <!-- icono de acceso para IOS -->
+    <!-- Icono de acceso para iOS -->
     <link rel="apple-touch-icon" href="icon.png" />
     <!-- Recordar que favicon.ico tiene que estar en el directorio inicial -->
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
-    <!-- Enlace de inconos de interfaz -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer">
-    <!-- links de estilos -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <!-- Enlace de íconos de interfaz -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <!-- Links de estilos -->
     <link rel="stylesheet" href="css/style.css" />
     <!-- Se cambia el tema de algunos navegadores -->
     <meta name="theme-color" content="#fafafa" />
-    <!-- Scripts de diseño de alertas(JS) -->
+    <!-- Scripts de diseño de alertas (JS) -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
+
 
 <body id="body__generador">
     <div id="generador">
@@ -59,24 +58,28 @@ session_start();
                     </li>
 
                     <?php if (!isset($_SESSION['loggedin'])) { ?>
-                    <li class="menu_item">
-                        <a href="inicio_sesion.php">Iniciar Sesion</a>
-                    </li>
+                        <li class="menu_item">
+                            <a href="registro.php">Registrarse</a>
+                        </li>
+
+                        <li class="menu_item">
+                            <a href="inicio_sesion.php">Iniciar Sesion</a>
+                        </li>
                     <?php
                     }
                     ?>
 
                     <?php
                     if (isset($_SESSION['loggedin'])) {  ?>
-                    <li class="generador__main-sesion">
-                        Hola, <b> <?php echo $_SESSION['nombre']; ?></b><i class="fa-regular fa-user"></i>
-                        <ul class="submenu">
-                            <li><a href="php/acciones_listado.php"><i class="fa-solid fa-vault"></i> Caja Fuerte</a>
-                            </li>
-                            <li><a href="php/cierre_sesion.php"><i class="fa-solid fa-right-from-bracket"></i> Cerrar
-                                    Sesion</a></li>
-                        </ul>
-                    </li>
+                        <li class="generador__main-sesion">
+                            Hola, <b> <?php echo $_SESSION['nombre']; ?></b><i class="fa-regular fa-user"></i>
+                            <ul class="submenu">
+                                <li><a href="php/acciones_listado.php"><i class="fa-solid fa-vault"></i> Caja Fuerte</a>
+                                </li>
+                                <li><a href="php/cierre_sesion.php"><i class="fa-solid fa-right-from-bracket"></i> Cerrar
+                                        Sesion</a></li>
+                            </ul>
+                        </li>
                     <?php
                     }
                     ?>
@@ -95,8 +98,8 @@ session_start();
                     <p class="generador__cabecera-titulo-btn">
                         <?php
                         if (!isset($_SESSION['loggedin'])) {  ?>
-                        <a href="registro.html" class="crear_cuenta">Crea una cuenta de KeyMaster</a>
-                        <a href="#generador_app" class="comenzar anchor-link">Comenzar la experiencia</a>
+                            <a href="registro.php" class="crear_cuenta">Crea una cuenta de KeyMaster</a>
+                            <a href="#generador_app" class="comenzar anchor-link">Comenzar la experiencia</a>
                         <?php
                         }
                         ?>
@@ -105,13 +108,10 @@ session_start();
                 <!-- Imagen de la cabecera -->
                 <picture class="generador__cabecera-img">
                     <source srcset="img/desktop/img_encabrzado.webp 320w" sizes="(max-width: 320px)" type="image/webp">
-                    <source srcset="img/desktop/img_encabrzado@2x.webp 800w" sizes="(max-width: 800px)"
-                        type="image/webp">
-                    <source srcset="img/desktop/img_encabrzado@3x.webp 1280w" sizes="(max-width: 1280px)"
-                        type="image/webp">
+                    <source srcset="img/desktop/img_encabrzado@2x.webp 800w" sizes="(max-width: 800px)" type="image/webp">
+                    <source srcset="img/desktop/img_encabrzado@3x.webp 1280w" sizes="(max-width: 1280px)" type="image/webp">
                     <!-- Cantidad de source dependiendo su necesidad -->
-                    <img src="casa-roja-enorme.jpg" title="Ilustracion"
-                        alt="Ilustracion de la seguridad de una contraseña" loading="lazy">
+                    <img src="casa-roja-enorme.jpg" title="Ilustracion" alt="Ilustracion de la seguridad de una contraseña" loading="lazy">
                 </picture>
             </article>
         </section>
@@ -127,122 +127,120 @@ session_start();
                 </section>
 
                 <?php if (isset($_SESSION['loggedin'])) {  ?>
-                <section class="generador__main-app anchor-link" id="generador_app">
+                    <section class="generador__main-app anchor-link" id="generador_app">
 
-                    <!-- Apartado del campo de la contraseña -->
-                    <section class="generador__main-contrasena">
-                        <article class="generador__main-contrasena-texto">
-                            <input type="text" id="password_vip" placeholder="1QW3780$%$(mXASD" readonly />
-                        </article>
+                        <!-- Apartado del campo de la contraseña -->
+                        <section class="generador__main-contrasena">
+                            <article class="generador__main-contrasena-texto">
+                                <input type="text" id="password_vip" placeholder="1QW3780$%$(mXASD" readonly />
+                            </article>
 
-                        <!-- Boton de copiar -->
-                        <button id="copiar_contrasena" type="button" class="genarador__main-contrasena-btn_copiar">
-                            <img src="svg/Btn-copiar.svg" alt="Icono de copiar" />
-                        </button>
+                            <!-- Boton de copiar -->
+                            <button id="copiar_contrasena" type="button" class="genarador__main-contrasena-btn_copiar">
+                                <img src="svg/Btn-copiar.svg" alt="Icono de copiar" />
+                            </button>
+                        </section>
+
+
+                        <!-- Apartado de botones -->
+                        <section class="generador__main-botones">
+                            <!-- Boton de guardar contraseñas -->
+                            <button type="button" id="guardar_contrasena" class="guardar">
+                                Almacenar en caja fuerte
+                            </button>
+
+                            <!-- Boton de generar -->
+                            <button type="button" id="generar_vip" class="generar">
+                                Regenerar
+                            </button>
+                        </section>
+
+
+
+                        <!-- Apartado de las longitudes de la contraseña -->
+                        <section class="generador__main-longitudes">
+                            <article>
+                                <label>
+                                    <h4>Caracteres: </h4>
+                                    <span id="valor_rango">10</span>
+                                </label>
+                                <input type="range" name="Longitud" id="longitud" class="slider" value="10" min="8" max="16" />
+                            </article>
+                        </section>
+
+
+                        <!-- Apartado de opciones -->
+                        <section class="generador__main-opciones">
+                            <h4>Opciones adicionales</h4>
+
+                            <article class="generador__main-opciones-lista">
+                                <!-- Todas la opciones -->
+                                <label>
+                                    <input type="checkbox" name="todas_opciones" id="todas_opciones" checked />
+                                    Todas
+                                </label>
+
+                                <!-- Mayusculas -->
+                                <label>
+                                    <input type="checkbox" name="mayusculas" id="mayusculas" />
+                                    A-Z
+                                </label>
+
+                                <!-- Minusculas -->
+                                <label>
+                                    <input type="checkbox" name="minusculas" id="minusculas" />
+                                    a-z
+                                </label>
+
+                                <!-- Numeros -->
+                                <label>
+                                    <input type="checkbox" name="numeros" id="numeros" />
+                                    0-9
+                                </label>
+
+                                <!-- Simbolos -->
+                                <label class="generador__main__opciones-simbolos">
+                                    <input type="checkbox" name="simbolos" id="simbolos" />
+                                    <span>
+                                        !@#$*%^&
+                                    </span>
+                                </label>
+                            </article>
+                        </section>
+
+
+                        <p class="generador__main_subtitulo">¿Quieres probar la seguridad de tu contraseña? <a href="https://password.es/comprobador/" target="_blank">Prueba esta herramienta de
+                                seguridad</a></p>
                     </section>
-
-
-                    <!-- Apartado de botones -->
-                    <section class="generador__main-botones">
-                        <!-- Boton de guardar contraseñas -->
-                        <button type="button" id="guardar_contrasena" class="guardar">
-                            Almacenar en caja fuerte
-                        </button>
-
-                        <!-- Boton de generar -->
-                        <button type="button" id="generar_vip" class="generar">
-                            Regenerar
-                        </button>
-                    </section>
-
-
-
-                    <!-- Apartado de las longitudes de la contraseña -->
-                    <section class="generador__main-longitudes">
-                        <article>
-                            <label>
-                                <h4>Caracteres: </h4>
-                                <span id="valor_rango">10</span>
-                            </label>
-                            <input type="range" name="Longitud" id="longitud" class="slider" value="10" min="8"
-                                max="16" />
-                        </article>
-                    </section>
-
-
-                    <!-- Apartado de opciones -->
-                    <section class="generador__main-opciones">
-                        <h4>Opciones adicionales</h4>
-
-                        <article class="generador__main-opciones-lista">
-                            <!-- Todas la opciones -->
-                            <label>
-                                <input type="checkbox" name="todas_opciones" id="todas_opciones" checked />
-                                Todas
-                            </label>
-
-                            <!-- Mayusculas -->
-                            <label>
-                                <input type="checkbox" name="mayusculas" id="mayusculas" />
-                                A-Z
-                            </label>
-
-                            <!-- Minusculas -->
-                            <label>
-                                <input type="checkbox" name="minusculas" id="minusculas" />
-                                a-z
-                            </label>
-
-                            <!-- Numeros -->
-                            <label>
-                                <input type="checkbox" name="numeros" id="numeros" />
-                                0-9
-                            </label>
-
-                            <!-- Simbolos -->
-                            <label class="generador__main__opciones-simbolos">
-                                <input type="checkbox" name="simbolos" id="simbolos" />
-                                <span>
-                                    !@#$*%^&
-                                </span>
-                            </label>
-                        </article>
-                    </section>
-
-
-                    <p class="generador__main_subtitulo">¿Quieres probar la seguridad de tu contraseña? <a
-                            href="https://password.es/comprobador/" target="_blank">Prueba esta herramienta de
-                            seguridad</a></p>
-                </section>
                 <?php
                 }
                 ?>
 
                 <?php if (!isset($_SESSION['loggedin'])) {  ?>
-                <!-- Apartado de no estar logeado -->
-                <section class="generador__main-app anchor-lin" id="generador_app">
-                    <!-- Apartado del campo de la contraseña -->
-                    <section class="generador__main-contrasena">
-                        <article class="generador__main-contrasena-texto">
-                            <input type="text" id="contrasena" readonly placeholder="1W8mX0sD" />
-                        </article>
-                    </section>
-                    <h6></h6>
-                    <small class="msg-pass">La contraseña generada está compuesta de 8 caracteres *</small>
+                    <!-- Apartado de no estar logeado -->
+                    <section class="generador__main-app anchor-lin" id="generador_app">
+                        <!-- Apartado del campo de la contraseña -->
+                        <section class="generador__main-contrasena">
+                            <article class="generador__main-contrasena-texto">
+                                <input type="text" id="contrasena" readonly placeholder="1W8mX0sD" />
+                            </article>
+                        </section>
+                        <h6></h6>
+                        <small class="msg-pass">La contraseña generada está compuesta de 8 caracteres *</small>
 
-                    <!-- Apartado del botón de generar y la barra de nivel de seguridad de la contraseña -->
-                    <section class="invitado__main-accion">
-                        <!-- Apartado de botones -->
-                        <section class="generador__main-botones">
-                            <button type="button" id="invitado__generar" class="generar">
-                                Generar
-                            </button>
-                            <button type="button" id="invitado__copiar" class="copiar">
-                                Copiar
-                            </button>
+                        <!-- Apartado del botón de generar y la barra de nivel de seguridad de la contraseña -->
+                        <section class="invitado__main-accion">
+                            <!-- Apartado de botones -->
+                            <section class="generador__main-botones">
+                                <button type="button" id="invitado__generar" class="generar">
+                                    Generar
+                                </button>
+                                <button type="button" id="invitado__copiar" class="copiar">
+                                    Copiar
+                                </button>
+                            </section>
                         </section>
                     </section>
-                </section>
                 <?php
                 }
                 ?>
@@ -254,11 +252,9 @@ session_start();
                 <picture class="generador__main-informacion-img">
                     <source srcset="img/desktop/mockup_movil.webp 320w" sizes="(max-width: 320px)" type="image/webp">
                     <source srcset="img/desktop/mockup_movil@2x.webp 800w" sizes="(max-width: 800px)" type="image/webp">
-                    <source srcset="img/desktop/mockup_movil@3x.webp 1280w" sizes="(max-width: 1280px)"
-                        type="image/webp">
+                    <source srcset="img/desktop/mockup_movil@3x.webp 1280w" sizes="(max-width: 1280px)" type="image/webp">
                     <!-- Cantidad de source dependiendo su necesidad -->
-                    <img src="casa-roja-enorme.jpg" title="Ilustracion"
-                        alt="Ilustracion de la seguridad de una contraseña" loading="lazy">
+                    <img src="casa-roja-enorme.jpg" title="Ilustracion" alt="Ilustracion de la seguridad de una contraseña" loading="lazy">
                 </picture>
 
                 <!-- Texto de la carta secundaria -->
@@ -322,10 +318,10 @@ session_start();
             </section>
             <?php
             if (!isset($_SESSION['loggedin'])) {  ?>
-            <section class="generador__main_call">
-                <h2>KeyMaster es la forma más segura de generar nuevas contraseñas</h2>
-                <a href="registro.html">Crear una cuenta</a>
-            </section>
+                <section class="generador__main_call">
+                    <h2>KeyMaster es la forma más segura de generar nuevas contraseñas</h2>
+                    <a href="registro.php">Crear una cuenta</a>
+                </section>
             <?php
             }
             ?>
