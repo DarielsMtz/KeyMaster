@@ -4,6 +4,12 @@
 function obtener_conexion()
 {
 
+    // $bbdd_host = 'bbdd.darielsmartinezedib.com';
+    // $bbdd_user = 'ddb219218';
+    // $bbdd_pass = 'vmKvQ1Iix+JXr)';
+    // $bbdd_name = 'ddb219218';
+
+
     $bbdd_host = 'localhost';
     $bbdd_user = 'admin';
     $bbdd_pass = 'admin123';
