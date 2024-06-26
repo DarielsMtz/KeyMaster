@@ -350,8 +350,9 @@ session_start();
             </section>
         </footer>
     </div>
+    <script src="js/generador_vip.js"></script>
+    <script src="js/generardor_contrasenas.js"></script>
 </body>
-<script src="js/generador_vip.js"></script>
-<script src="js/generardor_contrasenas.js"></script>
+
 
 </html>

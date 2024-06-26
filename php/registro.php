@@ -2,14 +2,14 @@
 require_once '../php/conexion.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $correo = $_POST["Correo"];
-    $nombre = $_POST["Nombre"];
+    $correo = filter_input(INPUT_POST, 'Correo', FILTER_SANITIZE_EMAIL);
+    $nombre = filter_input(INPUT_POST, 'Nombre', FILTER_SANITIZE_STRING);
     $contrasena = $_POST["Contrasena"];
     $confirmar = $_POST["Confirmar"];
 
     function validar_registro($correo, $nombre, $contrasena, $confirmar)
     {
-        $errores = array();
+        $errores = [];
 
         if (empty($correo) || empty($nombre) || empty($contrasena) || empty($confirmar)) {
             $errores[] = "Todos los campos son obligatorios.";
@@ -34,13 +34,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (count($errores) > 0) {
         foreach ($errores as $error) {
-            echo $error . "<br>";
+            echo htmlspecialchars($error) . "<br>";
         }
     } else {
         $mysqli = obtener_conexion();
 
         if ($mysqli->connect_error) {
-            echo "La conexión a la base de datos falló: " . $mysqli->connect_error;
+            echo "La conexión a la base de datos falló: " . htmlspecialchars($mysqli->connect_error);
             exit();
         }
 
@@ -57,9 +57,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     }, 1000);
                   </script>";
         } else {
+            $hashed_password = password_hash($contrasena, PASSWORD_DEFAULT);
 
             $stmt = $mysqli->prepare("INSERT INTO usuarios (nombre, correo, contrasena) VALUES (?, ?, ?)");
-            $stmt->bind_param("sss", $nombre, $correo, $contrasena);
+            $stmt->bind_param("sss", $nombre, $correo, $hashed_password);
 
             if ($stmt->execute()) {
                 echo "<script>
@@ -67,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         window.location.href = '../inicio_sesion.php';
                       </script>";
             } else {
-                echo "Error al registrar el usuario: " . $stmt->error;
+                echo "Error al registrar el usuario: " . htmlspecialchars($stmt->error);
             }
         }
 

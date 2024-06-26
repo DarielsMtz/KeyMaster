@@ -7,7 +7,6 @@ require_once './conexion.php';
 // Obtenemos la conexión a la base de datos
 $conector = obtener_conexion();
 
-// ----------------------------------------------------------------
 // Verificamos que los campos de inicio de sesión estén rellenados
 if (!isset($_POST['usuario'], $_POST['contrasena'])) {
     $_SESSION['error'] = "Por favor ingresa el usuario y contraseña";
@@ -15,22 +14,20 @@ if (!isset($_POST['usuario'], $_POST['contrasena'])) {
     exit();
 }
 
-// ----------------------------------------------------------------
 // Preparamos la consulta a la base de datos
 if ($stmt = $conector->prepare('SELECT id_usuario, contrasena FROM usuarios WHERE nombre = ?')) {
-    // Vincular parámetros (s = String, i = int, b = blob, etc.), en nuestro caso el nombre de usuario es una cadena, por lo que usamos "s".
+    // Vinculamos parámetros (s = String, i = int, b = blob, etc.), en nuestro caso el nombre de usuario es una cadena, por lo que usamos "s".
     $stmt->bind_param('s', $_POST['usuario']);
     $stmt->execute();
-    // Almacenar el resultado para que podamos verificar si la cuenta existe en la base de datos.
+    // Almacenamos el resultado para que podamos verificar si la cuenta existe en la base de datos.
     $stmt->store_result();
 
-    // ----------------------------------------------------------------
     if ($stmt->num_rows > 0) {
         $stmt->bind_result($id_usuario, $contrasena);
         $stmt->fetch();
 
-        // Si la cuenta existe, pasamos a su verificación
-        if ($_POST['contrasena'] === $contrasena) {
+        // Verificamos la contraseña utilizando password_verify
+        if (password_verify($_POST['contrasena'], $contrasena)) {
             // Verificación correcta!
             session_regenerate_id();
             $_SESSION['loggedin'] = TRUE;
