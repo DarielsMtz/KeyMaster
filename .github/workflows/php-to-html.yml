@@ -1,0 +1,35 @@
+name: Build PHP and Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master # O la rama que prefieras
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Clona el repositorio
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Configura PHP
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.0" # Cambia la versión según tus necesidades
+
+      # Ejecuta PHP y convierte a HTML
+      - name: Generate static HTML
+        run: |
+          mkdir output
+          php -S localhost:8000 -t . &
+          sleep 5  # Espera para asegurar que el servidor esté en funcionamiento
+          wget -r -nH -P output --cut-dirs=1 --convert-links --adjust-extension --no-parent http://localhost:8000
+
+      # Despliega a GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output # La carpeta que contiene los archivos HTML generados
